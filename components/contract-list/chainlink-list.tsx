@@ -1,12 +1,6 @@
 "use client";
 
-import { CopyCode } from "@/components/shared/copy-code";
-import { Header } from "@/components/shared/header";
-import { Button } from "@/components/ui/button";
-import { grayScale200 } from "@/lib/fonts"
-import { Copy, Github } from "lucide-react";
-import { useTheme } from "next-themes";
-import Link from "next/link"
+import { ChainID } from "@/lib/chains/id";
 import { ContractCardItems, ContractsList } from "../shared/contracts-list";
 
 const items: ContractCardItems[] = [
@@ -19,12 +13,18 @@ const items: ContractCardItems[] = [
                 address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/APIConsumer.sol",
             },
             chains: {
-                11155111: {
+                [ChainID.ETHEREUM_SEPOLIA]: {
                     address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/APIConsumer.sol",
                 },
-                80001: {
+                [ChainID.POLYGON_MUMBAI]: {
                     address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/80001/APIConsumer.sol",
-                }
+                },
+                [ChainID.AVALANCHE_FUJI]: {
+                    address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/43113/APIConsumer.sol",
+                },
+                [ChainID.FANTOM_TESTNET]: {
+                    address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/4002/APIConsumer.sol",
+                },
             }
         },
         reference: "https://docs.chain.link/any-api/get-request/examples/single-word-response"
@@ -38,12 +38,18 @@ const items: ContractCardItems[] = [
                 address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/MultiWordConsumer.sol",
             },
             chains: {
-                11155111: {
+                [ChainID.ETHEREUM_SEPOLIA]: {
                     address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/MultiWordConsumer.sol",
                 },
-                80001:
+                [ChainID.POLYGON_MUMBAI]:
                 {
                     address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/80001/MultiWordConsumer.sol",
+                },
+                [ChainID.AVALANCHE_FUJI]: {
+                    address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/43113/MultiWordConsumer.sol",
+                },
+                [ChainID.FANTOM_TESTNET]: {
+                    address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/4002/MultiWordConsumer.sol",
                 },
             }
         },
@@ -58,11 +64,17 @@ const items: ContractCardItems[] = [
                 address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/FetchFromArray.sol",
             },
             chains: {
-                11155111: {
+                [ChainID.ETHEREUM_SEPOLIA]: {
                     address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/FetchFromArray.sol",
                 },
-                80001: {
+                [ChainID.POLYGON_MUMBAI]: {
                     address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/80001/FetchFromArray.sol",
+                },
+                [ChainID.AVALANCHE_FUJI]: {
+                    address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/43113/FetchFromArray.sol",
+                },
+                [ChainID.FANTOM_TESTNET]: {
+                    address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/4002/FetchFromArray.sol",
                 },
             }
         },
@@ -77,11 +89,17 @@ const items: ContractCardItems[] = [
                 address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/GenericLargeResponse.sol",
             },
             chains: {
-                11155111: {
+                [ChainID.ETHEREUM_SEPOLIA]: {
                     address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/GenericLargeResponse.sol",
                 },
-                80001: {
+                [ChainID.POLYGON_MUMBAI]: {
                     address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/GenericLargeResponse.sol",
+                },
+                [ChainID.AVALANCHE_FUJI]: {
+                    address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/43113/GenericLargeResponse.sol",
+                },
+                [ChainID.FANTOM_TESTNET]: {
+                    address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/4002/GenericLargeResponse.sol",
                 },
             }
         },
@@ -96,29 +114,35 @@ const items: ContractCardItems[] = [
                 address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/GetGasPrice.sol",
             },
             chains: {
-                11155111: {
+                [ChainID.ETHEREUM_SEPOLIA]: {
                     address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/GetGasPrice.sol",
                 },
-                80001: {
-                    address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/80001/GetGasPrice.sol",
-                }
+                [ChainID.POLYGON_MUMBAI]: {
+                    address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/GetGasPrice.sol",
+                },
+                [ChainID.AVALANCHE_FUJI]: {
+                    address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/43113/GetGasPrice.sol",
+                },
+                [ChainID.FANTOM_TESTNET]: {
+                    address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/4002/GetGasPrice.sol",
+                },
             }
         },
         reference: "https://docs.chain.link/any-api/get-request/examples/existing-job-request"
     },
     {
-        source: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/VD20.sol",
+        source: "https://github.com/SovaSniper/contracts/blob/master/chainlink/VRFD20.sol",
         title: "Chainlink VRF",
         description: "This contracts illustrates the implementation of Chainlink VRF (Verifiable Random Function) in smart contracts to generate randomness on blockchains, utilizing a Request and Receive cycle.",
         playground: {
             default: {
-                address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/VD20.sol",
+                address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/VRFD20.sol",
             }
         },
         reference: "https://docs.chain.link/vrf/v2/getting-started"
     },
     {
-        source: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/VRFv2DirectFundingConsumer.sol",
+        source: "https://github.com/SovaSniper/contracts/blob/master/chainlink/VRFv2DirectFundingConsumer.sol",
         title: "Chainlink VRF v2",
         description: "A Chainlink VRF v2-compatible smart contract on the Sepolia test network, emphasizing security considerations and providing an example contract for requesting and receiving random values.",
         playground: {

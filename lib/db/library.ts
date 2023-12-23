@@ -3,21 +3,28 @@ import { AAVE_ID, CHAINLINK_ID, ENS_ID, ETHEREUM_ID, OPEN_ZEPPELIN_ID, TABLELAND
 export interface LibrarySchema {
     name: string;
     library?: string;
-    github?: string;
     description: string;
+
+    github?: string;
+    source?: string;
+    website?: string;
 }
 
 export const libraryDB = {
     [CHAINLINK_ID]: {
         name: "Chainlink",
         library: "@chainlink/contracts",
-        github: "https://github.com/smartcontractkit",
         description: "Chainlink provides a framework for securely connecting smart contracts to external data feeds, web APIs, and traditional bank payments.",
+    
+        github: "https://github.com/smartcontractkit",
+        source: "https://github.com/smartcontractkit/chainlink/tree/master",
+        website: "https://chain.link",
     },
     [ETHEREUM_ID]: {
         name: "Ethereum",
         library: "",
-        github: "",
+        github: "https://github.com/ethereum",
+        website: "https://ethereum.org/en",
         description: "Audited contracts from the Ethereum blockchain.",
     },
     [AAVE_ID]: {
@@ -40,20 +47,26 @@ export const libraryDB = {
     },
     [OPEN_ZEPPELIN_ID]: {
         name: "OpenZeppelin",
-        library: "@ensdomains/ens-contracts",
-        github: "https://github.com/ensdomains",
+        library: "@openzeppelin/contracts contracts-upgradeable",
+        github: "https://github.com/OpenZeppelin",
+        source: "https://github.com/OpenZeppelin/openzeppelin-contracts",
+        website: "https://openzeppelin.com",
         description: "The Ethereum Name Service (ENS) is a distributed, open, and extensible naming system based on the Ethereum blockchain."
     },
     [TABLELAND_ID]: {
         name: "Tableland",
         library: "@tableland/evm",
-        github: "https://github.com/tablelandnetwork/evm-tableland",
+        github: "https://github.com/tablelandnetwork",
+        sourece: "https://github.com/tablelandnetwork/evm-tableland",
+        website: "https://tableland.xyz/",
         description: "The Ethereum Name Service (ENS) is a distributed, open, and extensible naming system based on the Ethereum blockchain."
     },
     [UNISWAP_ID]: {
         name: "UniSwap",
-        library: "@uniswap/v2-core",
-        github: "https://github.com/Uniswap/",
+        library: "@uniswap/v2-core @uniswap/v3-periphery",
+        github: "https://github.com/Uniswap",
+        source: "https://github.com/Uniswap/v3-core",
+        website: "https://uniswap.org/",
         description: "Uniswap is a protocol for automated token exchange on Ethereum."
     }
 }

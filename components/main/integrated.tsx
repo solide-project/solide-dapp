@@ -1,7 +1,6 @@
 "use client";
 
-import { grayScale025, grayScale200 } from "@/lib/fonts";
-import { Boxes, Code, FileBadge2, Layers, LucideScroll, Scroll } from "lucide-react";
+import { Boxes, Code, Droplet, FileBadge2, Layers, LucideScroll, Scroll } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Header } from "../shared/header";
 
@@ -37,7 +36,6 @@ export const Integrated = ({ }: IntegratedProps) => {
                                 {item.icon}
                             </div>
                             <Header className="py-4">{item.title}</Header>
-
                             <p>{item.description}</p>
                         </div>
                     )

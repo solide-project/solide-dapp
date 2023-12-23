@@ -85,7 +85,7 @@ export const NavButton = ({ ...props }: NavButtonProps) => {
                     className="w-[200px] justify-between"
                 >
                     {value
-                        ? frameworks.find((framework) => framework.value === value)?.label
+                        ? frameworks.find((framework) => framework.value === value)?.label || "Welcome!"
                         : "Welcome!"}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
