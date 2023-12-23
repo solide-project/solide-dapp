@@ -1,8 +1,11 @@
 "use client";
 
+import { CodeBlock } from "@/components/shared/code-block";
 import { CopyCode } from "@/components/shared/copy-code";
+import { Header } from "@/components/shared/header";
 import { Slider } from "@/components/ui/slider";
 import { grayScale025, grayScale200 } from "@/lib/fonts";
+import { SolideURL } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 
@@ -43,15 +46,17 @@ export default function PlayPage() {
 
     return (
         <div className="min-h-screen px-48" style={styles}>
-            <div>
-                <CopyCode payload={
-                    `
-                    <iframe
-                    src="http://localhost:3000/?url=https://raw.githubusercontent.com/SovaSniper/contracts/main/API-Consumer.sol"
-                    height={${frameHeight}} width={${frameWidth}} style={{ "overflow": "hidden" }} />`
-                    .trim()
-                } />
-            </div>
+            <Header className="text-center py-4">Solide Play</Header>
+
+            <CodeBlock code={`
+<iframe
+    className="border rounded-lg"
+    src="https://github/only/file.sol"
+    height=${frameHeight} width=${frameWidth}
+    style={{ "overflow": "hidden" }}
+    allow="clipboard-write" />
+                `.trim()}  />
+
             <div className="grid grid-cols-12 py-8">
                 {sizeControls.map((control, index) => {
                     return (
@@ -71,8 +76,11 @@ export default function PlayPage() {
             </div>
             <div className="py-16">
                 <iframe
-                    src="http://localhost:3000/?url=https://raw.githubusercontent.com/SovaSniper/contracts/main/API-Consumer.sol"
-                    height={frameHeight} width={frameWidth} style={{ "overflow": "hidden" }} />
+                    className="border rounded-lg"
+                    src={`${SolideURL}/?url=https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/APIConsumer.sol`}
+                    height={frameHeight} width={frameWidth}
+                    style={{ "overflow": "hidden" }}
+                    allow="clipboard-write" />
             </div>
 
         </div>
