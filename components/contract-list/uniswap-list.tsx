@@ -32,7 +32,7 @@ const items: ContractCardItems[] = [
         playground: {
             default: {
                 address: "https://raw.githubusercontent.com/Uniswap/permit2/main/src/SignatureTransfer.sol",
-                version: "v0.8.17+commit.a1b79de6"
+                version: "v0.8.17+commit.8df45f5f"
             }
         },
         reference: "hhttps://docs.uniswap.org/contracts/permit2/reference/signature-transfer",

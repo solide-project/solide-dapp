@@ -21,7 +21,7 @@ export const Usage = ({ }: UsageProps) => {
                     ${grayScale025(theme)}  1px)`,
             backgroundSize: "20px 20px",
         }}>
-            <p className="text-center text-xl m-0 font-light uppercase my-2">Extension</p>
+            <p className="text-center text-xl m-0 font-semibold uppercase my-6 text-primary">Extension</p>
 
             <div className="container">
                 <div className="grid grid-cols-12 gap-2">

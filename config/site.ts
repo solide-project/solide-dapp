@@ -6,7 +6,7 @@ export const siteConfig = {
   mainNav: [],
   links: {
     twitter: "",
-    github: "https://github.com/shadcn/ui",
+    github: "https://github.com/solide-project",
     docs: "https://ui.shadcn.com",
   },
 }

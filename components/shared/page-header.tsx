@@ -20,17 +20,17 @@ export const PageHeader = ({ item, className }: PageHeaderProps) => {
             <div className="flex items-center justify-center space-x-2 py-4">
                 {item.github &&
                     <Link href={item.github} target="_blank">
-                        <Github className="cursor-pointer" />
+                        <Github className="cursor-pointer hover:text-primary" />
                     </Link>}
 
                 {item.source &&
                     <Link href={item.source} target="_blank">
-                        <Code className="cursor-pointer" />
+                        <Code className="cursor-pointer hover:text-primary" />
                     </Link>}
 
                 {item.website &&
                     <Link href={item.website} target="_blank">
-                        <Layout className="cursor-pointer" />
+                        <Layout className="cursor-pointer hover:text-primary" />
                     </Link>}
             </div>
         </div>

@@ -72,7 +72,7 @@ export const NavButton = ({ ...props }: NavButtonProps) => {
     useEffect(() => {
         const path = pathname.split("/").pop();
         setValue(path || "")
-        console.log(router, path);
+        // console.log(router, path);
     }, []);
 
     return (
