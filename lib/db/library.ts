@@ -1,4 +1,4 @@
-import { AAVE_ID, CHAINLINK_ID, ENS_ID, ETHEREUM_ID, OPEN_ZEPPELIN_ID, TABLELAND_ID, UNISWAP_ID, ZEROX_ID } from "./ids";
+import { AAVE_ID, CHAINLINK_ID, COMPOUND_ID, ENS_ID, ETHEREUM_ID, OPEN_ZEPPELIN_ID, TABLELAND_ID, UNISWAP_ID, ZEROX_ID } from "./ids";
 
 export interface LibrarySchema {
     name: string;
@@ -68,5 +68,11 @@ export const libraryDB = {
         source: "https://github.com/Uniswap/v3-core",
         website: "https://uniswap.org/",
         description: "Uniswap is a protocol for automated token exchange on Ethereum."
-    }
+    },
+    [COMPOUND_ID]: {
+        name: "Compound Finance",
+        github: "https://github.com/compound-finance",
+        website: "https://compound.finance/",
+        description: "Compound is the most secure protocol for money."
+    },
 }

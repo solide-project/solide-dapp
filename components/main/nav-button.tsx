@@ -39,21 +39,25 @@ const frameworks = [
     label: "Uniswap",
   },
   {
+    value: "compound",
+    label: "Compound",
+  },
+  {
     value: "tableland",
     label: "Tableland",
   },
-  {
-    value: "ens",
-    label: "ENS (Coming Soon)",
-  },
-  {
-    value: "0x",
-    label: "0x (Coming Soon)",
-  },
-  {
-    value: "aave",
-    label: "Aave (Coming Soon)",
-  },
+  // {
+  //   value: "ens",
+  //   label: "ENS (Coming Soon)",
+  // },
+  // {
+  //   value: "0x",
+  //   label: "0x (Coming Soon)",
+  // },
+  // {
+  //   value: "aave",
+  //   label: "Aave (Coming Soon)",
+  // },
 ]
  
 interface NavButtonProps
