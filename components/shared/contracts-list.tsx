@@ -8,15 +8,20 @@ import { ContractCard } from "./contract-card";
 export interface ContractCardItems {
     source?: string;
     title: string;
+    tutorial?: string;
     description: string;
     playground: PlaygroundItems;
+    tags?: string[];
     reference?: string;
 }
 
 export interface ContractInfoItems {
     address: string;
     version?: string;
+    chainId?: string;
+    displaychain?: string;
 }
+
 export interface PlaygroundItems {
     default: ContractInfoItems;
     chains?: {
@@ -41,8 +46,8 @@ export const ContractsList = ({ items = [], className }: ContractsListProps) => 
                                 <div className="text-xl m-0 font-medium py-2">
                                     {item.title}
                                 </div>
-                                {item.source
-                                    ? <Link href={item.source} target="_blank">
+                                {item.playground.default.address
+                                    ? <Link href={item.playground.default.address} target="_blank">
                                         <Github />
                                     </Link>
                                     : <>Code not available</>}

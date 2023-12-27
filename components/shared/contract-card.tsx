@@ -18,7 +18,7 @@ interface ContractCardProps
     item: ContractCardItems;
 }
 
-export const ContractCard = ({ item, children, className }: ContractCardProps) => {
+export const ContractCard = ({ item }: ContractCardProps) => {
     const [selectedChainId, setSelectedChainId] = useState<string>("")
     const [src, setSRC] = useState<string>("")
     const pathname = usePathname();
@@ -27,13 +27,14 @@ export const ContractCard = ({ item, children, className }: ContractCardProps) =
         let uri = `${SolideURL}`;
         if (selectedChainId && item.playground.chains) {
             if (ethers.utils.isAddress(item.playground.chains[selectedChainId].address)) {
-                uri += `/address=${item.playground.chains[selectedChainId].address}`
+                uri += `/address/${item.playground.chains[selectedChainId].displaychain || selectedChainId}/${item.playground.chains[selectedChainId].address}`
             } else {
                 uri += `/?url=${item.playground.chains[selectedChainId].address}`
             }
         } else {
             uri += `/?url=${item.playground.default.address}`
         }
+
         setSRC(uri)
     }, [selectedChainId])
 
@@ -45,7 +46,7 @@ export const ContractCard = ({ item, children, className }: ContractCardProps) =
 
         let uri = `${SolideURL}`;
         if (ethers.utils.isAddress(item.playground.default.address)) {
-            uri += `/address/${chainId}/${item.playground.default.address}`
+            uri += `/address/${item.playground.default.chainId || chainId}/${item.playground.default.address}`
         } else {
             uri += `/?url=${item.playground.default.address}`
         }
@@ -59,7 +60,7 @@ export const ContractCard = ({ item, children, className }: ContractCardProps) =
 
     return (
         <div className="flex items-center space-x-2">
-            <PlaygroundDialog src={src} />
+            <PlaygroundDialog src={src} tutorial={item.tutorial} />
             {item.playground.chains &&
                 <ChainListButton chains={Object.keys(item.playground.chains)} setChainId={setSelectedChainId} />}
             {item.reference &&

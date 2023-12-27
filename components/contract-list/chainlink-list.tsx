@@ -5,12 +5,14 @@ import { ContractCardItems, ContractsList } from "../shared/contracts-list";
 
 const items: ContractCardItems[] = [
     {
-        source: "https://github.com/smartcontractkit/chainlink/blob/master/contracts/src/v0.6/Oracle.sol",
         title: "Single Word Response",
+        tutorial: "https://github.com/SovaSniper/tutorials/blob/master/chainlink/APIConsumer.md",
+        reference: "https://docs.chain.link/any-api/get-request/examples/single-word-response",
         description: "The guide outlines making an HTTP GET request from a smart contract using Chainlink to receive a single-word response, highlighting the use of Chainlink Functions and prerequisites for the Chainlink Basic Request Model.",
         playground: {
             default: {
                 address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/APIConsumer.sol",
+                chainId: ChainID.ETHEREUM_SEPOLIA,
             },
             chains: {
                 [ChainID.ETHEREUM_SEPOLIA]: {
@@ -27,11 +29,11 @@ const items: ContractCardItems[] = [
                 },
             }
         },
-        reference: "https://docs.chain.link/any-api/get-request/examples/single-word-response"
     },
     {
-        source: "https://github.com/smartcontractkit/chainlink/blob/master/contracts/src/v0.6/Oracle.sol",
         title: "Multi Word Response",
+        tutorial: "https://github.com/SovaSniper/tutorials/blob/master/chainlink/MultiWordConsumer.md",
+        reference: "https://docs.chain.link/any-api/get-request/examples/multi-variable-responses",
         description: "The guide outlines making an HTTP GET request from a smart contract using Chainlink to receive a single-word response, highlighting the use of Chainlink Functions and prerequisites for the Chainlink Basic Request Model.",
         playground: {
             default: {
@@ -53,11 +55,10 @@ const items: ContractCardItems[] = [
                 },
             }
         },
-        reference: "https://docs.chain.link/any-api/get-request/examples/multi-variable-responses"
     },
     {
-        source: "https://github.com/smartcontractkit/chainlink/blob/master/contracts/src/v0.6/Oracle.sol",
         title: "Array Response",
+        reference: "https://docs.chain.link/any-api/get-request/examples/array-response",
         description: "This guide shows you how to use Chainlink in a smart contract to fetch information from an external API that returns a list of items in JSON format. In a friendly example using Coingecko, it demonstrates extracting specific details, like the 'id' of the first item, and explains the essential steps involved",
         playground: {
             default: {
@@ -78,7 +79,6 @@ const items: ContractCardItems[] = [
                 },
             }
         },
-        reference: "https://docs.chain.link/any-api/get-request/examples/array-response"
     },
     {
         source: "https://github.com/smartcontractkit/chainlink/blob/master/contracts/src/v0.6/Oracle.sol",
@@ -131,26 +131,26 @@ const items: ContractCardItems[] = [
         reference: "https://docs.chain.link/any-api/get-request/examples/existing-job-request"
     },
     {
-        source: "https://github.com/SovaSniper/contracts/blob/master/chainlink/VRFD20.sol",
         title: "Chainlink VRF",
+        tutorial: "https://github.com/SovaSniper/tutorials/blob/master/chainlink/VRFD20.md",
+        reference: "https://docs.chain.link/vrf/v2/getting-started",
         description: "This contracts illustrates the implementation of Chainlink VRF (Verifiable Random Function) in smart contracts to generate randomness on blockchains, utilizing a Request and Receive cycle.",
         playground: {
             default: {
                 address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/VRFD20.sol",
             }
         },
-        reference: "https://docs.chain.link/vrf/v2/getting-started"
     },
     {
-        source: "https://github.com/SovaSniper/contracts/blob/master/chainlink/VRFv2DirectFundingConsumer.sol",
         title: "Chainlink VRF v2",
+        tutorial: "https://github.com/SovaSniper/tutorials/blob/master/chainlink/VRFv2DirectFundingConsumer.md",
+        reference: "https://docs.chain.link/vrf/v2/direct-funding/examples/get-a-random-number",
         description: "A Chainlink VRF v2-compatible smart contract on the Sepolia test network, emphasizing security considerations and providing an example contract for requesting and receiving random values.",
         playground: {
             default: {
                 address: "https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/VRFv2DirectFundingConsumer.sol",
             }
         },
-        reference: "https://docs.chain.link/vrf/v2/direct-funding/examples/get-a-random-number"
     },
 ];
 

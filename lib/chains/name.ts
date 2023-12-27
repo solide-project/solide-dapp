@@ -20,6 +20,10 @@ export const getNetworkNameFromChainID = (chainId: string) => {
             return "Etheruem Goerli";
         case ChainID.ETHEREUM_SEPOLIA:
             return "Etheruem Seoplia";
+        case ChainID.ARBITRUM_NOVA:
+            return "Arbitrum Nova";
+        case ChainID.ARBITRUM_ONE:
+            return "Arbitrum One";
         case ChainID.POLYGON_MAINNET:
             return "Polygon Mainnet";
         case ChainID.POLYGON_MUMBAI:

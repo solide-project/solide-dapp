@@ -43,6 +43,10 @@ const frameworks = [
     label: "Compound",
   },
   {
+    value: "arbitrum",
+    label: "Arbitrum",
+  },
+  {
     value: "tableland",
     label: "Tableland",
   },
@@ -59,7 +63,9 @@ const frameworks = [
   //   label: "Aave (Coming Soon)",
   // },
 ]
- 
+
+const sortedFrameworks = frameworks.slice().sort((a, b) => a.label.localeCompare(b.label));
+
 interface NavButtonProps
     extends React.HTMLAttributes<HTMLDivElement> {
 
@@ -99,7 +105,7 @@ export const NavButton = ({ ...props }: NavButtonProps) => {
                     <CommandInput placeholder="Search framework..." />
                     <CommandEmpty>No framework found.</CommandEmpty>
                     <CommandGroup>
-                        {frameworks.map((framework) => (
+                        {sortedFrameworks.map((framework) => (
                             <CommandItem
                                 key={framework.value}
                                 value={framework.value}

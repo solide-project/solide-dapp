@@ -2,70 +2,79 @@
 
 import { getExplorer } from "@/lib/chains/explorer";
 import { ContractCardItems, ContractsList } from "../shared/contracts-list";
+import { ChainID } from "@/lib/chains/id";
 
 const chainId = "1";
 const explorer = getExplorer(chainId);
 
-const TETHER_CONTRACT = "0xdac17f958d2ee523a2206206994597c13d831ec7";
-const LINK_CONTRACT = "0x514910771af9ca656af840dff83e8264ecf986ca";
-const ARBITRUM_BRIDGE_CONTRACT = "0x8315177ab297ba92a06054ce80a67ed4dbd7ed3a";
-const WRAPPED_ETHER_CONTRACT = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2";
-const ENS_REGISTRAR_CONTRACT = "0xa58e81fe9b61b5c3fe2afd33cf304c454abfc7cb";
+const Tether_CONTRACT = "0xdac17f958d2ee523a2206206994597c13d831ec7";
+const Link_CONTRACT = "0x514910771af9ca656af840dff83e8264ecf986ca";
+const ArbitrumBridge_CONTRACT = "0x1066cecc8880948fe55e427e94f1ff221d626591";
+const WrappedEth_CONTRACT = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2";
+const ETHRegistrarController_CONTRACT = "0x253553366da8546fc250f225fe3d25d0c782303b";
+const OptimismPortal_CONTRACT = "0x5fb30336a8d0841cf15d452afa297cb6d10877d7";
+
 const items: ContractCardItems[] = [
     {
-        source: `${explorer}/address/${TETHER_CONTRACT}`,
-        title: "TetherToken",
+        title: "Tether Token (USDT)",
+        tutorial: "https://github.com/SovaSniper/tutorials/blob/master/ethereum/TetherToken.md",
         description: "Tether (USDT) is a widely used stablecoin implemented as an Ethereum-based smart contract, providing a blockchain representation of fiat currencies, with each token pegged to the value of one US dollar.",
         playground: {
             default: {
-                address: TETHER_CONTRACT,
+                address: Tether_CONTRACT,
             }
         },
-        reference: `${explorer}/address/${TETHER_CONTRACT}`
     },
     {
-        source: `${explorer}/address/${LINK_CONTRACT}`,
-        title: "LinkToken",
+        title: "Link Token (LINK)",
+        tutorial: "https://github.com/SovaSniper/tutorials/blob/master/ethereum/LinkToken.md",
         description: "The LINK token is the native cryptocurrency of the Chainlink decentralized oracle network, serving as a utility token to pay for data retrieval and smart contract execution services, enabling secure and reliable connections between smart contracts and external data sources.",
         playground: {
             default: {
-                address: LINK_CONTRACT,
+                address: Link_CONTRACT,
             }
         },
-        reference: `${explorer}/address/${LINK_CONTRACT}`
     },
+    // {
+    //     title: "ETH Registrar Controller (ENS)",
+    //     description: "The Arbitrum Bridge facilitates interoperability between the Ethereum and Arbitrum blockchains, allowing users to seamlessly transfer assets and interact with decentralized applications (DApps) across both networks.",
+    //     playground: {
+    //         default: {
+    //             address: ETHRegistrarController_CONTRACT,
+    //             chainId: ChainID.ETHEREUM_MAINNET
+    //         }
+    //     },
+    //     reference: `${explorer}/address/${ETHRegistrarController_CONTRACT}`
+    // },
     {
-        source: `${explorer}/address/${ARBITRUM_BRIDGE_CONTRACT}`,
         title: "Arbitrum Bridge",
+        tutorial: "https://github.com/SovaSniper/tutorials/blob/master/ethereum/ArbitrumBridge.md",
         description: "The Arbitrum Bridge facilitates interoperability between the Ethereum and Arbitrum blockchains, allowing users to seamlessly transfer assets and interact with decentralized applications (DApps) across both networks.",
         playground: {
             default: {
-                address: ARBITRUM_BRIDGE_CONTRACT,
+                address: ArbitrumBridge_CONTRACT,
             }
         },
-        reference: `${explorer}/address/${ARBITRUM_BRIDGE_CONTRACT}`
     },
     {
-        source: `${explorer}/address/${ENS_REGISTRAR_CONTRACT}`,
-        title: "ENS Registrar",
-        description: "The Arbitrum Bridge facilitates interoperability between the Ethereum and Arbitrum blockchains, allowing users to seamlessly transfer assets and interact with decentralized applications (DApps) across both networks.",
+        title: "Wrapped Ether (WETH9)",
+        tutorial: "https://github.com/SovaSniper/tutorials/blob/master/ethereum/WrappedEther.md",
+        description: "Wrapped Ether (WETH9) is an Ethereum-based ERC-20 token representing Ether (ETH) on the Ethereum blockchain, allowing it to be traded and utilized in decentralized finance (DeFi) applications with the same ease as other ERC-20 tokens.",
         playground: {
             default: {
-                address: "0xa58e81fe9b61b5c3fe2afd33cf304c454abfc7cb",
+                address: WrappedEth_CONTRACT,
             }
         },
-        reference: `${explorer}/address/${ENS_REGISTRAR_CONTRACT}`
     },
     {
-        source: `${explorer}/address/${WRAPPED_ETHER_CONTRACT}`,
-        title: "Wrapped Ether",
-        description: "Wrapped Ether (WETH) is an Ethereum-based ERC-20 token representing Ether (ETH) on the Ethereum blockchain, allowing it to be traded and utilized in decentralized finance (DeFi) applications with the same ease as other ERC-20 tokens.",
+        title: "Optimism Portal",
+        tutorial: "https://github.com/SovaSniper/tutorials/blob/master/ethereum/OptimismPortal.md",
+        description: "OptimismPortal is a crucial part of the Optimism Layer 2 scaling solution for Ethereum, facilitating secure communication between L1 and L2. It manages deposits, withdrawals, and ensures non-replayable messages with features like aliasing contract addresses and gas limit validation. The contract is essential for the Optimism network, providing a robust infrastructure for efficient cross-domain communication.",
         playground: {
             default: {
-                address: WRAPPED_ETHER_CONTRACT,
+                address: OptimismPortal_CONTRACT,
             }
         },
-        reference: `${explorer}/address/${WRAPPED_ETHER_CONTRACT}`
     },
 ];
 

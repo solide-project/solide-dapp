@@ -4,6 +4,7 @@ import { CopyCode } from "./copy-code";
 import { LibrarySchema } from "@/lib/db/library";
 import Link from "next/link";
 import { Code, Github, Layout, LayoutDashboard } from "lucide-react";
+import { useTheme } from "next-themes";
 
 interface PageHeaderProps
     extends React.HTMLAttributes<HTMLDivElement> {
@@ -11,11 +12,17 @@ interface PageHeaderProps
 }
 
 export const PageHeader = ({ item, className }: PageHeaderProps) => {
+    const { theme } = useTheme();
     return (
-        <div className={cn(className)}>
+        <div className={cn(className)} style={{ backgroundColor: `${theme === "light" ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)"}`, }}>
             <Header className="text-center py-4">{item.name}</Header>
             {item?.library &&
                 <CopyCode payload={`npm i ${item.library}`} />}
+
+            {item.description &&
+                <div className="container">
+                    <div className="py-8 px-16">{item.description}</div>
+                </div>}
 
             <div className="flex items-center justify-center space-x-2 py-4">
                 {item.github &&
