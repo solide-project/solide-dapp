@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertCircle, Github } from "lucide-react";
+import { AlertCircle, ChevronLeft, ChevronRight, Github } from "lucide-react";
 import Link from "next/link"
 import { cn } from "@/lib/utils";
 import { ContractCard } from "@/components/shared/contract-card";
@@ -46,8 +46,10 @@ export const ContractsList = ({ items = [], className }: ContractsListProps) => 
     const [displayedItems, setDisplayedItems] = useState<ContractCardItems[]>([])
     const [currentPage, setCurrentPage] = useState<number>(1)
     const [itemsPerPage, setItemsPerPage] = useState<number>(10)
+    const [lastPage, setLastPage] = useState<number>(1)
 
     useEffect(() => {
+        setLastPage(Math.ceil(items.length / itemsPerPage))
         paginate(itemsPerPage, currentPage)
     }, [itemsPerPage, currentPage]);
 
@@ -57,9 +59,8 @@ export const ContractsList = ({ items = [], className }: ContractsListProps) => 
     }
 
     return (
-        <div>
-            <div>Page: {currentPage}</div>
-            <div className={cn("container max-w-[90%] lg:max-w-7xl m-auto py-8 lg:py-16", className)}>
+        <div className="container max-w-[90%] lg:max-w-7xl">
+            <div className={cn("m-auto py-8 lg:py-16", className)}>
                 <div className="grid grid-cols-12 gap-4">
                     {displayedItems.map((item, index) => {
                         return (
@@ -95,14 +96,15 @@ export const ContractsList = ({ items = [], className }: ContractsListProps) => 
                 </div>
             </div>
 
-            <div>
-                <div onClick={() => {
+            <div className="flex items-center justify-between font-bold py-8 text-2xl">
+                <div className="cursor-pointer hover:text-primary" onClick={() => {
                     if (currentPage > 1)
                         setCurrentPage(x => x - 1)
-                }}>{currentPage > 1 && "Prev"}</div>
-                <div onClick={() => {
+                }}>{currentPage > 1 && <ChevronLeft />}</div>
+                <div>{currentPage}</div>
+                <div className="cursor-pointer hover:text-primary" onClick={() => {
                     setCurrentPage(x => x + 1)
-                }}>Next</div>
+                }}>{currentPage < lastPage && <ChevronRight />}</div>
             </div>
         </div>
     )

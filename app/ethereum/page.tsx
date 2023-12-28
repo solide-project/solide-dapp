@@ -22,9 +22,6 @@ export default function EthereumPage() {
       <PageHeader item={libraryDB[ETHEREUM_ID]} />
 
       <EthereumList />
-      <div className="py-8 flex items-center justify-center">
-        <Header>More Coming Soon</Header>
-      </div>
     </section>
   )
 }
