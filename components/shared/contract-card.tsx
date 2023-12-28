@@ -25,14 +25,21 @@ export const ContractCard = ({ item }: ContractCardProps) => {
 
     useEffect(() => {
         let uri = `${SolideURL}`;
-        if (selectedChainId && item.playground.chains) {
+        if (selectedChainId && item.playground.chains && item.playground.chains[selectedChainId]) {
             if (ethers.utils.isAddress(item.playground.chains[selectedChainId].address)) {
-                uri += `/address/${item.playground.chains[selectedChainId].displaychain || selectedChainId}/${item.playground.chains[selectedChainId].address}`
+                uri += `/address/${item.playground.chains[selectedChainId].displaychain || selectedChainId}/${item.playground.chains[selectedChainId].address}`        
             } else {
-                uri += `/?url=${item.playground.chains[selectedChainId].address}`
+                uri += `/?url=${item.playground.chains[selectedChainId].address}`     
+            }
+
+            if (item.playground.chains[selectedChainId].version) {
+                uri += `&version=${encodeURIComponent(item.playground.chains[selectedChainId].version || "")}`
             }
         } else {
             uri += `/?url=${item.playground.default.address}`
+            if (item.playground.default.version) {
+                uri += `&version=${encodeURIComponent(item.playground.default.version)}`
+            }
         }
 
         setSRC(uri)
@@ -69,5 +76,4 @@ export const ContractCard = ({ item }: ContractCardProps) => {
         </div>
     )
 }
-
 

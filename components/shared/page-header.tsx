@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { Header } from "./header";
 import { CopyCode } from "./copy-code";

@@ -57,8 +57,8 @@ export const ChainListButton = ({ chains, setChainId, ...props }: ChainListButto
                 key={framework}
                 value={framework}
                 onSelect={(currentValue) => {
-                  setValue(currentValue)
-                  setChainId(currentValue)
+                  setValue(framework)
+                  setChainId(framework)
                   setOpen(false)
                 }}
               >
@@ -68,7 +68,7 @@ export const ChainListButton = ({ chains, setChainId, ...props }: ChainListButto
                     value === framework ? "opacity-100" : "opacity-0"
                   )}
                 />
-                {getNetworkNameFromChainID(framework)}
+                {getNetworkNameFromChainID(framework) || framework}
               </CommandItem>
             ))}
           </CommandGroup>
