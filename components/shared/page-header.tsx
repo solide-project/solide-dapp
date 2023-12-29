@@ -16,7 +16,9 @@ interface PageHeaderProps
 export const PageHeader = ({ item, className }: PageHeaderProps) => {
     const { theme } = useTheme();
     return (
-        <div className={cn(className)} style={{ backgroundColor: `${theme === "light" ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)"}`, }}>
+        <div className={cn(className)}
+            style={{ backgroundColor: `${!theme || theme === "light" ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)"}`, }}
+        >
             <Header className="text-center py-4">{item.name}</Header>
             {item?.library &&
                 <CopyCode payload={`npm i ${item.library}`} />}

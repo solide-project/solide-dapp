@@ -20,6 +20,10 @@ export const getExplorer = (network: string): string => {
             return Explorer.FANTOM_MAINNET;
         case ChainID.FANTOM_TESTNET:
             return Explorer.FANTOM_TESTNET;
+        case ChainID.METIS_ANDROMEDA:
+                return Explorer.METIS_ANDROMEDA;
+        case ChainID.METIS_SEPOLIA:
+                return Explorer.METIS_SEPOLIA;
         default:
             return Explorer.ETHEREUM_MAINNET;
     }
@@ -35,5 +39,7 @@ enum Explorer {
     AVALANCHE_FUJI = 'https://testnet.snowtrace.io',
     FANTOM_MAINNET = 'https://ftmscan.com',
     FANTOM_TESTNET = 'https://testnet.ftmscan.com',
+    METIS_ANDROMEDA = 'https://andromeda-explorer.metis.io',
+    METIS_SEPOLIA = 'https://sepolia-explorer.metis.io',
 }
 

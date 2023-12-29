@@ -23,9 +23,6 @@ export default function ArbitrumPage() {
       <PageHeader item={libraryDB[ARBITRUM_ID]} />
 
       <ArbitrumList />
-      <div className="py-8 flex items-center justify-center">
-        <Header>More Coming Soon</Header>
-      </div>
     </section>
   )
 }

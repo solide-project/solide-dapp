@@ -22,9 +22,6 @@ export default function TablelandPage() {
       <PageHeader item={libraryDB[TABLELAND_ID]} />
       
       <TablelandList />
-      <div className="py-8 flex items-center justify-center">
-        <Header>More Coming Soon</Header>
-      </div>
     </section>
   )
 }

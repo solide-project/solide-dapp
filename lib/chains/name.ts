@@ -36,6 +36,10 @@ export const getNetworkNameFromChainID = (chainId: string) => {
             return "Fantom Mainnet";
         case ChainID.FANTOM_TESTNET:
             return "Fantom Testnet";
+        case ChainID.METIS_ANDROMEDA:
+            return "Metis Andromeda";
+        case ChainID.METIS_SEPOLIA:
+            return "Metis Seoplia";
         default:
             return "";
     }

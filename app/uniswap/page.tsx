@@ -22,9 +22,6 @@ export default function ZeroXPage() {
       <PageHeader item={libraryDB[UNISWAP_ID]} />
 
       <UniswapList />
-      <div className="py-8 flex items-center justify-center">
-        <Header>More Coming Soon</Header>
-      </div>
     </section >
   )
 }

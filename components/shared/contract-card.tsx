@@ -62,6 +62,7 @@ export const ContractCard = ({ item }: ContractCardProps) => {
             uri += `&version=${encodeURIComponent(item.playground.default.version)}`
         }
 
+        // console.log(uri)
         setSRC(uri)
     }, [])
 

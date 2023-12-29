@@ -6,6 +6,8 @@ import { items as CCIP_CONTRACTS } from "@/lib/contracts/chainlink/ccip";
 import { items as FUNCTION_CONTRACTS } from "@/lib/contracts/chainlink/function";
 import { items as VRF_CONTRACTS } from "@/lib/contracts/chainlink/vrf";
 import { items as ANYAPI_CONTRACTS } from "@/lib/contracts/chainlink/anyAPI";
+import { items as AUTOMATION_CONTRACTS } from "@/lib/contracts/chainlink/automation";
+import { items as DATAFEED_CONTRACTS } from "@/lib/contracts/chainlink/datafeed";
 
 const items: ContractCardItems[] = [
     {
@@ -44,10 +46,12 @@ const items: ContractCardItems[] = [
             }
         },
     },
+    ...DATAFEED_CONTRACTS,
+    ...AUTOMATION_CONTRACTS,
     ...CCIP_CONTRACTS,
     ...FUNCTION_CONTRACTS,
     ...VRF_CONTRACTS,
-    ...ANYAPI_CONTRACTS
+    ...ANYAPI_CONTRACTS,
 ];
 
 interface ChainlinkListProps
@@ -56,8 +60,10 @@ interface ChainlinkListProps
 
 export const ChainlinkList = ({ children, className }: ChainlinkListProps) => {
     return (
-        <ContractsList items={items.map(value => ({ value, sort: Math.random() }))
-            .sort((a, b) => a.sort - b.sort)
-            .map(({ value }) => value)} />
+        <ContractsList items={items
+            // .map(value => ({ value, sort: Math.random() }))
+            // .sort((a, b) => a.sort - b.sort)
+            // .map(({ value }) => value)
+        } />
     )
 }

@@ -9,9 +9,11 @@ export enum ChainID {
     AVALANCHE_MAINNET = '43114',
     AVALANCHE_FUJI = '43113',
     OPTIMISM_MAINNET = '10',
-    OPTIMISM_TESTNET = '420',
+    OPTIMISM_SEPOLIA = '420',
     FANTOM_MAINNET = '250',
     FANTOM_TESTNET = '4002',
+    METIS_ANDROMEDA = '1088',
+    METIS_SEPOLIA = '59901',
 }
 
 export const getChainIdFromPathName = (pathname: string): string => {

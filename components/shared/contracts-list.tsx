@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertCircle, ChevronLeft, ChevronRight, Github } from "lucide-react";
+import { AlertCircle, Box, ChevronLeft, ChevronRight, Github } from "lucide-react";
 import Link from "next/link"
 import { cn } from "@/lib/utils";
 import { ContractCard } from "@/components/shared/contract-card";
@@ -10,6 +10,10 @@ import {
     HoverCardContent,
     HoverCardTrigger,
 } from "@/components/ui/hover-card"
+import { Header } from "./header";
+import { ethers } from "ethers";
+import { getExplorer } from "@/lib/chains/explorer";
+import { ChainID } from "@/lib/chains/id";
 
 export interface ContractCardItems {
     source?: string;
@@ -58,8 +62,22 @@ export const ContractsList = ({ items = [], className }: ContractsListProps) => 
         setDisplayedItems(items.slice((page_number - 1) * page_size, page_number * page_size));
     }
 
+    const loadSource = (item: ContractInfoItems) => {
+
+        if (ethers.utils.isAddress(item.address)) {
+            return <Link href={`${getExplorer(item.chainId || ChainID.ETHEREUM_MAINNET)}/address/${item.address}`} target="_blank">
+                <Box className="hover:text-primary cursor-pointer" />
+            </Link>
+        }
+        return <Link href={item.address} target="_blank">
+            <Github className="hover:text-primary cursor-pointer" />
+        </Link>
+    }
     return (
         <div className="container max-w-[90%] lg:max-w-7xl">
+            <div className="text-center font-bold pt-8 text-2xl">
+                Total Contracts: {items.length}
+            </div>
             <div className={cn("m-auto py-8 lg:py-16", className)}>
                 <div className="grid grid-cols-12 gap-4">
                     {displayedItems.map((item, index) => {
@@ -71,9 +89,7 @@ export const ContractsList = ({ items = [], className }: ContractsListProps) => 
                                     </div>
                                     <div className="flex space-x-4">
                                         {item.playground.default.address
-                                            ? <Link href={item.playground.default.address} target="_blank">
-                                                <Github className="hover:text-primary cursor-pointer" />
-                                            </Link>
+                                            ? loadSource(item.playground.default)
                                             : <>Code not available</>}
                                         {item.outdated &&
                                             <HoverCard>
@@ -95,6 +111,11 @@ export const ContractsList = ({ items = [], className }: ContractsListProps) => 
                     })}
                 </div>
             </div>
+
+            {!(currentPage < lastPage) &&
+                <div className="py-8 flex items-center justify-center">
+                    <Header>More Coming Soon</Header>
+                </div>}
 
             <div className="flex items-center justify-between font-bold py-8 text-2xl">
                 <div className="cursor-pointer hover:text-primary" onClick={() => {

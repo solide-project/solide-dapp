@@ -23,9 +23,6 @@ export default function CompoundPage() {
       <PageHeader item={libraryDB[COMPOUND_ID]} />
 
       <CompoundList />
-      <div className="py-8 flex items-center justify-center">
-        <Header>More Coming Soon</Header>
-      </div>
     </section>
   )
 }

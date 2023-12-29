@@ -1,4 +1,4 @@
-import { AAVE_ID, ARBITRUM_ID, CHAINLINK_ID, COMPOUND_ID, ENS_ID, ETHEREUM_ID, OPEN_ZEPPELIN_ID, TABLELAND_ID, UNISWAP_ID, ZEROX_ID } from "./ids";
+import { AAVE_ID, ARBITRUM_ID, CHAINLINK_ID, COMPOUND_ID, ENS_ID, ETHEREUM_ID, METIS_ID, OPEN_ZEPPELIN_ID, TABLELAND_ID, UNISWAP_ID, ZEROX_ID } from "./ids";
 
 export interface LibrarySchema {
     name: string;
@@ -13,7 +13,7 @@ export interface LibrarySchema {
 export const libraryDB = {
     [CHAINLINK_ID]: {
         name: "Chainlink",
-        library: "@chainlink/contracts",
+        library: "@chainlink/contracts @chainlink/contracts-ccip",
         description: "Chainlink smart contracts serve as a robust framework, ensuring the secure integration of decentralized applications (DApps) with external data feeds, web APIs, and traditional bank payments. This framework enhances the reliability and functionality of smart contracts by enabling seamless and trustworthy interactions with real-world data and external systems on the blockchain.",
         github: "https://github.com/smartcontractkit",
         source: "https://github.com/smartcontractkit/chainlink/tree/master",
@@ -81,5 +81,12 @@ export const libraryDB = {
         sourece: "https://github.com/tablelandnetwork/evm-tableland",
         website: "https://tableland.xyz/",
         description: ""
+    },
+    [METIS_ID]: {
+        name: "Metis",
+        library: "",
+        github: "https://github.com/MetisProtocol",
+        website: "https://www.metis.io/",
+        description: "Metis is a Layer 2 rollup platform built on the Ethereum network, offering solutions to Ethereum's challenges such as scalability, transaction speed, and high gas fees. As an Ethereum Layer 2 solution, it leverages Optimistic rollups to provide users with low gas fees, fast transactions, native storage, and enhanced security. The platform's mission is to create an accessible and user-friendly technical environment, making blockchain technology available to individuals and businesses seeking to initiate or expand decentralized applications (dApps) or communities with scalability.",
     },
 }

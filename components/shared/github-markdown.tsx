@@ -19,7 +19,6 @@ export const GithubMarkDown = ({ url }: GithubMarkDownProps) => {
     const resolveTutorial = async (tutorial: string): Promise<string> => {
         const resolver = GithubResolver();
         const actualOutput = await resolver(tutorial, { resolver: "" });
-        console.log(tutorial, actualOutput)
         return actualOutput || "";
     }
 

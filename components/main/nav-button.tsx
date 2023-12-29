@@ -52,17 +52,17 @@ const frameworks = [
     value: "tableland",
     label: "Tableland",
   },
-  // {
-  //   value: "ens",
-  //   label: "ENS (Coming Soon)",
-  // },
+  {
+    value: "metis",
+    label: "Metis",
+  },
+  {
+    value: "aave",
+    label: "Aave (Coming Soon)",
+  },
   // {
   //   value: "0x",
   //   label: "0x (Coming Soon)",
-  // },
-  // {
-  //   value: "aave",
-  //   label: "Aave (Coming Soon)",
   // },
 ]
 
