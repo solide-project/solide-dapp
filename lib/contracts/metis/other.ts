@@ -66,4 +66,40 @@ export const items = [
             }
         },
     },
+    {
+        title: "MVM_Coinbase",
+        tutorial: "",
+        reference: "",
+        description: "",
+        playground: {
+            default: {
+                address: "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+                chainId: ChainID.METIS_ANDROMEDA,
+            }
+        },
+    },
+    {
+        title: "Aave Pool Addresses Provider",
+        tutorial: "",
+        reference: "",
+        description: "",
+        playground: {
+            default: {
+                address: "0xB9FABd7500B2C6781c35Dd48d54f81fc2299D7AF",
+                chainId: ChainID.METIS_ANDROMEDA,
+            }
+        },
+    },
+    {
+        title: "Aave Pool Addresses Provider",
+        tutorial: "",
+        reference: "",
+        description: "",
+        playground: {
+            default: {
+                address: "0x1E876cCe41B7b844FDe09E38Fa1cf00f213bFf56",
+                chainId: ChainID.METIS_ANDROMEDA,
+            }
+        },
+    },
 ]

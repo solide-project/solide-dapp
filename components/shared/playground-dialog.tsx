@@ -30,7 +30,7 @@ export const PlaygroundDialog = ({
                 <Button disabled={src ? false : true}>Load SOLIDE</Button>
             </DialogTrigger>
             <DialogContent className="max-w-full h-4/5 overflow-y-scroll">
-                <DialogTitle>{title || "Solide IDE"}</DialogTitle>
+                <DialogTitle>{src || "Solide IDE"}</DialogTitle>
 
                 <div className="flex items-center justify-center">
                     <iframe className="rounded-lg" src={src} width="100%" height="500px" allow="clipboard-write" />

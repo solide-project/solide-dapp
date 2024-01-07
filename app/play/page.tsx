@@ -77,7 +77,8 @@ export default function PlayPage() {
             <div className="py-16">
                 <iframe
                     className="border rounded-lg"
-                    src={`${SolideURL}/?url=https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/APIConsumer.sol`}
+                    src="http://localhost:3000/address/1088/0xb27BbeaACA2C00d6258C3118BAB6b5B6975161c8"
+                    // src={`${SolideURL}/?url=https://raw.githubusercontent.com/SovaSniper/contracts/master/chainlink/11155111/APIConsumer.sol`}
                     height={frameHeight} width={frameWidth}
                     style={{ "overflow": "hidden" }}
                     allow="clipboard-write" />

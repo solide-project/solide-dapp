@@ -16,10 +16,17 @@ export const GithubMarkDown = ({ url }: GithubMarkDownProps) => {
     const [rawTutorial, setRawTutorial] = useState<string>("");
 
     // convert a github https://raw.githubusercontent.com/SovaSniper/tutorials/master/compound/cToken.md to its repo url
-    const resolveTutorial = async (tutorial: string): Promise<string> => {
-        const resolver = GithubResolver();
-        const actualOutput = await resolver(tutorial, { resolver: "" });
-        return actualOutput || "";
+    const resolveTutorial = async (tutorial: string): Promise<string[]> => {
+        let actualOutput: string[] = [];
+        const elements = tutorial.split("|");
+
+        for (const element of elements) {
+            const resolver = GithubResolver();
+            const output = await resolver(element, { resolver: "" });
+            output && actualOutput.push(output);
+        }
+
+        return actualOutput;
     }
 
     useEffect(() => {
@@ -30,10 +37,19 @@ export const GithubMarkDown = ({ url }: GithubMarkDownProps) => {
 
             const documentation = await resolveTutorial(url);
             // console.log(documentation);
-            setRawTutorial(documentation);
+            if (documentation.length === 0) {
+                return;
+            }
+            setRawTutorial(documentation[0] || "");
 
-            const response = await fetch(documentation);
-            const text = await response.text();
+            console.log(documentation);
+            let text = "";
+            for (const element of documentation) {
+                const response = await fetch(element);
+                const info = await response.text();
+                text += "\n" + info;
+            }
+
             setMarkdown(text);
         })()
     }, []);

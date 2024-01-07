@@ -27,9 +27,9 @@ export const ContractCard = ({ item }: ContractCardProps) => {
         let uri = `${SolideURL}`;
         if (selectedChainId && item.playground.chains && item.playground.chains[selectedChainId]) {
             if (ethers.utils.isAddress(item.playground.chains[selectedChainId].address)) {
-                uri += `/address/${item.playground.chains[selectedChainId].displaychain || selectedChainId}/${item.playground.chains[selectedChainId].address}`        
+                uri += `/address/${item.playground.chains[selectedChainId].displaychain || selectedChainId}/${item.playground.chains[selectedChainId].address}`
             } else {
-                uri += `/?url=${item.playground.chains[selectedChainId].address}`     
+                uri += `/?url=${item.playground.chains[selectedChainId].address}`
             }
 
             if (item.playground.chains[selectedChainId].version) {
@@ -64,7 +64,7 @@ export const ContractCard = ({ item }: ContractCardProps) => {
 
         // console.log(uri)
         setSRC(uri)
-    }, [])
+    }, [item])
 
     return (
         <div className="flex items-center space-x-2">

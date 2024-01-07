@@ -22,8 +22,6 @@ interface EthereumListProps
 
 export const EthereumList = ({ children, className }: EthereumListProps) => {
     return (
-        <ContractsList items={items.map(value => ({ value, sort: Math.random() }))
-            .sort((a, b) => a.sort - b.sort)
-            .map(({ value }) => value)} />
+        <ContractsList items={items} />
     )
 }

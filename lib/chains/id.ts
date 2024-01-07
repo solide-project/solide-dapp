@@ -2,8 +2,11 @@ export enum ChainID {
     ETHEREUM_MAINNET = '1',
     ETHEREUM_GOERLI = '5',
     ETHEREUM_SEPOLIA = '11155111',
+    METIS_ANDROMEDA = '1088',
+    METIS_SEPOLIA = '59901',
     ARBITRUM_ONE = '42161',
     ARBITRUM_NOVA = '42170',
+
     POLYGON_MAINNET = '137',
     POLYGON_MUMBAI = '80001',
     AVALANCHE_MAINNET = '43114',
@@ -12,8 +15,6 @@ export enum ChainID {
     OPTIMISM_SEPOLIA = '420',
     FANTOM_MAINNET = '250',
     FANTOM_TESTNET = '4002',
-    METIS_ANDROMEDA = '1088',
-    METIS_SEPOLIA = '59901',
 }
 
 export const getChainIdFromPathName = (pathname: string): string => {

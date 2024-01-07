@@ -24,6 +24,11 @@ export const getNetworkNameFromChainID = (chainId: string) => {
             return "Arbitrum Nova";
         case ChainID.ARBITRUM_ONE:
             return "Arbitrum One";
+        case ChainID.METIS_ANDROMEDA:
+            return "Metis Andromeda";
+        case ChainID.METIS_SEPOLIA:
+            return "Metis Seoplia";
+
         case ChainID.POLYGON_MAINNET:
             return "Polygon Mainnet";
         case ChainID.POLYGON_MUMBAI:
@@ -32,16 +37,16 @@ export const getNetworkNameFromChainID = (chainId: string) => {
             return "Avalanche Mainnet";
         case ChainID.AVALANCHE_FUJI:
             return "Avalanche Testnet";
+        case ChainID.OPTIMISM_MAINNET:
+            return "Optimism Mainnet";
+        case ChainID.OPTIMISM_SEPOLIA:
+            return "Optimism Seoplia";
         case ChainID.FANTOM_MAINNET:
             return "Fantom Mainnet";
         case ChainID.FANTOM_TESTNET:
             return "Fantom Testnet";
-        case ChainID.METIS_ANDROMEDA:
-            return "Metis Andromeda";
-        case ChainID.METIS_SEPOLIA:
-            return "Metis Seoplia";
         default:
-            return "";
+            return "Unknown";
     }
 }
 

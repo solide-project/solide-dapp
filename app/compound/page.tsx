@@ -1,11 +1,9 @@
 "use client";
 
-import { ChainlinkList } from "@/components/contract-list/chainlink-list";
 import { CompoundList } from "@/components/contract-list/compound-list";
-import { Header } from "@/components/shared/header";
 import { PageHeader } from "@/components/shared/page-header";
-import { CHAINLINK_ID, COMPOUND_ID, libraryDB } from "@/lib/db";
-import { grayScale025, grayScale200 } from "@/lib/fonts";
+import { COMPOUND_ID, libraryDB } from "@/lib/db";
+import { grayScale025 } from "@/lib/fonts";
 import { useTheme } from "next-themes";
 
 export default function CompoundPage() {
