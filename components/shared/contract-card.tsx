@@ -1,7 +1,6 @@
 "use client";
 
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Github } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link"
 import { PlaygroundDialog } from "./playground-dialog";
 import { SolideURL } from "@/lib/utils";

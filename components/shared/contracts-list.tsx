@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertCircle, Box, ChevronLeft, ChevronRight, Github } from "lucide-react";
+import { AlertCircle, Box } from "lucide-react";
 import Link from "next/link"
 import { cn } from "@/lib/utils";
 import { ContractCard } from "@/components/shared/contract-card";
@@ -14,6 +14,7 @@ import { Header } from "./header";
 import { ethers } from "ethers";
 import { getExplorer } from "@/lib/chains/explorer";
 import { ChainID } from "@/lib/chains/id";
+import { Icon } from "@iconify/react";
 
 export interface ContractCardItems {
     source?: string;
@@ -46,7 +47,6 @@ interface ContractsListProps
 }
 
 export const ContractsList = ({ items = [], className }: ContractsListProps) => {
-
     const [displayedItems, setDisplayedItems] = useState<ContractCardItems[]>([])
     const [currentPage, setCurrentPage] = useState<number>(1)
     const [itemsPerPage, setItemsPerPage] = useState<number>(10)
@@ -55,7 +55,7 @@ export const ContractsList = ({ items = [], className }: ContractsListProps) => 
     useEffect(() => {
         setLastPage(Math.ceil(items.length / itemsPerPage))
         paginate(itemsPerPage, currentPage)
-    }, [itemsPerPage, currentPage]);
+    }, [itemsPerPage, currentPage, items]);
 
     function paginate(page_size: number, page_number: number) {
         // human-readable page numbers usually start with 1, so we reduce 1 in the first argument
@@ -63,16 +63,16 @@ export const ContractsList = ({ items = [], className }: ContractsListProps) => 
     }
 
     const loadSource = (item: ContractInfoItems) => {
-
         if (ethers.utils.isAddress(item.address)) {
             return <Link href={`${getExplorer(item.chainId || ChainID.ETHEREUM_MAINNET)}/address/${item.address}`} target="_blank">
                 <Box className="hover:text-primary cursor-pointer" />
             </Link>
         }
         return <Link href={item.address} target="_blank">
-            <Github className="hover:text-primary cursor-pointer" />
+            <Icon className="cursor-pointer hover:text-primary" inline={true} height={28} icon="mingcute:github-line" />
         </Link>
     }
+
     return (
         <div className="container max-w-[90%] lg:max-w-7xl">
             <div className="text-center font-bold pt-8 text-2xl">
@@ -104,7 +104,6 @@ export const ContractsList = ({ items = [], className }: ContractsListProps) => 
                                 </div>
 
                                 <p className="my-2">{item.description}</p>
-
                                 <ContractCard item={item} />
                             </div>
                         )
@@ -121,11 +120,11 @@ export const ContractsList = ({ items = [], className }: ContractsListProps) => 
                 <div className="cursor-pointer hover:text-primary" onClick={() => {
                     if (currentPage > 1)
                         setCurrentPage(x => x - 1)
-                }}>{currentPage > 1 && <ChevronLeft />}</div>
+                }}>{currentPage > 1 && <Icon icon="lucide:chevron-left" inline={true} height={28} />}</div>
                 <div>{currentPage}</div>
                 <div className="cursor-pointer hover:text-primary" onClick={() => {
                     setCurrentPage(x => x + 1)
-                }}>{currentPage < lastPage && <ChevronRight />}</div>
+                }}>{currentPage < lastPage && <Icon icon="lucide:chevron-right" inline={true} height={28} />}</div>
             </div>
         </div>
     )

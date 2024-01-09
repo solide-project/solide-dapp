@@ -4,6 +4,7 @@ import { EthereumList } from "@/components/contract-list/ethereum-list";
 import { Header } from "@/components/shared/header";
 import { PageHeader } from "@/components/shared/page-header";
 import { ETHEREUM_ID, libraryDB } from "@/lib/db";
+import { chainInfo } from "@/lib/db/chain-info";
 import { grayScale025 } from "@/lib/fonts";
 import { useTheme } from "next-themes";
 
@@ -19,7 +20,7 @@ export default function EthereumPage() {
   
   return (
     <section className="min-h-screen" style={styles}>
-      <PageHeader item={libraryDB[ETHEREUM_ID]} />
+      <PageHeader item={libraryDB[ETHEREUM_ID]} chains={chainInfo[ETHEREUM_ID]}/>
 
       <EthereumList />
     </section>

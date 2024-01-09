@@ -4,12 +4,12 @@ import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { NavButton } from "./main/nav-button"
-import { Droplet, Github, Twitter, X } from "lucide-react"
+import { Droplet, X } from "lucide-react"
 import { useState } from "react"
 import { SiteMessage } from "@/lib/utils"
+import { Icon } from "@iconify/react"
 
 export function SiteHeader() {
   const [close, setClose] = useState(false)
@@ -33,13 +33,8 @@ export function SiteHeader() {
               target="_blank"
               rel="noreferrer"
             >
-              <div
-                className={buttonVariants({
-                  size: "icon",
-                  variant: "ghost",
-                })}
-              >
-                <Github className="h-5 w-5" />
+              <div className={buttonVariants({ size: "icon", variant: "ghost", })}>
+                <Icon className="h-5 w-5" icon="mingcute:github-line" />
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
@@ -48,13 +43,8 @@ export function SiteHeader() {
               target="_blank"
               rel="noreferrer"
             >
-              <div
-                className={buttonVariants({
-                  size: "icon",
-                  variant: "ghost",
-                })}
-              >
-                <Twitter className="h-5 w-5 fill-current" />
+              <div className={buttonVariants({ size: "icon", variant: "ghost", })}>
+                <Icon className="h-5 w-5 fill-current" icon="simple-icons:x" />
                 <span className="sr-only">Twitter</span>
               </div>
             </Link>

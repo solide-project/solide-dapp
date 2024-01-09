@@ -1,7 +1,7 @@
 "use client";
 
+import { Icon } from "@iconify/react";
 import { GithubResolver } from "@resolver-engine/imports/build/resolvers/githubresolver";
-import { Divide, Github } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
@@ -66,7 +66,7 @@ export const GithubMarkDown = ({ url }: GithubMarkDownProps) => {
                                 Want to contribute?
                             </div>
                             <Link href={url} target="_blank">
-                                <Github className="cursor-pointer hover:text-primary" />
+                                <Icon className="cursor-pointer hover:text-primary" inline={true} height={28} icon="mingcute:github-line" />
                             </Link>
                         </div>
                     </div>

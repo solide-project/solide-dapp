@@ -5,6 +5,7 @@ import { ChainlinkList } from "@/components/contract-list/chainlink-list";
 import { Header } from "@/components/shared/header";
 import { PageHeader } from "@/components/shared/page-header";
 import { ARBITRUM_ID, libraryDB } from "@/lib/db";
+import { chainInfo } from "@/lib/db/chain-info";
 import { grayScale025, grayScale200 } from "@/lib/fonts";
 import { useTheme } from "next-themes";
 
@@ -20,7 +21,7 @@ export default function ArbitrumPage() {
   
   return (
     <section className="min-h-screen" style={styles}>
-      <PageHeader item={libraryDB[ARBITRUM_ID]} />
+      <PageHeader item={libraryDB[ARBITRUM_ID]} chains={chainInfo[ARBITRUM_ID]} />
 
       <ArbitrumList />
     </section>

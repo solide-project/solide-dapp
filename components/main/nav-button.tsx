@@ -1,8 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { Check, ChevronsUpDown } from "lucide-react"
-
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -22,6 +20,7 @@ import { useEffect } from "react"
 import { useRouter, usePathname } from "next/navigation"
 import Image from "next/image"
 import { CHAINLINK_ID } from "@/lib/db"
+import { Icon } from "@iconify/react"
 
 const frameworks = [
   {
@@ -99,7 +98,7 @@ export const NavButton = ({ ...props }: NavButtonProps) => {
           {value
             ? frameworks.find((framework) => framework.value === value)?.label || "Welcome!"
             : "Welcome!"}
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <Icon icon="charm:chevrons-up-down" className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
@@ -117,20 +116,11 @@ export const NavButton = ({ ...props }: NavButtonProps) => {
                   router.push(`/${currentValue}`)
                 }}
               >
-                <Check
-                  className={cn(
-                    "mr-2 h-4 w-4",
-                    value === framework.value ? "opacity-100" : "opacity-0"
-                  )}
-                />
+                <Icon icon="lucide:check"
+                  className={cn("mr-2 h-4 w-4", value === framework.value ? "opacity-100" : "opacity-0")} />
                 {framework.label}
-                {/* <Image
-                  priority
-                  src={`/icons/${framework.value}.svg` || `/icons/${framework.value}.png`}
-                  height={32}
-                  width={32}
-                  alt="Icon"
-                /> */}
+                {/* <Image src={`/icons/${framework.value}.svg` || `/icons/${framework.value}.png`}
+                  priority height={32} width={32} alt="Icon" /> */}
               </CommandItem>
             ))}
           </CommandGroup>

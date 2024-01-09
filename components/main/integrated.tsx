@@ -1,8 +1,8 @@
 "use client";
 
-import { Boxes, Code, Droplet, FileBadge2, Layers, LucideScroll, Scroll } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Header } from "../shared/header";
+import { Icon } from "@iconify/react";
 
 interface IntegratedProps
     extends React.HTMLAttributes<HTMLDivElement> {
@@ -10,15 +10,15 @@ interface IntegratedProps
 }
 
 const items = [{
-    icon: <Scroll size={48} />,
+    icon: <Icon icon="ph:currency-eth" inline={true} height={48} />,
     title: "EVM and Metamask",
     description: "Integrated with Metamask, so you can deploy from all EVM chains.",
 }, {
-    icon: <FileBadge2 size={48} />,
+    icon: <Icon icon="lucide:scroll" inline={true} height={48} />,
     title: "Contracts",
     description: "Compatible with Chainlink Oracle Contract, OpenZeppelin, and many more open source contracts.",
 }, {
-    icon: <Code size={48} />,
+    icon: <Icon icon="solar:widget-bold" inline={true} height={48} />,
     title: "Extension",
     description: "Lightweight Solidity IDE, that can be integrated into your website, tutorials. Use Solide to demo smart contract, teach Solidity, or just to play around.",
 }];

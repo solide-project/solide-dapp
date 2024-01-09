@@ -1,8 +1,6 @@
 "use client"
 
 import * as React from "react"
-import { Check, ChevronsUpDown } from "lucide-react"
-
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -17,10 +15,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { useTheme } from "next-themes"
-import { useEffect } from "react"
-import { useRouter, usePathname } from "next/navigation"
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
+import { Icon } from "@iconify/react"
 
 interface ChainListButtonProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -44,7 +40,7 @@ export const ChainListButton = ({ chains, setChainId, ...props }: ChainListButto
           {value
             ? chains.find((framework) => framework === value)
             : "Change Chain"}
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          <Icon icon="charm:chevrons-up-down" className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
@@ -62,12 +58,8 @@ export const ChainListButton = ({ chains, setChainId, ...props }: ChainListButto
                   setOpen(false)
                 }}
               >
-                <Check
-                  className={cn(
-                    "mr-2 h-4 w-4",
-                    value === framework ? "opacity-100" : "opacity-0"
-                  )}
-                />
+                <Icon icon="lucide:check"
+                  className={cn("mr-2 h-4 w-4", value === framework ? "opacity-100" : "opacity-0")} />
                 {getNetworkNameFromChainID(framework) || framework}
               </CommandItem>
             ))}

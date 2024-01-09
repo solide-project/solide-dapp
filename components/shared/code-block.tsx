@@ -2,9 +2,8 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { useTheme } from "next-themes";
 import { atomOneDark, atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { useEffect, useState } from "react";
-import { CopyCode } from "./copy-code";
-import { Copy } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Icon } from "@iconify/react";
 
 export interface CodeBlockProps
     extends React.HTMLAttributes<HTMLDivElement> {
@@ -48,7 +47,7 @@ export const CodeBlock = ({
             </SyntaxHighlighter>
             <div className="absolute p-4" style={{ top: 0, right: 0 }}>
                 {!copied
-                    ? <Copy className="cursor-pointer" onClick={() => copyText(code)} />
+                    ? <Icon icon="lucide:copy"  className="cursor-pointer" onClick={() => copyText(code)}  />
                     : <>Copied</>}
             </div>
         </div>

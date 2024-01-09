@@ -9,8 +9,8 @@ import {
 import { Button } from "../ui/button";
 import { GithubMarkDown } from "./github-markdown";
 import { siteConfig } from "@/config/site";
-import { Github } from "lucide-react";
 import Link from "next/link";
+import { Icon } from "@iconify/react";
 
 interface PlaygroundDialogProps
     extends React.HTMLAttributes<HTMLDivElement> {
@@ -44,7 +44,7 @@ export const PlaygroundDialog = ({
                                 This smart contract doesn&apos;t have any information. Want to contribute?
                             </div>
                             <Link href={siteConfig.links.github} target="_blank">
-                                <Github className="cursor-pointer hover:text-primary" />
+                                <Icon className="cursor-pointer hover:text-primary" inline={true} height={28} icon="mingcute:github-line" />
                             </Link>
                         </div>
                     </div>}
