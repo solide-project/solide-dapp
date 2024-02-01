@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Solide - Your Interactive Hub for Smart Contracts
+
+Solide is an open-source Solidity Integrated Development Environment (IDE) and Knowledge Hub designed to empower developers, educators, and blockchain enthusiasts in their journey of smart contract development and exploration. This repository serves as the home for the Solide website.
+
+## Features
+
+- **Interactive IDE:** Solide provides a lightweight IDE that allows users to load verified on-chain contracts from different EVM blockchains using an address or GitHub repository link.
+
+- **Educational Hub:** Explore, learn, and experiment with smart contracts through the integrated educational dApp. Access tutorials, guides, and real-time feedback to enhance your understanding of blockchain development.
+
+- **Protocol Integration:** Solide seamlessly integrates with various blockchain protocols, including OpenZeppelin, Chainlink, Aave, Uniswap, and more. A diverse array of resources is at your fingertips for streamlined development.
 
 ## Getting Started
 
-First, run the development server:
+To experience Solide, visit our [website](link-to-website). You can also check out the Solide IDE and Knowledge Hub at [solide-dapp.vercel.app](https://solide-dapp.vercel.app/).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Installation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Clone the repository: `git clone https://github.com/solide/solide-website.git`
+2. Install dependencies: `npm install`
+3. Run the development server: `npm run dev`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contribution Guidelines
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+We welcome contributions from the community to enhance Solide further. If you have suggestions, bug reports, or want to contribute code, please follow our [Contribution Guidelines](link-to-contribution-guidelines).
 
-## Learn More
+## Community and Support
 
-To learn more about Next.js, take a look at the following resources:
+Join the Solide community for discussions, support, and collaboration. Visit our [Discord channel](link-to-discord) to connect with fellow developers and enthusiasts.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Solide is released under the [MIT License](link-to-license). Feel free to use, modify, and distribute Solide for your projects.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Note:** Solide is a community-driven project aimed at fostering openness, collaboration, and innovation in the blockchain development domain. Your feedback and contributions are highly valued. Let's build the future of smart contract development together!
