@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 1rem;
+
+    --color-grayscale-000: #FFFFFF;
+    --color-grayscale-025: #FAFAFA;
+    --color-grayscale-050: #F5F5F5;
+    --color-grayscale-100: #EDEDED;
+    --color-grayscale-200: #DBDDE0;
+    --color-grayscale-250: #BCC1C9;
+    --color-grayscale-300: #6A7380;
+    --color-grayscale-325: #575C66;
+    --color-grayscale-350: #313235;
+    --color-grayscale-veil: rgba(255, 255, 255, 0.8);
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 263.4 70% 50.4%;
+
+    --color-grayscale-000: #050505;
+    --color-grayscale-025: #131417;
+    --color-grayscale-050: #1C1E21;
+    --color-grayscale-100: #26282C;
+    --color-grayscale-200: #2D3034;
+    --color-grayscale-250: #40454D;
+    --color-grayscale-300: #848990;
+    --color-grayscale-325: #A9ADB1;
+    --color-grayscale-350: #DFE0E2;
+    --color-grayscale-veil: rgba(19, 20, 23, 0.8);
+  }
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+
+.border-white {
+  border-color: #fff !important;
+}
+
+.plus-pattern {
+  background-color: var(--color-grayscale-325);
+  background-image: url("../public/svgs/pattern.svg");
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+.radial-pattern {
+  background-size: 10px 10px;
+  background-image: radial-gradient(rgba(180, 249, 186, 1) "1px", var(--color-grayscale-025) "1px");
+}
+
+.dotted-pattern {
+  background-size: 10px 10px;
+  background-image: radial-gradient(hsl(var(--primary)) 1px, var(--color-grayscale-025) 1px);
+}
+
+.jumbotron-pattern {
+  /* background-size: 10px 10px; */
+  background-image: url("https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg");
+  /* background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%; */
+  /* background-size: cover; */
+}
+
+.grid-pattern {
+  background-color: var(--color-grayscale-000);
+  background-image: linear-gradient(var(--color-grayscale-200) 1px, transparent 1px),
+    linear-gradient(to right, var(--color-grayscale-200) 1px, var(--color-grayscale-000) 1px);
+  background-size: 20px 20px;
+}
+
+
+.fade-out {
+  opacity: 0.3;
+  /* Adjust the opacity for the desired fade-out effect */
+  transition: opacity 0.5s ease-in-out;
+  /* Adjust the transition duration and timing function as needed */
+}
