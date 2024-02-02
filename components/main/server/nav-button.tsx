@@ -4,7 +4,6 @@ import * as React from "react"
 import { useEffect } from "react"
 import { usePathname, useRouter } from "next/navigation"
 import { Icon } from "@iconify/react"
-import { ScrollArea } from "@/components/ui/scroll-area"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -20,6 +19,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 export const frameworks = [
   {
@@ -96,7 +96,7 @@ const sortedFrameworks = frameworks
     label: "Solide",
   })
 
-interface NavButtonProps extends React.HTMLAttributes<HTMLDivElement> { }
+interface NavButtonProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export const NavButton = ({ ...props }: NavButtonProps) => {
   const pathname = usePathname()
@@ -122,7 +122,7 @@ export const NavButton = ({ ...props }: NavButtonProps) => {
         >
           {value
             ? frameworks.find((framework) => framework.value === value)
-              ?.label || "Welcome!"
+                ?.label || "Welcome!"
             : "Welcome!"}
           <Icon
             icon="charm:chevrons-down"
@@ -159,7 +159,8 @@ export const NavButton = ({ ...props }: NavButtonProps) => {
                   {(framework.value === "aave" ||
                     framework.value === "immutable" ||
                     framework.value === "fuse" ||
-                    framework.value === "push") && "  🔜"}
+                    framework.value === "push") &&
+                    "  🔜"}
                   {/* <Image src={`/icons/${framework.value}.svg` || `/icons/${framework.value}.png`}
                   priority height={32} width={32} alt="Icon" /> */}
                 </CommandItem>

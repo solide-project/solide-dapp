@@ -42,7 +42,7 @@ export const CodeBlock = ({
       <SyntaxHighlighter
         wrapLines={true}
         wrapLongLines={true}
-        className={cn("!bg-background rounded-lg", className)}
+        className={cn("!bg-background rounded-lg w-full", className)}
         language={language || "html"}
         style={{ ...codeStyle, ...style }}
       >

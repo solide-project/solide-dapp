@@ -1,8 +1,8 @@
-import { Features } from "@/components/main/client/main/features";
-import { Hero } from "@/components/main/client/main/hero";
-import { IDESupport } from "@/components/main/client/main/ide-support";
-import { Jumbotron } from "@/components/main/client/main/jumbotron";
-import { SampleIntegration } from "@/components/main/client/main/sample-integration";
+import { Features } from "@/components/main/client/main/features"
+import { Hero } from "@/components/main/client/main/hero"
+import { IDESupport } from "@/components/main/client/main/ide-support"
+import { Jumbotron } from "@/components/main/client/main/jumbotron"
+import { SampleIntegration } from "@/components/main/client/main/sample-integration"
 
 export default function Home() {
   return (
@@ -16,5 +16,5 @@ export default function Home() {
         <Jumbotron className="border" />
       </div>
     </main>
-  );
+  )
 }

@@ -132,3 +132,19 @@
   transition: opacity 0.5s ease-in-out;
   /* Adjust the transition duration and timing function as needed */
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  --tw-bg-opacity: 1;
+  background-color: rgb(128 143 147/var(--tw-bg-opacity));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-grayscale-050);
+  border-radius: 4px;
+}

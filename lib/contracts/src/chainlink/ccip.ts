@@ -1,4 +1,4 @@
-import { ContractSchema } from "@/lib/schema/contract";
+import { ContractSchema } from "@/lib/schema/contract"
 
 export const items: ContractSchema[] = [
   {

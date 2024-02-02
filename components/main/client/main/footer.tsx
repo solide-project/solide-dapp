@@ -3,9 +3,16 @@
 import Link from "next/link"
 import { Icon } from "@iconify/react"
 
-import { DISCORD, EMAIL, GITHUB, GITHUB_CONTRIBUTION_LINK, SOLIDE_URL, X_TWITTER } from "@/lib/utils"
+import {
+  DISCORD,
+  EMAIL,
+  GITHUB,
+  GITHUB_CONTRIBUTION_LINK,
+  SOLIDE_URL,
+  X_TWITTER,
+} from "@/lib/utils"
 
-interface FooterProps extends React.HTMLAttributes<HTMLDivElement> { }
+interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const items = [
   { icon: "mingcute:github-line", link: GITHUB },
@@ -22,7 +29,7 @@ const links = [
   { label: "Contact", link: `mailto:${EMAIL}` },
 ]
 
-export const Footer = ({ }: FooterProps) => {
+export const Footer = ({}: FooterProps) => {
   return (
     <div className="lg:p-12 p-8 flex items-center justify-center text-[16px]">
       <div className="grid grid-cols-12 lg:gap-8 gap-3 max-w-7xl">
