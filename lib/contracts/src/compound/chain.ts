@@ -1,7 +1,7 @@
 import { getExplorer } from "@/lib/chains/explorer"
 import { ChainID } from "@/lib/chains/id"
-import { camelToWord } from "@/lib/utils"
 import { ContractSchema } from "@/lib/schema/contract"
+import { camelToWord } from "@/lib/utils"
 
 const getAPI = (chain: string) => {
   switch (chain) {

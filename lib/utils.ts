@@ -13,18 +13,18 @@ export const X_TWITTER = "https://twitter.com/SolideProject"
 export const GITHUB = "https://github.com/solide-project"
 export const GITHUB_CONTRIBUTION_LINK =
   "https://github.com/solide-project/solide-dapp/issues/1"
-  export const EMAIL = "solide-project@proton.me"
+export const EMAIL = "solide-project@proton.me"
 
 export function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs))
 }
 
 /**
  * Converts a snake_case or kebab-case string to camelCase.
- * 
+ *
  * @param input - The input string to be converted.
  * @returns The camelCase version of the input string.
- * 
+ *
  * @example
  * ```typescript
  * const result = camelToWord("sample_input_string");
@@ -32,19 +32,19 @@ export function cn(...inputs: ClassValue[]) {
  * ```
  */
 export const snakeToCamel = (input: string): string => {
-    return input
-        .replace(/\_/g, " ")
-        .replace(/[\-\s](.)/g, (_, char) => char.toUpperCase())
-        .replace(/[\-\s]/g, "") // Remove hyphens and spaces
-        .toLowerCase();
-};
+  return input
+    .replace(/\_/g, " ")
+    .replace(/[\-\s](.)/g, (_, char) => char.toUpperCase())
+    .replace(/[\-\s]/g, "") // Remove hyphens and spaces
+    .toLowerCase()
+}
 
 /**
  * Splits a camelCase or PascalCase string into separate words.
- * 
+ *
  * @param input - The input string to be split.
  * @returns The input string with camelCase or PascalCase boundaries separated by spaces.
- * 
+ *
  * @example
  * ```typescript
  * const result = camelToWord("splitCamelCase");
@@ -52,11 +52,11 @@ export const snakeToCamel = (input: string): string => {
  * ```
  */
 export const camelToWord = (input: string): string => {
-    // Use a regular expression to find the camelCase boundaries
-    let words = input.replace(/([a-z])([A-Z])/g, "$1 $2");
+  // Use a regular expression to find the camelCase boundaries
+  let words = input.replace(/([a-z])([A-Z])/g, "$1 $2")
 
-    // Capitalize the first letter of the first word
-    words = words.charAt(0).toUpperCase() + words.slice(1);
+  // Capitalize the first letter of the first word
+  words = words.charAt(0).toUpperCase() + words.slice(1)
 
-    return words;
-};
+  return words
+}

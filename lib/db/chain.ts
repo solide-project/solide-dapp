@@ -1,4 +1,11 @@
-import { ARBITRUM_ID, ARTELA_ID, ETHEREUM_ID, FUSE_ID, IMMUTABLE_ID, METIS_ID } from "./ids"
+import {
+  ARBITRUM_ID,
+  ARTELA_ID,
+  ETHEREUM_ID,
+  FUSE_ID,
+  IMMUTABLE_ID,
+  METIS_ID,
+} from "./ids"
 
 export interface NativeCurrency {
   name: string

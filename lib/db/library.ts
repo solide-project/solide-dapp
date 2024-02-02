@@ -113,15 +113,17 @@ export const protcols: Record<string, ProtocolSchema> = {
   },
   [ZEROX_ID]: {
     name: "0x",
-    library: "@0x/contracts-utils @0x/contracts-treasury @0x/contracts-erc20 @0x/contracts-zero-ex",
-    description: "The 0x Protocol is a decentralized exchange infrastructure within the Ethereum ecosystem, providing a foundation for the creation and execution of smart contracts that facilitate tokenized asset exchange. As a leading DeFi protocol, 0x enables developers to integrate decentralized exchange functionalities seamlessly, allowing for the incorporation of token exchange capabilities within their smart contracts.",
+    library:
+      "@0x/contracts-utils @0x/contracts-treasury @0x/contracts-erc20 @0x/contracts-zero-ex",
+    description:
+      "The 0x Protocol is a decentralized exchange infrastructure within the Ethereum ecosystem, providing a foundation for the creation and execution of smart contracts that facilitate tokenized asset exchange. As a leading DeFi protocol, 0x enables developers to integrate decentralized exchange functionalities seamlessly, allowing for the incorporation of token exchange capabilities within their smart contracts.",
     github: "https://github.com/0xProject",
     website: "https://0x.org",
     blog: "https://0x.org/content-hub",
     documentation: "https://0x.org/docs",
     discord: "https://discord.com/invite/official0x",
     x: "https://twitter.com/0xproject",
-    audit: "https://0x.org/docs/developer-resources/audits"
+    audit: "https://0x.org/docs/developer-resources/audits",
   },
   [ENS_ID]: {
     name: "ENS",
@@ -172,7 +174,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     documentation: "https://docs.gmx.io/docs",
     discord: "https://discord.com/invite/H5PeQru3Aa",
     x: "https://twitter.com/GMX_IO",
-    audit: "https://github.com/gmx-io/gmx-contracts/tree/master/audits"
+    audit: "https://github.com/gmx-io/gmx-contracts/tree/master/audits",
   },
   [FUSE_ID]: {
     name: "Fuse Network",
@@ -185,20 +187,19 @@ export const protcols: Record<string, ProtocolSchema> = {
     documentation: "https://docs.fuse.io",
     discord: "https://discord.com/invite/jpPMeSZ",
     x: "https://twitter.com/Fuse_network",
-    audit: "https://github.com/fuseio/fuse-network/tree/master/audits"
+    audit: "https://github.com/fuseio/fuse-network/tree/master/audits",
   },
   [SOLIDE_URL]: {
     name: "Solide",
     library: "",
-    description:
-      "Hehehe",
+    description: "Hehehe",
     github: "",
     website: "",
     blog: "",
     documentation: "",
     discord: "",
     x: "https://twitter.com/SolideProject",
-    audit: ""
+    audit: "",
   },
   [PUSH_PROTOCOL_ID]: {
     name: "Push Protocol",
@@ -211,6 +212,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     documentation: "https://push.org/docs",
     discord: "https://discord.com/invite/pushprotocol",
     x: "https://twitter.com/pushprotocol",
-    audit: "https://push.org/docs/notifications/push-smart-contracts/security-audits"
+    audit:
+      "https://push.org/docs/notifications/push-smart-contracts/security-audits",
   },
 }

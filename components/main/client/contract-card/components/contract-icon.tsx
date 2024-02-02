@@ -1,30 +1,47 @@
 "use client"
 
+import { useEffect, useState } from "react"
+import Link from "next/link"
 import { Icon } from "@iconify/react"
-import { ethers } from "ethers";
-import { useEffect, useState } from "react";
+import { Contract, ethers } from "ethers"
+
+import { getExplorer } from "@/lib/chains/explorer"
+import { ChainID } from "@/lib/chains/id"
+import { ContractSchema } from "@/lib/schema/contract"
 
 interface ContractIconProps extends React.HTMLAttributes<HTMLDivElement> {
-    link: string;
+  item: ContractSchema
 }
 
 export const isTronAddress = (address: string): boolean =>
-    address.substring(0, 1) === "T" && address.length === 34
+  address.substring(0, 1) === "T" && address.length === 34
 
 export const isXDCAddress = (address: string) =>
-    address.startsWith("xdc") && address.length === 43
+  address.startsWith("xdc") && address.length === 43
 
-export const ContractIcon = ({
-    link,
-}: ContractIconProps) => {
-    const [icon, setIcon] = useState<string>("bi:box")
-    const isContractAddress = (link: string): boolean => ethers.isAddress(link) || isTronAddress(link) || isXDCAddress(link)
+export const ContractIcon = ({ item }: ContractIconProps) => {
+  const [icon, setIcon] = useState<string>("iconoir:github")
+  const [link, setLink] = useState<string>(item.playground.default.address)
+  const isContractAddress = (link: string): boolean =>
+    ethers.isAddress(link) || isTronAddress(link) || isXDCAddress(link)
 
-    useEffect(() => {
-        if (!isContractAddress(link)) {
-            setIcon("iconoir:github")
-        }
-    }, [])
+  useEffect(() => {
+    setLink(item.playground.default.address)
+    if (isContractAddress(item.playground.default.address)) {
+      setIcon("bi:box")
+      setLink(
+        `${getExplorer(item.playground.default.chainId || ChainID.ETHEREUM_MAINNET)}/address/${item.playground.default.address}`
+      )
+    }
+  }, [item])
 
-    return <Icon className="cursor-pointer hover:text-primary" height={48} icon={icon} />
+  return (
+    <Link href={link} target="_blank">
+      <Icon
+        className="cursor-pointer hover:text-primary"
+        height={48}
+        icon={icon}
+      />
+    </Link>
+  )
 }

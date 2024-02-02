@@ -1,19 +1,19 @@
-import { ContractSchema } from "@/lib/schema/contract"
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
+import { ContractSchema } from "@/lib/schema/contract"
 
 interface TokenInfo {
-  chainId: number;
-  address: string;
-  decimals: number;
-  name: string;
-  symbol: string;
-  logoURI: string;
+  chainId: number
+  address: string
+  decimals: number
+  name: string
+  symbol: string
+  logoURI: string
 }
 
 export const items = async (
   url: string,
   tutorial: string = "",
-  reference: string = "",
+  reference: string = ""
 ): Promise<ContractSchema[]> => {
   const response = await fetch(url)
   const data = await response.json()

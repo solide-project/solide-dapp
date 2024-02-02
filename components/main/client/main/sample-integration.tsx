@@ -1,23 +1,21 @@
 "use client"
 
-import { useTheme } from "next-themes"
 import { SOLIDE_URL } from "@/lib/utils"
-import { CodeBlock } from "../shared/code-block"
+import { CodeBlock } from "@/components/main/client/shared/code-block"
 
 interface UsageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export const SampleIntegration = ({}: UsageProps) => {
-
   return (
     <div className="py-8 lg:py-16 grid-pattern">
-      <p className="text-center text-xl m-0 font-semibold uppercase my-16 text-primary">
+      <p className="text-center text-xl m-0 font-bold uppercase my-16 text-primary">
         Extension
       </p>
 
       <div className="container">
         <div className="grid grid-cols-12 gap-2">
           <div className="col-span-12 lg:col-span-6 flex items-center justify-center">
-            <CodeBlock className="!lg:w-[640px] border" code={code} />
+            <CodeBlock className="border overflow-x-auto w-full text-sm lg:text-base" code={code} />
           </div>
           <div className="col-span-12 lg:col-span-6">
             <div className="flex items-center justify-center">

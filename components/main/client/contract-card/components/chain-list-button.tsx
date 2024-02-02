@@ -19,13 +19,13 @@ import {
 } from "@/components/ui/popover"
 
 interface ContractListButtonProps extends React.HTMLAttributes<HTMLDivElement> {
-    items: string[],
-    handleOnChange: Function;
+  items: string[]
+  handleOnChange: Function
 }
 
 export const ChainListButton = ({
-    items,
-    handleOnChange
+  items,
+  handleOnChange,
 }: ContractListButtonProps) => {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")

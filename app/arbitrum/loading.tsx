@@ -1,5 +1,5 @@
-import { ContractPageSkeleton } from "@/components/main/server/contract-page-skeleton/contract-page-skeleton"
+import { LoadingScreen } from "@/components/main/server/loading-screen"
 
 export default function Loading() {
-    return <ContractPageSkeleton />
+  return <LoadingScreen />
 }
