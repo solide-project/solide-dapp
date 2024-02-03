@@ -1,5 +1,9 @@
 import { camelToWord, snakeToCamel } from "@/lib/utils"
 
+export interface AddressBook {
+  [key: string]: string
+}
+
 export interface GitHubFileInfo {
   name: string
   path: string
@@ -40,7 +44,8 @@ export const filterFiles = (
         file.name.startsWith(".") ||
         file.name.startsWith("I") ||
         file.name.startsWith("Lib") ||
-        file.name.startsWith("Test")
+        file.name.startsWith("Test") ||
+        file.name.includes("Interface")
       ) && // Ignore hidden files and interfaces
       file.name.endsWith(type) &&
       file.type === "file" &&
