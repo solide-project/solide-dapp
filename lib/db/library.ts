@@ -72,6 +72,8 @@ export const protcols: Record<string, ProtocolSchema> = {
     blog: "https://medium.com/compound-finance",
     discord: "https://discord.com/invite/fq6JSPkpJn",
     x: "https://twitter.com/compoundfinance",
+    documentation: "https://docs.compound.finance",
+    audit: "https://docs.compound.finance/v2/security/#audits"
   },
   [ARBITRUM_ID]: {
     name: "Arbitrum",
