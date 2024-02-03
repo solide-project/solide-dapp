@@ -11,7 +11,7 @@ import { ethers } from "ethers"
 import { ChainID } from "@/lib/chains/id"
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
 import { ContractSchema } from "@/lib/schema/contract"
-import { camelToWord } from "@/lib/utils"
+import { camelToWord, snakeToCamel, snakeToWord } from "@/lib/utils"
 
 const getAPI = (chain: string) => {
   switch (chain) {
@@ -32,23 +32,23 @@ const getAPI = (chain: string) => {
 
 export const items = async (chain: string) => {
   const ret: ContractSchema[] = []
-  ret.push(...getStargateContract(LZ_ADDRESS, chain, camelToWord("LZ_ADDRESS")))
-  ret.push(...getStargateContract(LZ_RELAYER, chain, camelToWord("LZ_RELAYER")))
+  ret.push(...getStargateContract(LZ_ADDRESS, chain, snakeToWord("LZ_ADDRESS")))
+  ret.push(...getStargateContract(LZ_RELAYER, chain, snakeToWord("LZ_RELAYER")))
   ret.push(
-    ...getStargateContract(LZ_RELAYER_V2, chain, camelToWord("LZ_RELAYER_V2"))
+    ...getStargateContract(LZ_RELAYER_V2, chain, snakeToWord("LZ_RELAYER_V2"))
   )
   ret.push(
     ...getStargateContract(
       LZ_ULTRA_LIGHT_NODE_V1,
       chain,
-      camelToWord("LZ_ULTRA_LIGHT_NODE_V1")
+      snakeToWord("LZ_ULTRA_LIGHT_NODE_V1")
     )
   )
   ret.push(
     ...getStargateContract(
       LZ_ULTRA_LIGHT_NODE_V2,
       chain,
-      camelToWord("LZ_ULTRA_LIGHT_NODE_V2")
+      snakeToWord("LZ_ULTRA_LIGHT_NODE_V2")
     )
   )
   return ret
@@ -72,7 +72,7 @@ const getStargateContract = (
       tutorial: "",
       reference:
         "https://stargateprotocol.gitbook.io/stargate/developers/contract-addresses/mainnet#contract-addresses",
-      description: `LayerZero Contract: ${name} contract on ${getNetworkNameFromChainID(chain)}.`,
+      description: `LayerZero Contract ${name} contract on ${getNetworkNameFromChainID(chain)}. The LayerZero Protocol comprises several key contracts that collectively facilitate various functionalities within the decentralized finance (DeFi) ecosystem. The contracts are integral components responsible for routing trades and interacting with decentralized exchanges and for a cross-chain functionality, potentially enabling seamless asset transfers between different blockchain networks.`,
       playground: {
         default: {
           address: contract as string,

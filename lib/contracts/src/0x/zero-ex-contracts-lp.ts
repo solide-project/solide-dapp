@@ -8,6 +8,6 @@ export const items = async (): Promise<ContractSchema[]> => {
     tutorial:
       "https://github.com/0xProject/protocol/blob/development/contracts/zero-ex/README.md",
     description:
-      "The extensible contract architecture of ZeroEx primarily involves three main components: the Exchange contract, ERC-20 token contracts, and additional features that can be added through plug-ins or extensions.",
+      "The extensible contract architecture of 0x primarily involves three main components: the Exchange contract, ERC-20 token contracts, and additional features that can be added through plug-ins or extensions.",
   })
 }

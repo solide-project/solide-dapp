@@ -13,7 +13,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { ChainListButton } from "./components/chain-list-button"
 import { ContractIcon } from "./components/contract-icon"
 import { LoadPlayground } from "./components/load-playground/load-playground"
@@ -30,6 +35,18 @@ export const ContractCard = ({ item }: ContractCardProps) => {
         <div className="pt-4">
           <CardTitle className="my-4">{item.title}</CardTitle>
           <CardDescription className="">{item.description}</CardDescription>
+
+          {item.outdated &&
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Icon icon="akar-icons:warning" className="text-red-500" />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{item.outdated}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>}
         </div>
       </CardHeader>
       <CardFooter>

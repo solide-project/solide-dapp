@@ -1,12 +1,5 @@
 import { ChainID } from "@/lib/chains/id"
 
-const OVM_GasPriceOracle_CONTRACT = "0x420000000000000000000000000000000000000f"
-const MetisOFTToken_CONTRACT = "0xE110AF9Bc0C40bEAA8b797c5B45D8b4299BD5ab7"
-const AthenaFinanceMasterchef_CONTRACT =
-  "0x934a4Fc502a785032162c8AEF89Ad68385Ef31Dc"
-const GnosisSafeL2_CONTRACT = "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA"
-const USDTTokenLP_CONTRACT = "0x2b60473a7C41Deb80EDdaafD5560e963440eb632"
-
 export const items = [
   {
     title: "Metis L2 Gas Price Oracle",
@@ -17,7 +10,7 @@ export const items = [
       "The OVM_GasPriceOracle contract plays a critical role in determining the current Layer 2 (L2) gas price, which is instrumental in setting transaction fees. The contract's variables, including the L2 gas price, L1 base fee, overhead costs, and scaling factors, collectively contribute to the fee calculation, reflecting the network's congestion level.",
     playground: {
       default: {
-        address: OVM_GasPriceOracle_CONTRACT,
+        address: "0x420000000000000000000000000000000000000f",
         chainId: ChainID.METIS_ANDROMEDA,
       },
     },
@@ -30,7 +23,7 @@ export const items = [
       "The contract seems to be related to Omnichain Fungible Tokens (OFT) with a fee mechanism, as indicated by the inheritance.  This contract likely plays a role in the Metis blockchain ecosystem, providing functionality for native token operations, including potential interactions with LayerZero.",
     playground: {
       default: {
-        address: MetisOFTToken_CONTRACT,
+        address: "0xE110AF9Bc0C40bEAA8b797c5B45D8b4299BD5ab7",
         chainId: ChainID.METIS_ANDROMEDA,
       },
     },
@@ -45,7 +38,7 @@ export const items = [
       "The MasterChef contract is a decentralized finance (DeFi) protocol designed for managing multiple reward pools, utilizing a unique timestamp-based mechanism for dynamic ATH token distribution. With features like emergency withdrawals, ownership transition plans, and multi-pool management, it aims to offer users a secure and flexible staking experience.",
     playground: {
       default: {
-        address: AthenaFinanceMasterchef_CONTRACT,
+        address: "0x934a4Fc502a785032162c8AEF89Ad68385Ef31Dc",
         chainId: ChainID.METIS_ANDROMEDA,
       },
     },
@@ -57,7 +50,7 @@ export const items = [
       "The Gnosis Safe smart contract is a versatile and secure multisignature wallet on the Metis blockchain, designed to facilitate collaborative ownership and management of digital assets. Multiple owners can collectively control the wallet, requiring a predefined number of confirmations to execute transactions. The contract ensures robust security through features like signature validation, hash approval mechanisms, and gas cost management.",
     playground: {
       default: {
-        address: GnosisSafeL2_CONTRACT,
+        address: "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
         chainId: ChainID.METIS_ANDROMEDA,
       },
     },
@@ -71,7 +64,7 @@ export const items = [
       "The Gnosis Safe smart contract is a versatile and secure multisignature wallet on the Metis blockchain, designed to facilitate collaborative ownership and management of digital assets. Multiple owners can collectively control the wallet, requiring a predefined number of confirmations to execute transactions. The contract ensures robust security through features like signature validation, hash approval mechanisms, and gas cost management.",
     playground: {
       default: {
-        address: USDTTokenLP_CONTRACT,
+        address: "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA",
         chainId: ChainID.METIS_ANDROMEDA,
       },
     },

@@ -1,4 +1,4 @@
-import { snakeToCamel } from "@/lib/utils"
+import { camelToWord, snakeToCamel } from "@/lib/utils"
 
 export interface GitHubFileInfo {
   name: string
@@ -66,7 +66,7 @@ export const generateContractSchemaTitle = (
   title: string,
   name: string
 ): string => {
-  return `${title}: ${snakeToCamel(name)}`
+  return `${title}: ${camelToWord(name)}`
 }
 
 export const fetchGithub = async (url: string): Promise<Response> => {

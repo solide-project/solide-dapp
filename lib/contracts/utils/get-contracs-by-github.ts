@@ -2,7 +2,7 @@ import path from "path"
 
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
 import { ContractSchema } from "@/lib/schema"
-import { snakeToCamel } from "@/lib/utils"
+import { camelToWord, snakeToCamel } from "@/lib/utils"
 
 import {
   fetchGithub,
@@ -38,7 +38,7 @@ export const getContractsByGithub = async ({
     filteredFiles.map((file) =>
       fetchSolidityData({
         file,
-        mainTitle: title,
+        title,
         tutorial,
         reference,
         description,
@@ -54,7 +54,7 @@ export const getContractsByGithub = async ({
 
 const fetchSolidityData = async ({
   file,
-  mainTitle = "",
+  title = "",
   tutorial = "",
   reference = "",
   description = "",
@@ -64,7 +64,7 @@ const fetchSolidityData = async ({
   remappings = {},
 }: {
   file: GitHubFileInfo
-  mainTitle?: string
+  title?: string
   tutorial?: string
   reference?: string
   description?: string
@@ -74,8 +74,7 @@ const fetchSolidityData = async ({
   remappings?: Record<string, string>
 }): Promise<ContractSchema> => {
   const { dir, name } = path.parse(file.path)
-  const formattedName = snakeToCamel(name)
-
+  
   const { entity } = getRepoInfo(file.html_url)
 
   let playground: any = {
@@ -95,7 +94,7 @@ const fetchSolidityData = async ({
   }
 
   return {
-    title: generateContractSchemaTitle(mainTitle || dir, name),
+    title: generateContractSchemaTitle(title || dir, camelToWord(name)),
     tutorial,
     reference: file.html_url || reference,
     description: `${entity} ${name} Contract${chain ? " on " + getNetworkNameFromChainID(chain) : ""}. ${description}`,

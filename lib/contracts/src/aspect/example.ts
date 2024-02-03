@@ -47,7 +47,7 @@ export const items = (): ContractSchema[] => {
         title: `${mainTitle}: ${example.title}`,
         tutorial: `https://github.com/artela-network/aspect-example/blob/main/${example.key}/README.md`,
         reference: `https://github.com/artela-network/aspect-example/blob/main/${example.key}`,
-        description: `Artela Aspect Example for ${example.description}`,
+        description: `Aspect example from the Artela network demonstrates how to integrate an Aspect with a smart contract: ${example.description}`,
         playground: {
           default: {
             address: `https://github.com/artela-network/aspect-example/blob/main/${example.key}/${aspect}`,

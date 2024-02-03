@@ -7,7 +7,7 @@ export const items = async (): Promise<ContractSchema[]> => {
     url: "https://api.github.com/repos/gmx-io/gmx-contracts/contents/contracts/amm",
     tutorial: "https://github.com/gmx-io/gmx-contracts/blob/master/README.md",
     description:
-      "GMX Synthetics contracts emphasizes the interplay between market tokens, liquidity providers, and collateral tokens, detailing the execution of user requests and the calculation of token values based on factors such as the market pool's worth, pending PnL, and borrow fees. The system allows for diverse trading operations, including swaps between long and short tokens, passive orders, and strategic position adjustments based on specified price conditions.",
+      "GMX AMM (Automated Market Maker) is a decentralized finance (DeFi) protocol that leverages automated market-making algorithms to facilitate efficient and decentralized trading of various assets on blockchain networks. GMX employs advanced mathematical models to determine optimal pricing and liquidity, enabling users to trade digital assets seamlessly without the need for traditional intermediaries.",
     version: "v0.6.12+commit.27d51765",
   })
 }

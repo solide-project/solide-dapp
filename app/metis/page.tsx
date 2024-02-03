@@ -7,7 +7,6 @@ import { items as MAIA_DAO_CONTRACTS } from "@/lib/contracts/src/metis/maia-dao-
 import { items as METIS_TOKEN_ITEMS } from "@/lib/contracts/src/metis/metis-token-list"
 import { items as NETSWAP_FARM_CONTRACTS } from "@/lib/contracts/src/metis/netswap-farm"
 import { items as OTHER_CONTRACTS } from "@/lib/contracts/src/metis/other"
-import { items as REPO_CONTRACTS } from "@/lib/contracts/src/metis/repo"
 import { items as TOKEN_CONTRACTS } from "@/lib/contracts/src/metis/token"
 import { METIS_ID } from "@/lib/db/ids"
 import { protcols } from "@/lib/db/library"
@@ -18,7 +17,6 @@ export default async function Page() {
   let items: ContractSchema[] = [
     ...TOKEN_CONTRACTS,
     ...OTHER_CONTRACTS,
-    ...REPO_CONTRACTS,
   ]
 
   items.push(...(await CHAINLINK_PRICE_FEED_ITEMS(ChainID.METIS_ANDROMEDA)))

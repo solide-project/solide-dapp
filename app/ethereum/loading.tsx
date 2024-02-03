@@ -1,4 +1,5 @@
+import { LoadingScreen } from "@/components/main/server/loading-screen"
+
 export default function Loading() {
-  console.log("Loading")
-  return <div>Loading</div>
+  return <LoadingScreen />
 }

@@ -8,6 +8,6 @@ export const items = async (): Promise<ContractSchema[]> => {
     tutorial:
       "https://github.com/0xProject/protocol/blob/development/contracts/governance/README.md",
     description:
-      "The extensible contract architecture of ZeroEx primarily involves three main components: the Exchange contract, ERC-20 token contracts, and additional features that can be added through plug-ins or extensions.",
+      "The Governance package for 0x Protocol and Treasury is implemented with decentralized principles, employing various contracts like ZRXWrappedToken, ZeroExVotesProxy, and ZeroExVotes. The design features separate governors for Protocol and Treasury, utilizing Timelock instances. Wrapped ZRX tokens are issued 1-to-1 with ZRX, supporting delegation without locking mechanisms. Governance settings, quorum calculations, and voting strategies differ for Protocol and Treasury, and the system supports linear and quadratic voting approaches.",
   })
 }

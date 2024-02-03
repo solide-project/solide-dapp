@@ -1,3 +1,5 @@
+import { ChainID } from "@/lib/chains/id"
+import { getChainIdFromNetwork } from "@/lib/chains/name"
 import { ContractSchema } from "@/lib/schema/contract"
 
 export const items = async () => {
@@ -7,12 +9,13 @@ export const items = async () => {
   const data = await response.json()
 
   const ret: ContractSchema[] = []
+  const networkName = getChainIdFromNetwork(ChainID.ETHEREUM_MAINNET);
   data.tokens.forEach((token: any) => {
     ret.push({
-      title: `${token.name} (${token.symbol})`,
+      title: `${data.name}: ${token.name} (${token.symbol})`,
       tutorial: "",
       reference: "https://tokenlists.org/token-list?url=stablecoin.cmc.eth",
-      description: `Synthetix Token ${token.name}. Powered by Uniswap's Token Lists, a community-led initiative to improve discoverability, reputation and trust in ERC20 token lists in a manner that is inclusive, transparent, and decentralized.`,
+      description: `Stablecoin for differents assets ${token.name} on ${networkName}. Powered by Uniswap's Token Lists. A stablecoin is a type of cryptocurrency specifically designed to maintain a stable value, typically pegged to an real world asset. The primary goal of a stablecoin is to minimize volatility, providing users with a reliable and secure digital asset for transactions, investments, and as a store of value.`,
       playground: {
         default: {
           address: token.address,

@@ -9,8 +9,6 @@ interface FarmContract {
   allocPoint: number
 }
 
-const mainTitle = "Netswap Farms:"
-
 export const items = async () => {
   const response = await fetch(
     "https://raw.githubusercontent.com/Netswap/nett-farmlists/main/mainnet/NETTFarms.json"
@@ -20,7 +18,7 @@ export const items = async () => {
   const ret: ContractSchema[] = []
   data.farms.forEach((token: FarmContract) => {
     ret.push({
-      title: `${mainTitle} (${token.name})`,
+      title: `Netswap Farms: (${token.name})`,
       tutorial: "",
       reference: "https://github.com/Netswap",
       description: `Netswap's Farm ${token.name} Pair on ${getNetworkNameFromChainID(ChainID.METIS_ANDROMEDA)}. In Netswap's ecosystem, NETT operates with every aspect of Metis. Netswap is building a comprehensive decentralized trading platform for the future DeFi.`,

@@ -8,6 +8,6 @@ export const items = async (): Promise<ContractSchema[]> => {
     tutorial:
       "https://github.com/0xProject/protocol/blob/development/contracts/treasury/README.md",
     description:
-      "The extensible contract architecture of ZeroEx primarily involves three main components: the Exchange contract, ERC-20 token contracts, and additional features that can be added through plug-ins or extensions.",
+      "hese contracts include components such as governors, timelocks, and voting mechanisms tailored for decision-making related to the management and utilization of the ZRX treasury.",
   })
 }

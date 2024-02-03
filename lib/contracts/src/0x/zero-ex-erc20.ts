@@ -8,6 +8,6 @@ export const items = async (): Promise<ContractSchema[]> => {
     tutorial:
       "https://github.com/0xProject/protocol/blob/development/contracts/erc20/README.md",
     description:
-      "The extensible contract architecture of ZeroEx primarily involves three main components: the Exchange contract, ERC-20 token contracts, and additional features that can be added through plug-ins or extensions.",
+      "The ERC20 Tokens package comprises implementations of several ERC20 tokens, notably WETH (Wrapped Ether) and ZRX. These contracts adhere to the ERC20 standard, providing functionalities such as transfer and balance inquiry.",
   })
 }

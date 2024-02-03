@@ -1,4 +1,3 @@
-import { ChainID } from "@/lib/chains/id"
 import { OPEN_ZEPPELIN_ID } from "@/lib/db/ids"
 import { protcols } from "@/lib/db/library"
 import { ContractSchema } from "@/lib/schema/contract"
