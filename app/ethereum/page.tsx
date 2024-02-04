@@ -7,6 +7,7 @@ import { items as NFT_CONTRACTS } from "@/lib/contracts/src/ethereum/nft"
 import { items as STARGATE_CONTRACTS } from "@/lib/contracts/src/ethereum/stargate"
 import { items as TOKEN_CONTRACTS } from "@/lib/contracts/src/ethereum/token"
 import { items as UNISWAP_TOKEN_ITEMS } from "@/lib/contracts/src/ethereum/uniswap-token-list"
+import { items as OPENSEA_CONTRACTS } from "@/lib/contracts/src/the-graph/opensea"
 import { ETHEREUM_ID } from "@/lib/db/ids"
 import { protcols } from "@/lib/db/library"
 import { ContractSchema } from "@/lib/schema/contract"
@@ -15,6 +16,7 @@ import { ContractPage } from "@/components/main/client/pages/contract-page"
 export default async function Page() {
   let items: ContractSchema[] = []
 
+  // items.push(...(await OPENSEA_CONTRACTS()))
   items.push(...(await UNISWAP_TOKEN_ITEMS()))
   items.push(...(await MAKER_DAO_ITEMS("mainnet")))
   items.push(...(await BALANCER_ITEMS(ChainID.ETHEREUM_MAINNET)))

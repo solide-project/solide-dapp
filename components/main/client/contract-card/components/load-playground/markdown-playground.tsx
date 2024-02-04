@@ -10,6 +10,8 @@ import remarkGfm from "remark-gfm"
 import { ContractSchema, SolideIDESchema } from "@/lib/schema/contract"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import markdownit from 'markdown-it'
+import path from "path"
 
 interface MarkdownPlaygroundProps extends React.HTMLAttributes<HTMLDivElement> {
   tutorials?: string
@@ -20,20 +22,74 @@ export const MarkdownPlayground = ({ tutorials }: MarkdownPlaygroundProps) => {
   const [loadSkeleton, setLoadSkeleton] = useState<boolean>(false)
 
   // convert a github https://github.com/SovaSniper/tutorials/blob/master/compound/cToken.md to its repo url
-  const resolve = async (tutorial: string): Promise<string[]> => {
-    let output: string[] = []
-    const elements = tutorial.split("|")
-    for (const element of elements) {
+  const resolve = async (tutorials: string): Promise<{ url: string, raw: string }[]> => {
+    let output: { url: string, raw: string }[] = []
+    const urls = tutorials.split("|")
+    for (const url of urls) {
       const resolver = GithubResolver()
-      const uri = await resolver(element, { resolver: "" })
-      uri && output.push(uri)
+      const raw = await resolver(url, { resolver: "" })
+      raw && output.push({ url, raw })
     }
 
     return output
   }
 
+  function findLinksRecursive(tokens: markdownit.Token[], links: string[] = []): string[] {
+    tokens.forEach(token => {
+      if (token.type === 'link_open' && token.attrs) {
+        const link = token.attrs.find((attr: any) => attr[0] === 'href');
+        if (link) {
+          links.push(link[1]);
+        }
+      } else if (token.type === 'image' && token.attrs) {
+        const link = token.attrs.find((attr: any) => attr[0] === 'src');
+        if (link) {
+          links.push(link[1]);
+        }
+      }
+
+      // Check if the token has children (nested elements)
+      if (token.children && token.children.length > 0) {
+        findLinksRecursive(token.children, links);
+      }
+    });
+
+    return links;
+  }
+
+  function getDirPath(filePath: any) {
+    let index1 = filePath.lastIndexOf(path.sep)
+    let index2 = filePath.lastIndexOf("/")
+    return filePath.substring(0, Math.max(index1, index2))
+  }
+
+  const findLinks = async (url: string, markdownContent: string): Promise<string> => {
+    const md = markdownit()
+    const tokens = md.parse(markdownContent, {});
+
+    await Promise.all(
+      findLinksRecursive(tokens)
+        .filter(link => link.startsWith('./') || link.startsWith('../'))
+        .map(async link => {
+          const rawPath = url.substring(url.indexOf('//') + 2);
+          const href = path.normalize(path.join(getDirPath(rawPath), link));
+          let fullUrl = `${url.substring(0, url.indexOf('//') + 2)}${href.replace(/\\/g, '/')}`;
+
+          if (link.endsWith(".jpg") || link.endsWith(".png") || link.endsWith(".gif")) {
+            const resolver = GithubResolver();
+            const raw = await resolver(fullUrl, { resolver: "" });
+            console.log(raw);
+            raw && (fullUrl = raw);
+          }
+          markdownContent = markdownContent.replace(link, fullUrl);
+        })
+    );
+
+    return markdownContent
+  }
+
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       setLoadSkeleton(true)
       await handleMarkdownGeneration()
       setLoadSkeleton(false)
@@ -54,10 +110,10 @@ export const MarkdownPlayground = ({ tutorials }: MarkdownPlaygroundProps) => {
     // setRawTutorial(documentation[0] || "")
 
     let text = ""
-    for (const element of documentation) {
-      const response = await fetch(element)
+    for (const md of documentation) {
+      const response = await fetch(md.raw)
       const info = await response.text()
-      text += "\n" + info
+      text += "\n" + await findLinks(md.url, info)
     }
 
     setContent(text)
@@ -123,7 +179,7 @@ export const MarkdownPlayground = ({ tutorials }: MarkdownPlaygroundProps) => {
               ),
               p: ({ node, ...props }) => <p className="" {...props} />,
               a: ({ node, ...props }) => (
-                <a className="text-primary underline" {...props} />
+                <a className="text-primary underline" {...props} target="_blank" />
               ),
               blockquote: ({ node, ...props }) => (
                 <blockquote
@@ -131,10 +187,10 @@ export const MarkdownPlayground = ({ tutorials }: MarkdownPlaygroundProps) => {
                   {...props}
                 />
               ),
-              img: ({ node, ...props }) => (
-                // Looking for a way to make this responsive
-                <div></div>
-              ),
+              // img: ({ node, ...props }) => (
+              //   // Looking for a way to make this responsive
+              //   <div></div>
+              // ),
             }}
           >
             {content}

@@ -5,7 +5,7 @@ export const items = async (chain?: string) => {
   var myHeaders = new Headers()
   var raw = JSON.stringify({
     query:
-      "query MyQuery {\n  collections(first: 10, orderBy: totalRevenueETH, orderDirection: desc) {\n    id\n    name\n    totalRevenueETH\n    symbol\n  }\n}",
+      "query MyQuery {\n  collections(first: 5, orderBy: totalRevenueETH, orderDirection: desc) {\n    id\n    name\n    totalRevenueETH\n    symbol\n  }\n}",
     operationName: "MyQuery",
     extensions: {},
   })
