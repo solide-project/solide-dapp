@@ -21,6 +21,7 @@ export const getContractsByGithub = async ({
   version,
   outdated,
   remappings,
+  docRemappings,
 }: {
   url: string
   title?: string
@@ -30,6 +31,7 @@ export const getContractsByGithub = async ({
   version?: string
   outdated?: string
   remappings?: Record<string, string>
+  docRemappings?: Record<string, string>
 }): Promise<ContractSchema[]> => {
   const response = await fetchGithub(url)
   const directory: GitHubFileInfo[] = await response.json()
@@ -45,6 +47,7 @@ export const getContractsByGithub = async ({
         version,
         outdated,
         remappings,
+        docRemappings
       })
     )
   )
@@ -62,6 +65,7 @@ const fetchSolidityData = async ({
   version = "",
   outdated = "",
   remappings = {},
+  docRemappings = {},
 }: {
   file: GitHubFileInfo
   title?: string
@@ -71,7 +75,8 @@ const fetchSolidityData = async ({
   chain?: string
   version?: string
   outdated?: string
-  remappings?: Record<string, string>
+  remappings?: Record<string, string>,
+  docRemappings?: Record<string, string>
 }): Promise<ContractSchema> => {
   const { dir, name } = path.parse(file.path)
   
@@ -91,6 +96,10 @@ const fetchSolidityData = async ({
 
   if (remappings) {
     playground.remappings = remappings
+  }
+
+  if (docRemappings && docRemappings[name]) {
+    tutorial = docRemappings[name]
   }
 
   return {
