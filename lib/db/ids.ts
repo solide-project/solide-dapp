@@ -15,3 +15,5 @@ export const ARTELA_ID = "artela"
 export const GMX_ID = "gmx"
 export const FUSE_ID = "fuse"
 export const PUSH_PROTOCOL_ID = "push"
+export const AZUKI_ID = "azuki"
+

@@ -86,6 +86,10 @@ export const frameworks = [
     value: "push",
     label: "Push Protocol",
   },
+  {
+    value: "azuki",
+    label: "Chiru Labs (Azuki)",
+  },
 ]
 
 const sortedFrameworks = frameworks
