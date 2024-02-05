@@ -18,6 +18,7 @@ export const getContractsByGithub = async ({
   tutorial,
   reference,
   description,
+  chain,
   version,
   outdated,
   remappings,
@@ -28,6 +29,7 @@ export const getContractsByGithub = async ({
   tutorial?: string
   reference?: string
   description?: string
+  chain?: string
   version?: string
   outdated?: string
   remappings?: Record<string, string>
@@ -44,6 +46,7 @@ export const getContractsByGithub = async ({
         tutorial,
         reference,
         description,
+        chain,
         version,
         outdated,
         remappings,
