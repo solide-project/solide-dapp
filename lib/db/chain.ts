@@ -5,6 +5,7 @@ import {
   FUSE_ID,
   IMMUTABLE_ID,
   METIS_ID,
+  RONIN_ID,
 } from "./ids"
 
 export interface NativeCurrency {
@@ -185,6 +186,33 @@ export const FUSE_TESTNET: ChainInfo = {
   },
   blockExplorerUrls: ["https://explorer.fusespark.io"],
 }
+
+export const RONIN_TESTNET: ChainInfo = {
+  chainId: "0x7e5",
+  chainName: "Ronin Testnet",
+  rpcUrls: ["https://saigon-testnet.roninchain.com/rpc"],
+  iconUrls: [""],
+  nativeCurrency: {
+    name: "RON",
+    symbol: "RON",
+    decimals: 18,
+  },
+  blockExplorerUrls: ["https://saigon-app.roninchain.com"],
+}
+
+export const RONIN_MAINNET: ChainInfo = {
+  chainId: "0x2e2e",
+  chainName: "Ronin Mainnet",
+  rpcUrls: ["https://api.roninchain.com/rpc"],
+  iconUrls: [""],
+  nativeCurrency: {
+    name: "RON",
+    symbol: "RON",
+    decimals: 18,
+  },
+  blockExplorerUrls: ["https://app.roninchain.com"],
+}
+
 export const chainInfo = {
   [ARBITRUM_ID]: [ARBITRUM_ONE, ARBITRUM_NOVA],
   [METIS_ID]: [METIS_ANDROMEDA, METIS_SEPOLIA],
@@ -192,4 +220,5 @@ export const chainInfo = {
   [IMMUTABLE_ID]: [IMMUTABLE_MAINNET, IMMUTABLE_TESTNET],
   [ARTELA_ID]: [ARTELA_BETANET],
   [FUSE_ID]: [FUSE_MAINNET, FUSE_TESTNET],
+  [RONIN_ID]: [RONIN_MAINNET, RONIN_TESTNET],
 }

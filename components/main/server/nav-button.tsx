@@ -90,6 +90,10 @@ export const frameworks = [
     value: "azuki",
     label: "Chiru Labs (Azuki)",
   },
+  {
+    value: "ronin",
+    label: "Ronin",
+  },
 ]
 
 const sortedFrameworks = frameworks
@@ -100,7 +104,7 @@ const sortedFrameworks = frameworks
     label: "Solide",
   })
 
-interface NavButtonProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface NavButtonProps extends React.HTMLAttributes<HTMLDivElement> { }
 
 export const NavButton = ({ ...props }: NavButtonProps) => {
   const pathname = usePathname()
@@ -110,8 +114,14 @@ export const NavButton = ({ ...props }: NavButtonProps) => {
   const [value, setValue] = React.useState("")
 
   useEffect(() => {
+    // (async () => {
+    //   const chainId = await (window.ethereum).request({ method: "eth_chainId" })
+    //   console.log("chainId", chainId);
+    // })()
+
     const path = pathname.split("/").pop()
     setValue(path || "")
+
     // console.log(router, path);
   }, [])
 
@@ -126,7 +136,7 @@ export const NavButton = ({ ...props }: NavButtonProps) => {
         >
           {value
             ? frameworks.find((framework) => framework.value === value)
-                ?.label || "Welcome!"
+              ?.label || "Welcome!"
             : "Welcome!"}
           <Icon
             icon="charm:chevrons-down"
