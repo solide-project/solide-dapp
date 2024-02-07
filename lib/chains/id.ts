@@ -94,6 +94,7 @@ export enum ChainID {
   CARBON_EVM_MAINNET = "9790",
   CARBON_EVM_TESTNET = "9792",
   ARTELA_TESTNET = "11822",
+  BERACHAIN_TESTNET = "80085",
 }
 
 export const getChainIdFromPathName = (pathname: string): string => {

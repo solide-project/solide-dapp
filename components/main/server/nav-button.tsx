@@ -94,6 +94,10 @@ export const frameworks = [
     value: "ronin",
     label: "Ronin",
   },
+  {
+    value: "berachain",
+    label: "Berachain",
+  },
 ]
 
 const sortedFrameworks = frameworks
