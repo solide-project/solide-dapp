@@ -94,6 +94,10 @@ export const frameworks = [
     value: "ronin",
     label: "Ronin",
   },
+  {
+    value: "juice-box",
+    label: "Juice Box DAO",
+  },
 ]
 
 const sortedFrameworks = frameworks

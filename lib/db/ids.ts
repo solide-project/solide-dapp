@@ -17,5 +17,6 @@ export const FUSE_ID = "fuse"
 export const PUSH_PROTOCOL_ID = "push"
 export const AZUKI_ID = "azuki"
 export const RONIN_ID = "ronin"
+export const JUICE_BOX_DAO_ID = "juice-box"
 
 

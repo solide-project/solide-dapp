@@ -36,8 +36,6 @@ export const getContractsByDeployments = async ({
   const { dir, name } = path.parse(file.path)
   const { entity, repo } = getRepoInfo(file.html_url)
 
-  console.log(name, address)
-
   let playground: any = {
     address: address,
   }

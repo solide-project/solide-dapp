@@ -41,6 +41,11 @@ export interface ContractSchema {
    * Optional reference information for the contract.
    */
   reference?: string
+
+  /**
+   * New: For Solide related documentations
+   */
+  nft?: string
 }
 
 /**
