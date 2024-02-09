@@ -31,22 +31,23 @@ export const ContractCard = ({ item }: ContractCardProps) => {
   return (
     <Card className="border-none">
       <CardHeader className="p-8">
-        <ContractIcon item={item} />
-        <div className="pt-4">
-          <CardTitle className="my-4">{item.title}</CardTitle>
-          <CardDescription className="">{item.description}</CardDescription>
-
+        <div className="flex items-center justify-between">
+          <ContractIcon item={item} />
           {item.outdated &&
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger>
-                  <Icon icon="akar-icons:warning" className="text-red-500" />
+                  <Icon icon="ion:warning" className="text-orange-500 h-8 w-8" />
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>{item.outdated}</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>}
+        </div>
+        <div className="pt-4">
+          <CardTitle className="my-4">{item.title}</CardTitle>
+          <CardDescription className="">{item.description}</CardDescription>
         </div>
       </CardHeader>
       <CardFooter>

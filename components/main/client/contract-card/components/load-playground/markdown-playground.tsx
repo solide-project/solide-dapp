@@ -78,7 +78,6 @@ export const MarkdownPlayground = ({ tutorials }: MarkdownPlaygroundProps) => {
           if (link.endsWith(".jpg") || link.endsWith(".png") || link.endsWith(".gif")) {
             const resolver = GithubResolver();
             const raw = await resolver(fullUrl, { resolver: "" });
-            console.log(raw);
             raw && (fullUrl = raw);
           }
           markdownContent = markdownContent.replace(link, fullUrl);
