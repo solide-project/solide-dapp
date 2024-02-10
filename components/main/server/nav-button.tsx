@@ -95,6 +95,10 @@ export const frameworks = [
     label: "Ronin",
   },
   {
+    value: "juice-box",
+    label: "Juice Box DAO",
+  },
+  {
     value: "berachain",
     label: "Berachain",
   },
