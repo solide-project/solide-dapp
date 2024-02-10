@@ -98,6 +98,10 @@ export const frameworks = [
     value: "juice-box",
     label: "Juice Box DAO",
   },
+  {
+    value: "berachain",
+    label: "Berachain",
+  },
 ]
 
 const sortedFrameworks = frameworks

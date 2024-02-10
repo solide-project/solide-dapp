@@ -8,5 +8,5 @@ export const items = async (): Promise<ContractSchema[]> =>
         url: "https://api.github.com/repos/axieinfinity/ronin-bridge-contracts/contents/src/extensions",
         tutorial,
         reference,
-        description: "The Extensions smart contracts is for decision-making structures and sequential task execution, with the core smart contracts likely facilitate the bridge's essential operations, including asset transfers and upgrades.",
+        description: "The extensions smart contracts is for decision-making structures and sequential task execution, with the core smart contracts likely facilitate the bridge's essential operations, including asset transfers and upgrades.",
     })

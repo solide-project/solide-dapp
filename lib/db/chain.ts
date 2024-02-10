@@ -213,6 +213,19 @@ export const RONIN_MAINNET: ChainInfo = {
   blockExplorerUrls: ["https://app.roninchain.com"],
 }
 
+export const BERACHAIN_ARTIO: ChainInfo = {
+  chainId: "Berachain",
+  chainName: "Berachain Artio",
+  rpcUrls: ["https://artio.rpc.berachain.com'"],
+  iconUrls: [""],
+  nativeCurrency: {
+    name: "BERA Token",
+    symbol: "BERA",
+    decimals: 18,
+  },
+  blockExplorerUrls: ["https://artio.beratrail.io"],
+}
+
 export const chainInfo = {
   [ARBITRUM_ID]: [ARBITRUM_ONE, ARBITRUM_NOVA],
   [METIS_ID]: [METIS_ANDROMEDA, METIS_SEPOLIA],
