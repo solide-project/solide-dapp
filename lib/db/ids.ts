@@ -19,6 +19,6 @@ export const AZUKI_ID = "azuki"
 export const RONIN_ID = "ronin"
 export const BERACHAIN_ID = "berachain"
 export const JUICE_BOX_DAO_ID = "juice-box"
-
+export const BICONOMY_ID = "biconomy"
 
 
