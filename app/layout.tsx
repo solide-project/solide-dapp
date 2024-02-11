@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/ui/theme/theme-provider"
 import { Footer } from "@/components/main/client/main/footer"
 import { NavBar } from "@/components/main/server/nav-bar"
+import { TooltipProvider } from "@/components/ui/tooltip"
 
 const inter = Inter({ subsets: ["latin"] })
 export const fontSpace = Space_Grotesk({
@@ -33,9 +34,11 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
-          <NavBar />
-          {children}
-          <Footer />
+          <TooltipProvider delayDuration={200}>
+            <NavBar />
+            {children}
+            <Footer />
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

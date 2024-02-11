@@ -22,6 +22,7 @@ import {
 import { ChainListButton } from "./components/chain-list-button"
 import { ContractIcon } from "./components/contract-icon"
 import { LoadPlayground } from "./components/load-playground/load-playground"
+import { ContractInfo } from "./components/contract-info"
 
 interface ContractCardProps extends React.HTMLAttributes<HTMLDivElement> {
   item: ContractSchema
@@ -33,17 +34,7 @@ export const ContractCard = ({ item }: ContractCardProps) => {
       <CardHeader className="p-8">
         <div className="flex items-center justify-between">
           <ContractIcon item={item} />
-          {item.outdated &&
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger>
-                  <Icon icon="ion:warning" className="text-orange-500 h-8 w-8" />
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{item.outdated}</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>}
+          <ContractInfo info={item.outdated} />
         </div>
         <div className="pt-4">
           <CardTitle className="my-4">{item.title}</CardTitle>

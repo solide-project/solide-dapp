@@ -41,7 +41,7 @@ export const Playground = ({ item, contract }: LoadPlaygroundProps) => {
       </DrawerTrigger>
       <DrawerContent className="h-[95vh]">
         <DrawerHeader className="overflow-auto">
-          <DrawerTitle>{uri}</DrawerTitle>
+          <DrawerTitle>{item.title || uri}</DrawerTitle>
 
           <div className="flex items-center justify-center my-4">
             <iframe
