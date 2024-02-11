@@ -23,7 +23,7 @@ export const ProtocolHeader = ({ item, className }: ProtocolHeaderProps) => {
   const [value, setValue] = useState<string>("")
   useEffect(() => {
     const path = pathname.split("/").pop()
-    setValue(path || "")
+    setValue(path || "ethereum")
     setBackgroundColor(
       theme === "light" ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)"
     )

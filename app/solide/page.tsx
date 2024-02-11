@@ -3,8 +3,12 @@ import { ContractSchema } from "@/lib/schema/contract"
 import { SOLIDE_URL } from "@/lib/utils"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
+import { items as ERC404 } from "@/lib/contracts/src/solide/erc404"
+
 export default async function Page() {
-  let items: ContractSchema[] = []
+  let items: ContractSchema[] = [
+    ...ERC404
+  ]
 
   return (
     <ContractPage

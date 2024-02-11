@@ -176,11 +176,9 @@ export const NavButton = ({ ...props }: NavButtonProps) => {
                     )}
                   />
                   {framework.label}
-                  {framework.value === "solide" && "  ⭐"}
+                  {framework.value === "solide" && "  🔥"}
                   {framework.value === "artela" && "  🆕"}
-                  {(framework.value === "aave" ||
-                    framework.value === "immutable" ||
-                    framework.value === "fuse" ||
+                  {(framework.value === "fuse" ||
                     framework.value === "push") &&
                     "  🔜"}
                   {/* <Image src={`/icons/${framework.value}.svg` || `/icons/${framework.value}.png`}
