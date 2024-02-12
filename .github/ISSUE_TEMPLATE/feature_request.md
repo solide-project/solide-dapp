@@ -29,10 +29,10 @@ Explain how this protocol can be useful for Solide and the community.
 
 List the contracts that can be integrated into Solide. If there are no contracts, please remove this section.
 
-### Does the contract provided audit?
+### Do the contracts (or protocol) have audits?
 
 Add the link to the audit report(s).
 
-
 **Additional context**
+
 Add any other context or screenshots about the feature request here.
