@@ -20,7 +20,7 @@ const getAPI = (chain: string): string => {
     }
 }
 
-export const tutorial = "https://github.com/axieinfinity/ronin-bridge-contracts/blob/mainnet/docs/HACK.md|https://github.com/axieinfinity/ronin-bridge-contracts/blob/mainnet/docs/README.md|https://github.com/axieinfinity/ronin-documentation/blob/main/docs/apps/ronin-bridge.md"
+export const tutorial = "https://github.com/axieinfinity/ronin-bridge-contracts/blob/mainnet/docs/README.md|https://github.com/axieinfinity/ronin-documentation/blob/main/docs/apps/ronin-bridge.md|https://github.com/axieinfinity/ronin-bridge-contracts/blob/mainnet/docs/HACK.md"
 export const reference = "https://github.com/axieinfinity/ronin-bridge-contracts/tree/mainnet/deployments"
 export const items = async (chain: string): Promise<ContractSchema[]> => {
     const id = getAPI(chain)

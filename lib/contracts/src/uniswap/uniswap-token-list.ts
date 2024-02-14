@@ -2,7 +2,7 @@ import { ChainID } from "@/lib/chains/id"
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
 import { ContractSchema } from "@/lib/schema/contract"
 
-interface TokenInfo {
+export interface TokenInfo {
   chainId: number
   address: string
   decimals: number
@@ -26,7 +26,7 @@ export const items = async ({
 }): Promise<ContractSchema[]> => {
   const response = await fetch(url)
   const data = await response.json()
-
+  
   const ret: ContractSchema[] = []
   data.tokens
     .filter((token: TokenInfo) => token.chainId.toString() === chain)
