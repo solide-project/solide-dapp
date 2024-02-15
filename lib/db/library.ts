@@ -22,6 +22,7 @@ import {
   TABLELAND_ID,
   THEGRAPH_ID,
   UNISWAP_ID,
+  VICTION_ID,
   ZEROX_ID,
 } from "./ids"
 
@@ -251,7 +252,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     documentation: "https://docs.roninchain.com",
     blog: "https://roninchain.com/blog",
     discord: "https://discord.com/invite/roninnetwork",
-    x: "https://twitter.com/Ronin_Network", 
+    x: "https://twitter.com/Ronin_Network",
     audit: "https://docs.skymavis.com/basics/audits"
   },
   [BERACHAIN_ID]: {
@@ -264,7 +265,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     documentation: "https://docs.berachain.com",
     blog: "https://medium.com/berachain-foundation",
     discord: "https://discord.com/invite/berachain",
-    x: "https://twitter.com/berachain", 
+    x: "https://twitter.com/berachain",
     audit: ""
   },
   [JUICE_BOX_DAO_ID]: {
@@ -283,12 +284,24 @@ export const protcols: Record<string, ProtocolSchema> = {
     name: "Biconomy",
     library: "",
     description: "Biconomy (BICO) is a blockchain infrastructure aiming to simplify user interactions with decentralized applications (dApps). The Hyphen solution facilitates cost-effective token transfers across different blockchains, promoting cross-chain interoperability. BICO, the native utility token, plays a crucial role in settling transactions, governance, and stakeholder incentives within the Biconomy ecosystem. The project's versatile use cases extend to DeFi, gaming, NFT marketplaces, and more. With features like full stack account abstraction, modular smart accounts, and cross-chain compatibility, Biconomy aims to streamline the Web3 experience and has formed strategic partnerships to drive innovation in the blockchain industry.",
-    github: "https://github.com/bcnmy", 
-    website: "https://www.biconomy.io", 
-    documentation: "https://docs.biconomy.io", 
-    blog: "https://docs.biconomy.io/blog", 
-    discord: "https://discord.com/invite/biconomy", 
+    github: "https://github.com/bcnmy",
+    website: "https://www.biconomy.io",
+    documentation: "https://docs.biconomy.io",
+    blog: "https://docs.biconomy.io/blog",
+    discord: "https://discord.com/invite/biconomy",
     x: "https://twitter.com/biconomy",
+    audit: "https://docs.biconomy.io/audits"
+  },
+  [VICTION_ID]: {
+    name: "Viction",
+    library: "",
+    description: "Viction is a user-centric layer-1 blockchain prioritizing zero-gas transactions, speed, security, and scalability to foster a more accessible and secure Web3 environment. Utilizing Proof-of-Stake (PoS) consensus, Viction emphasizes scalability and stability while employing advanced security techniques like double validation and proper randomization. It supports all EVM-compatible smart contracts and introduces the VRC25 token standard, allowing token operations without gas fees, thereby enhancing convenience for users. Viction's mission is to build a decentralized platform that empowers global connectivity and collaboration.",
+    github: "https://github.com/BuildOnViction",
+    website: "https://viction.xyz",
+    documentation: "https://docs.viction.xyz",
+    blog: "https://blog.viction.xyz",
+    discord: "https://discord.gg/HP3EpMMc",
+    x: "https://twitter.com/BuildOnViction",
     audit: "https://docs.biconomy.io/audits"
   },
 }
