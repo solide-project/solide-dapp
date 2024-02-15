@@ -29,8 +29,9 @@ export default function RootLayout({
     <html lang="en" style={{ scrollBehavior: "smooth" }}>
       <body
         className={cn(
-          "bg-background font-sans antialiased",
-          fontSpace.variable
+          "bg-background antialiased",
+          fontSpace.variable,
+          "font-sans"
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
