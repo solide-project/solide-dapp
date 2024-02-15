@@ -39,7 +39,7 @@ export const items = async ({
         playground: {
           default: {
             address: token.address,
-            chainId: token.chainId.toString(),
+            chainId: chain || token.chainId.toString(),
           },
         },
       })
