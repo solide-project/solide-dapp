@@ -110,6 +110,10 @@ export const frameworks = [
     value: "viction",
     label: "Viction",
   },
+  {
+    value: "callisto",
+    label: "Callisto Network",
+  },
 ]
 
 const sortedFrameworks = frameworks

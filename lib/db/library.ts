@@ -7,6 +7,7 @@ import {
   AZUKI_ID,
   BERACHAIN_ID,
   BICONOMY_ID,
+  CALLISTO_ID,
   CHAINLINK_ID,
   COMPOUND_ID,
   ENS_ID,
@@ -303,5 +304,17 @@ export const protcols: Record<string, ProtocolSchema> = {
     discord: "https://discord.gg/HP3EpMMc",
     x: "https://twitter.com/BuildOnViction",
     audit: "https://docs.biconomy.io/audits"
+  },
+  [CALLISTO_ID]: {
+    name: "Callisto Network",
+    library: "",
+    description: "The Callisto Network is a public blockchain protocol established to improve PoW through unique features such as the Nakamoto Consensus Amendment and Dynamic Gas Price. Additionally, its dynamic monetary policy approach aims to offer the lowest transaction costs in the industry, with Cold Staking enabling its native coin (CLO) to serve as a store of value.The Callisto network offers significant utility implementation of the ERC 223 token standard and CallistoNFT standard. These standards represent advancements over existing token standards by addressing flaws and introducing new capabilities, thereby establishing Callisto as an industry leader in crypto-securities.",
+    github: "https://github.com/EthereumCommonwealth",
+    website: "https://callisto.network",
+    documentation: "https://docs.callisto.network",
+    blog: "https://callisto.network/blog",
+    discord: "https://discord.com/invite/szAkrw2pMh",
+    x: "https://twitter.com/CallistoSupport",
+    audit: "https://docs.callisto.network/security-department/auditing-department"
   },
 }
