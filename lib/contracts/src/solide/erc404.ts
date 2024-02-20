@@ -23,7 +23,7 @@ export const items: ContractSchema[] = [
         description: "ERC-404 is an experimental token standard aiming to merge fungible and non-fungible characteristics into what creators call 'semi-fungible' digital assets. Unlike traditional ERC-20 and ERC-721 tokens, ERC-404 introduces fractionalization to NFTs, allowing for the division and transfer of fractions of a token linked to an NFT. This innovation enables native liquidity, encouraging trading and engagement within the ecosystem.",
         playground: {
             default: {
-                address: "https://github.com/Pandora-Labs-Org/erc404/blob/main/contracts/examples/ExampleERC404.sol",
+                address: "https://github.com/Pandora-Labs-Org/erc404/blob/main/contracts/examples/ERC404Example.sol",
             }
         },
         outdated
