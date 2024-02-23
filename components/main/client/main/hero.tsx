@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button"
 
 import { CopyCode } from "../shared/copy-code"
 
-interface FrontProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface FrontProps extends React.HTMLAttributes<HTMLDivElement> { }
 
-export const Hero = ({}: FrontProps) => {
+export const Hero = ({ }: FrontProps) => {
   const router = useRouter()
 
   return (
@@ -20,15 +20,12 @@ export const Hero = ({}: FrontProps) => {
         </div>
         <div className="flex flex-col justify-center items-center gap-8 mb-14 px-4">
           <h1 className="text-center text-3xl lg:text-5xl max-w-md lg:max-w-2xl px-3 m-0">
-            Exploring smart contracts one ecosystem at a time.
+            Exploring smart contracts one ecosystem at a time
           </h1>
           <p className="m-0 text-center max-w-xl px-3">
-            Solide is an innovative open-source EVM based IDE and Knowledge Hub
-            for smart contract development, offering a versatile learning
-            environment. With features like seamless protocol integration,
-            collaborative growth, and a commitment to continuous development,
-            Solide empowers developers of all skill levels to experiment, build,
-            and comprehend smart contracts with ease.
+            Solide is your go-to open-source IDE and Knowledge Hub for EVM-based smart contract development.
+            With seamless protocol integration, collaborative features, and ongoing development, Solide makes
+            it easy for developers of all levels to experiment, build, and understand smart contracts
           </p>
           <div className="flex flex-col gap-5 items-center mb-2">
             <CopyCode className="bg-background" payload={SOLIDE_URL} />

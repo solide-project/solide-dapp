@@ -7,7 +7,15 @@ import { useTheme } from "next-themes"
 import { cn, GITHUB_CONTRIBUTION_LINK } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 
-interface JumbotronProps extends React.HTMLAttributes<HTMLDivElement> {}
+const config = {
+  title: "Want to Contribute?",
+  description:
+    "Contribute to our open-source projects by expanding our knowledge base! Whether it's creating a comprehensive guide for a new smart contract, enhancing an existing one, or introducing innovative features to our website, your contributions make a significant impact. Join us in shaping the future of our project and empowering developers worldwide!",
+  linkTitle: "Get Started",
+  link: GITHUB_CONTRIBUTION_LINK,
+}
+
+interface JumbotronProps extends React.HTMLAttributes<HTMLDivElement> { }
 
 export const Jumbotron = ({ className }: JumbotronProps) => {
   const { theme } = useTheme()
@@ -32,19 +40,14 @@ export const Jumbotron = ({ className }: JumbotronProps) => {
           <div className="col-span-12 lg:col-span-6 flex items-center justify-center mx-8">
             <div className="">
               <div className="mt-10 pb-1 text-3xl font-semibold tracking-tight first:mt-0">
-                Want to Contribute?
+                {config.title}
               </div>
-              <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-                accusantium tenetur perspiciatis ut unde cupiditate ipsum ipsam
-                maxime enim. Dolorem commodi in obcaecati velit architecto
-                dolorum id libero tempora dignissimos?
-              </div>
+              <div>{config.description}</div>
               <Link
                 className={cn(buttonVariants({ size: "lg" }), "text-xl my-4")}
-                href={GITHUB_CONTRIBUTION_LINK}
+                href={config.link}
               >
-                Get Started
+                {config.linkTitle}
               </Link>
             </div>
           </div>

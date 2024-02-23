@@ -13,6 +13,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
+import { HoverIcons } from "./hover-icon"
+import { ChainID } from "@/lib/chains/id"
+import { getIconByChainId } from "@/lib/chains/icon"
 
 const items = [
   {
@@ -35,29 +39,39 @@ const items = [
   },
 ]
 
-interface FeaturesProps extends React.HTMLAttributes<HTMLDivElement> {}
+const chainImages = [
+  ChainID.ETHEREUM_MAINNET,
+  ChainID.METIS_ANDROMEDA,
+  ChainID.POLYGON_MAINNET,
+  ChainID.AVALANCHE_MAINNET,
+  ChainID.FANTOM_MAINNET,
+  ChainID.CELO_MAINNET,
+].map((value) => getIconByChainId(value))
 
-export const Features = ({}: FeaturesProps) => {
+const protocolImages = [
+  "artela",
+  "0x",
+  "aave",
+  "uniswap",
+  "compound",
+  "chainlink",
+].map((value) => `/icons/${value}.svg`)
+
+interface FeaturesProps extends React.HTMLAttributes<HTMLDivElement> { }
+
+export const Features = ({
+  className,
+}: FeaturesProps) => {
   return (
-    <div className="container max-w-[90%] lg:max-w-7xl m-auto py-24 lg:py-48">
-      <div className="grid grid-cols-12 gap-5">
-        {items.map((item, index) => {
-          return (
-            <div key={index} className="col-span-12 md:col-span-4">
-              <Card className="border-none shadow-none">
-                <CardHeader className="p-8">
-                  {item.icon}
-
-                  <CardHeader className="p-0 pt-12 mb-8 text-2xl font-bold">
-                    {item.title}
-                  </CardHeader>
-                  <div>{item.description}</div>
-                </CardHeader>
-              </Card>
-            </div>
-          )
-        })}
-      </div>
+    <div className={cn("text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-16", className)}>
+      <span className="leading-relaxed	">
+        With
+        <a href="#ide"><HoverIcons text="Solide" /></a>,
+        you can interact and deploy smart contracts on 90+
+        <a href="https://github.com" target="_blank"><HoverIcons text="Chains" background="bg-orange-400" images={chainImages} /></a>
+        and support for over 24
+        <HoverIcons text="Protocols" background="bg-green-400" images={protocolImages} />
+      </span>
     </div>
   )
 }

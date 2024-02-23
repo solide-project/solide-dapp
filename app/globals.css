@@ -207,3 +207,28 @@ h6 {
   margin-right: 0;
   font-weight: bold;
 }
+
+
+
+
+/* Path: */
+
+.tilt-div {
+  transition: transform 0.3s ease;
+}
+
+.tilt-div:hover {
+  transform: rotate(-3deg);
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(0);
+}
+
+.icon.show {
+  opacity: 1;
+}

@@ -3,14 +3,18 @@
 import { SOLIDE_URL } from "@/lib/utils"
 import { CodeBlock } from "@/components/main/client/shared/code-block"
 
-interface UsageProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface UsageProps extends React.HTMLAttributes<HTMLDivElement> { }
 
-export const SampleIntegration = ({}: UsageProps) => {
+export const SampleIntegration = ({ }: UsageProps) => {
   return (
-    <div className="py-8 lg:py-16 grid-pattern">
-      <p className="text-center text-xl m-0 font-bold uppercase my-16 text-primary">
-        Extension
+    <div id="ide" className="py-4 lg:py-8 grid-pattern">
+      <p className="text-center text-xl m-0 font-bold uppercase my-4 text-primary">
+        Lightweight Extensibility IDE
       </p>
+
+      <div className="container">
+        <CodeBlock className="border overflow-x-auto w-full text-sm lg:text-base !px-16" code={code} />
+      </div>
 
       <div className="container">
         <div className="grid grid-cols-12 gap-2">
