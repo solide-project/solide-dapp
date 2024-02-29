@@ -1,12 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Play } from "next/font/google"
-import { Icon } from "@iconify/react"
-import { ethers } from "ethers"
 
 import { ContractSchema, SolideIDESchema } from "@/lib/schema/contract"
-import { generateUri } from "@/lib/utils/construct-link"
 
 import { ChainListButton } from "../chain-list-button"
 import { Playground } from "./playground"

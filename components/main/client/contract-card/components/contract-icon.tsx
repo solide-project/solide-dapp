@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Icon } from "@iconify/react"
-import { Contract, ethers } from "ethers"
+import { ethers } from "ethers"
 
 import { getExplorer } from "@/lib/chains/explorer"
 import { ChainID } from "@/lib/chains/id"

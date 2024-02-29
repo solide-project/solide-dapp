@@ -13,16 +13,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+
 import { ChainListButton } from "./components/chain-list-button"
 import { ContractIcon } from "./components/contract-icon"
-import { LoadPlayground } from "./components/load-playground/load-playground"
 import { ContractInfo } from "./components/contract-info"
+import { LoadPlayground } from "./components/load-playground/load-playground"
 
 interface ContractCardProps extends React.HTMLAttributes<HTMLDivElement> {
   item: ContractSchema

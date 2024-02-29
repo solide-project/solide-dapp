@@ -14,10 +14,7 @@ import { ContractSchema } from "@/lib/schema/contract"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
-  let items: ContractSchema[] = [
-    ...TOKEN_CONTRACTS,
-    ...OTHER_CONTRACTS,
-  ]
+  let items: ContractSchema[] = [...TOKEN_CONTRACTS, ...OTHER_CONTRACTS]
 
   items.push(...(await CHAINLINK_PRICE_FEED_ITEMS(ChainID.METIS_ANDROMEDA)))
   items.push(...(await METIS_TOKEN_ITEMS()))

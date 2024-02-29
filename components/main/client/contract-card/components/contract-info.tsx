@@ -1,29 +1,33 @@
 "use client"
 
 import { Icon } from "@iconify/react"
+
 import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
 } from "@/components/ui/tooltip"
 
 interface ContractInfoProps extends React.HTMLAttributes<HTMLDivElement> {
-    info?: string
+  info?: string
 }
 
 export const ContractInfo = ({ info }: ContractInfoProps) => {
-    return <>{
-        info &&
+  return (
+    <>
+      {info && (
         <TooltipProvider>
-            <Tooltip>
-                <TooltipTrigger>
-                    <Icon icon="ion:warning" className="text-orange-500 h-8 w-8" />
-                </TooltipTrigger>
-                <TooltipContent>
-                    <p>{info}</p>
-                </TooltipContent>
-            </Tooltip>
+          <Tooltip>
+            <TooltipTrigger>
+              <Icon icon="ion:warning" className="text-orange-500 h-8 w-8" />
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{info}</p>
+            </TooltipContent>
+          </Tooltip>
         </TooltipProvider>
-    }</>
+      )}
+    </>
+  )
 }

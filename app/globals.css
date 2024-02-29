@@ -11,6 +11,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 224 71.4% 4.1%;
     --primary: 262.1 83.3% 57.8%;
+    /* #7c3aed */
     --primary-foreground: 210 20% 98%;
     --secondary: 220 14.3% 95.9%;
     --secondary-foreground: 220.9 39.3% 11%;
@@ -35,6 +36,7 @@
     --color-grayscale-325: #575C66;
     --color-grayscale-350: #313235;
     --color-grayscale-veil: rgba(255, 255, 255, 0.8);
+    --fade-out: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
   }
 
   .dark {
@@ -68,6 +70,8 @@
     --color-grayscale-325: #A9ADB1;
     --color-grayscale-350: #DFE0E2;
     --color-grayscale-veil: rgba(19, 20, 23, 0.8);
+    /* see --background */
+    --fade-out: linear-gradient(to bottom, rgba(3, 7, 18, 0), rgba(3, 7, 18, 1));
   }
 }
 
@@ -86,6 +90,16 @@
   }
 }
 
+.gradient-text {
+  color: var(--primary-color);
+  background-color: var(--primary-color);
+  background-image: linear-gradient(90deg, #7c3aed, #9f72f0 40%, #c29cf3 55%, #e5c6f6 60%);
+  background-image: conic-gradient(90deg, #7c3aed, #9f72f0 40%, #c29cf3 55%, #e5c6f6 60%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .border-white {
   border-color: #fff !important;
@@ -97,6 +111,28 @@
   background-position: 0 0;
   background-repeat: repeat;
   background-size: auto;
+}
+
+.isometric-pattern {
+  background-image: url("../public/svgs/isometic.svg");
+  background-position: 10px 10px;
+  background-repeat: repeat;
+  background-size: auto;
+}
+
+.isometric-pattern::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--fade-out);
+  z-index: 1;
+}
+
+.isometric-pattern .content {
+  z-index: 2;
 }
 
 .radial-pattern {
@@ -123,6 +159,7 @@
   background-image: linear-gradient(var(--color-grayscale-200) 1px, transparent 1px),
     linear-gradient(to right, var(--color-grayscale-200) 1px, var(--color-grayscale-000) 1px);
   background-size: 20px 20px;
+  background-position: 10px 10px;
 }
 
 
@@ -207,9 +244,6 @@ h6 {
   margin-right: 0;
   font-weight: bold;
 }
-
-
-
 
 /* Path: */
 

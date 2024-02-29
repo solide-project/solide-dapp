@@ -1,6 +1,5 @@
-import { ContractSchema } from "@/lib/schema/contract"
-
 import { getContractsByGithub } from "@/lib/contracts"
+import { ContractSchema } from "@/lib/schema/contract"
 
 export const items = async (): Promise<ContractSchema[]> => {
   return await getContractsByGithub({

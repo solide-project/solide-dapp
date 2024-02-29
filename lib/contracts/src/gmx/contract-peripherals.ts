@@ -6,7 +6,6 @@ export const items = async (): Promise<ContractSchema[]> => {
     title: "GMX Peripherals",
     url: "https://api.github.com/repos/gmx-io/gmx-contracts/contents/contracts/peripherals",
     tutorial: "https://github.com/gmx-io/gmx-contracts/blob/master/README.md",
-    description:
-      "Peripherals Contracts for GMX Contracts",
+    description: "Peripherals Contracts for GMX Contracts",
   })
 }

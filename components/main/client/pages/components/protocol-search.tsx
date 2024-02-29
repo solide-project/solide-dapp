@@ -1,11 +1,9 @@
-import { off } from "process"
 import React, { useEffect, useRef, useState } from "react"
 import { Icon } from "@iconify/react/dist/iconify.js"
 
-import { ContractSchema } from "@/lib/schema/contract"
 import { ProtocolSchema } from "@/lib/schema/protocol"
 import { cn } from "@/lib/utils"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 
 import { ProtocolIcons } from "./protocol-icons"

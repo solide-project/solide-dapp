@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react"
 
 import {
   DISCORD,
+  DOCS,
   EMAIL,
   GITHUB,
   GITHUB_CONTRIBUTION_LINK,
@@ -22,7 +23,7 @@ const items = [
 ]
 
 const links = [
-  { label: "Doc (Coming Soon)", link: "" },
+  { label: "Doc", link: DOCS },
   { label: "Contribute", link: GITHUB_CONTRIBUTION_LINK },
   { label: "Solide IDE", link: SOLIDE_URL },
   { label: "IDE Playground", link: "/play" },
@@ -31,13 +32,19 @@ const links = [
 
 export const Footer = ({}: FooterProps) => {
   return (
-    <div className="lg:p-12 p-8 flex items-center justify-center text-[16px]">
+    <div className="lg:p-8 p-4 flex items-center justify-center text-[16px]">
       <div className="grid grid-cols-12 lg:gap-8 gap-3 max-w-7xl">
         <div className="col-span-12 lg:col-span-6 flex flex-col">
-          <div className="flex flex-col">
-            <h2>Contribute the community</h2>
+          <div className="flex flex-col space-y-4">
+            <div className="text-2xl font-extrabold">
+              Contribute the community
+            </div>
             <p className="lg:w-1/2">
-              Submit or join the community and share your smart contracts ...
+              Solide is an open-source IDE and Knowledge Hub for smart contract
+              development. With seamless protocol integration, collaborative
+              features, and a commitment to continuous improvement, Solide
+              empowers developers to experiment, build, and understand smart
+              contracts effortlessly{" "}
             </p>
           </div>
         </div>

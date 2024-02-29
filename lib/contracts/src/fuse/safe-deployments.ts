@@ -1,7 +1,6 @@
-import { ContractSchema } from "@/lib/schema/contract"
-
 import { getContractsByDeployments } from "@/lib/contracts"
 import { filterFiles, GitHubFileInfo } from "@/lib/contracts/utils/utils"
+import { ContractSchema } from "@/lib/schema/contract"
 
 interface ContractInfo {
   defaultAddress: string

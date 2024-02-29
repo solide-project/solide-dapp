@@ -50,7 +50,7 @@ export const getContractsByGithub = async ({
         version,
         outdated,
         remappings,
-        docRemappings
+        docRemappings,
       })
     )
   )
@@ -78,11 +78,11 @@ const fetchSolidityData = async ({
   chain?: string
   version?: string
   outdated?: string
-  remappings?: Record<string, string>,
+  remappings?: Record<string, string>
   docRemappings?: Record<string, string>
 }): Promise<ContractSchema> => {
   const { dir, name } = path.parse(file.path)
-  
+
   const { entity } = getRepoInfo(file.html_url)
 
   let playground: any = {

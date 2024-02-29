@@ -66,10 +66,10 @@ export const frameworks = [
     value: "the-graph",
     label: "The Graph",
   },
-  {
-    value: "artela",
-    label: "Artela",
-  },
+  // {
+  //   value: "artela",
+  //   label: "Artela",
+  // },
   {
     value: "gmx",
     label: "GMX",
@@ -124,7 +124,7 @@ const sortedFrameworks = frameworks
     label: "Solide",
   })
 
-interface NavButtonProps extends React.HTMLAttributes<HTMLDivElement> { }
+interface NavButtonProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export const NavButton = ({ ...props }: NavButtonProps) => {
   const pathname = usePathname()
@@ -156,7 +156,7 @@ export const NavButton = ({ ...props }: NavButtonProps) => {
         >
           {value
             ? frameworks.find((framework) => framework.value === value)
-              ?.label || "Welcome!"
+                ?.label || "Welcome!"
             : "Welcome!"}
           <Icon
             icon="charm:chevrons-down"
@@ -189,12 +189,6 @@ export const NavButton = ({ ...props }: NavButtonProps) => {
                   />
                   {framework.label}
                   {framework.value === "solide" && "  🔥"}
-                  {framework.value === "artela" && "  🆕"}
-                  {(framework.value === "fuse" ||
-                    framework.value === "push") &&
-                    "  🔜"}
-                  {/* <Image src={`/icons/${framework.value}.svg` || `/icons/${framework.value}.png`}
-                  priority height={32} width={32} alt="Icon" /> */}
                 </CommandItem>
               ))}
             </CommandGroup>

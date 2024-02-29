@@ -30,25 +30,28 @@ export const items = async (chain: string) => {
     return []
   }
 
-  const response = await fetch(`https://raw.githubusercontent.com/Uniswap/default-token-list/main/src/tokens/${id}.json`)
+  const response = await fetch(
+    `https://raw.githubusercontent.com/Uniswap/default-token-list/main/src/tokens/${id}.json`
+  )
   const data: TokenInfo[] = await response.json()
 
   const ret: ContractSchema[] = []
   const networkName = getNetworkNameFromChainID(chain)
   data.forEach((token: TokenInfo) => {
-      ret.push({
-        title: `Uniswap Default Token List: ${token.name} (${token.symbol})`,
-        tutorial: "https://github.com/Uniswap/default-token-list/blob/main/README.md",
-        reference: "https://github.com/Uniswap/default-token-list/tree/main",
-        description: `${token.name} is a Coin on ${networkName}. Powered by Uniswap's Token Lists, a community-led initiative to improve discoverability, reputation and trust in ERC20 token lists in a manner that is inclusive, transparent, and decentralized.`,
-        playground: {
-          default: {
-            address: token.address,
-            chainId: token.chainId.toString(),
-          },
+    ret.push({
+      title: `Uniswap Default Token List: ${token.name} (${token.symbol})`,
+      tutorial:
+        "https://github.com/Uniswap/default-token-list/blob/main/README.md",
+      reference: "https://github.com/Uniswap/default-token-list/tree/main",
+      description: `${token.name} is a Coin on ${networkName}. Powered by Uniswap's Token Lists, a community-led initiative to improve discoverability, reputation and trust in ERC20 token lists in a manner that is inclusive, transparent, and decentralized.`,
+      playground: {
+        default: {
+          address: token.address,
+          chainId: token.chainId.toString(),
         },
-      })
+      },
     })
+  })
 
   return ret
   return []

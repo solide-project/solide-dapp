@@ -14,6 +14,8 @@ export const GITHUB = "https://github.com/solide-project"
 export const GITHUB_CONTRIBUTION_LINK =
   "https://github.com/solide-project/solide-dapp/issues/1"
 export const EMAIL = "solide-project@proton.me"
+export const DOCS = "https://solide-project.github.io/doc/"
+export const SUPPORTED_CHAIN = "https://solide-project.github.io/doc/docs/supported-chains"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -32,16 +34,23 @@ export function cn(...inputs: ClassValue[]) {
  * ```
  */
 export const snakeToCamel = (input: string): string => {
-  const words = input.split('_');
-  const camelCase = words[0] + words.slice(1).map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
-  return camelCase;
+  const words = input.split("_")
+  const camelCase =
+    words[0] +
+    words
+      .slice(1)
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join("")
+  return camelCase
 }
 
 export const snakeToWord = (input: string): string => {
-  const words = input.split('_');
-  const capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
-  const spaceSeparated = capitalizedWords.join(' ');
-  return spaceSeparated;
+  const words = input.split("_")
+  const capitalizedWords = words.map(
+    (word) => word.charAt(0).toUpperCase() + word.slice(1)
+  )
+  const spaceSeparated = capitalizedWords.join(" ")
+  return spaceSeparated
 }
 
 /**

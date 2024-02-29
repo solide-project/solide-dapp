@@ -9,7 +9,7 @@ export const items = async () => {
   const data = await response.json()
 
   const ret: ContractSchema[] = []
-  const networkName = getChainIdFromNetwork(ChainID.ETHEREUM_MAINNET);
+  const networkName = getChainIdFromNetwork(ChainID.ETHEREUM_MAINNET)
   data.tokens.forEach((token: any) => {
     ret.push({
       title: `${data.name}: ${token.name} (${token.symbol})`,

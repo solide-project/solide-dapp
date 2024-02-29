@@ -5,9 +5,9 @@ import "./globals.css"
 
 import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/ui/theme/theme-provider"
+import { TooltipProvider } from "@/components/ui/tooltip"
 import { Footer } from "@/components/main/client/main/footer"
 import { NavBar } from "@/components/main/server/nav-bar"
-import { TooltipProvider } from "@/components/ui/tooltip"
 
 const inter = Inter({ subsets: ["latin"] })
 export const fontSpace = Space_Grotesk({

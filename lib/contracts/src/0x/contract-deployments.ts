@@ -35,7 +35,4 @@ export const items = async (chain: string): Promise<ContractSchema[]> => {
 }
 
 const isValidAddress = (val: string): boolean =>
-  typeof val === "string" &&
-  ethers.isAddress(val) &&
-  ethers.ZeroAddress !== val
-
+  typeof val === "string" && ethers.isAddress(val) && ethers.ZeroAddress !== val

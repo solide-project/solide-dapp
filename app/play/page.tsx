@@ -40,8 +40,8 @@ export default function PlayPage() {
   ]
 
   return (
-    <div className="min-h-screen px-48 dotted-pattern">
-      <div className="text-center py-4 text-2xl lg:text-4xl font-medium">
+    <div className="min-h-screen px-16 lg:px-48 dotted-pattern">
+      <div className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center py-8">
         Solide Play
       </div>
 

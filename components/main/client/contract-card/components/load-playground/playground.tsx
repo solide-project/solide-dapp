@@ -3,7 +3,9 @@
 import { use, useEffect, useState } from "react"
 import Link from "next/link"
 import { Icon } from "@iconify/react"
+import { ethers } from "ethers"
 
+import { enc } from "@/lib/contracts/utils/hash"
 import { ContractSchema, SolideIDESchema } from "@/lib/schema/contract"
 import { cn, GITHUB_CONTRIBUTION_LINK } from "@/lib/utils"
 import { generateUri } from "@/lib/utils/construct-link"
@@ -25,10 +27,9 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { CopyCode } from "@/components/main/client/shared/copy-code"
-import { MarkdownPlayground } from "./markdown-playground"
-import { enc } from "@/lib/contracts/utils/hash"
-import { ethers } from "ethers"
 import { CopyIcon } from "@/components/main/client/shared/copy-icon"
+
+import { MarkdownPlayground } from "./markdown-playground"
 
 interface LoadPlaygroundProps extends React.HTMLAttributes<HTMLDivElement> {
   item: ContractSchema

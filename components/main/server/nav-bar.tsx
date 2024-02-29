@@ -24,7 +24,9 @@ export const NavBar = ({}: NavBarProps) => {
         <div className="flex gap-6 md:gap-10">
           <a className="hidden items-center space-x-2 md:flex" href="/">
             <Icon icon="lucide:droplet" height={24} className="text-primary" />
-            <span className="hidden font-bold sm:inline-block">Solide</span>
+            <span className="hidden font-bold sm:inline-block text-2xl">
+              Solide
+            </span>
           </a>
           <nav className="hidden gap-6 md:flex"></nav>
           <button
@@ -62,7 +64,9 @@ export const NavBar = ({}: NavBarProps) => {
         <div className="flex md:hidden">
           <a className="flex items-center space-x-2" href="/">
             <Icon icon="lucide:droplet" height={24} className="text-primary" />
-            <span className="font-bold">Solide</span>
+            <span className="hidden font-bold sm:inline-block text-2xl">
+              Solide
+            </span>
           </a>
         </div>
       </div>

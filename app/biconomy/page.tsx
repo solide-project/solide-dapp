@@ -1,10 +1,4 @@
 import { ChainID } from "@/lib/chains/id"
-
-import { BICONOMY_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
-import { ContractPage } from "@/components/main/client/pages/contract-page"
-
 import { items as BICO_TOKEN_CONTRACTS } from "@/lib/contracts/src/biconomy/bico-token"
 import { items as BICO_TOKEN_LIST_CONTRACTS } from "@/lib/contracts/src/biconomy/biconomy-token-list"
 import { items as BICO_CCMP_CONTRACTS } from "@/lib/contracts/src/biconomy/ccmp"
@@ -14,11 +8,13 @@ import { items as BICO_PAYMASTER_CONTRACTS } from "@/lib/contracts/src/biconomy/
 import { items as BICO_SAFETY_MODULE_CONTRACTS } from "@/lib/contracts/src/biconomy/safety-module"
 import { items as BICO_SMART_ACCOUNT_CONTRACTS } from "@/lib/contracts/src/biconomy/smart-account"
 import { items as BICO_SMART_ACCOUNT_COMMON_CONTRACTS } from "@/lib/contracts/src/biconomy/smart-account-common"
+import { BICONOMY_ID } from "@/lib/db/ids"
+import { protcols } from "@/lib/db/library"
+import { ContractSchema } from "@/lib/schema/contract"
+import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
-  let items: ContractSchema[] = [
-    ...BICO_CCMP_CONTRACTS
-  ]
+  let items: ContractSchema[] = [...BICO_CCMP_CONTRACTS]
 
   items = items.concat(...(await BICO_TOKEN_CONTRACTS()))
   items = items.concat(...(await BICO_TOKEN_LIST_CONTRACTS()))

@@ -18,15 +18,15 @@ export const items = async ({
   tutorial = "",
   reference = "",
 }: {
-  url: string,
-  chain?: string,
-  title?: string,
-  tutorial?: string,
-  reference?: string,
+  url: string
+  chain?: string
+  title?: string
+  tutorial?: string
+  reference?: string
 }): Promise<ContractSchema[]> => {
   const response = await fetch(url)
   const data = await response.json()
-  
+
   const ret: ContractSchema[] = []
   data.tokens
     .filter((token: TokenInfo) => token.chainId.toString() === chain)

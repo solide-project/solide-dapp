@@ -55,8 +55,9 @@ export const generateUri = ({
 
   if (item.remappings && Object.keys(item.remappings).length > 0) {
     uri += `&remappings=`
-    const remappings: string[] = Object.entries(item.remappings || {}).map(([key, val]) =>
-      encodeURIComponent(`${key}=${val}`))
+    const remappings: string[] = Object.entries(item.remappings || {}).map(
+      ([key, val]) => encodeURIComponent(`${key}=${val}`)
+    )
     uri += remappings.join(",")
   }
 

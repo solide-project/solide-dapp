@@ -47,6 +47,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     github: "https://github.com/ethereum",
     website: "https://ethereum.org/en",
     blog: "https://blog.ethereum.org",
+    documentation: "https://ethereum.org/en/developers/docs",
     discord: "https://discord.com/invite/ethereum-org",
     x: "https://twitter.com/ethereum",
   },
@@ -61,7 +62,8 @@ export const protcols: Record<string, ProtocolSchema> = {
   },
   [UNISWAP_ID]: {
     name: "UniSwap",
-    library: "@uniswap/v3-core @uniswap/v3-periphery @uniswap/swap-router-contracts @uniswap/v3-staker",
+    library:
+      "@uniswap/v3-core @uniswap/v3-periphery @uniswap/swap-router-contracts @uniswap/v3-staker",
     description:
       "Uniswap's smart contract, deployed on the Ethereum blockchain, is the core component that powers the protocol's decentralized exchange functionality. Uniswap governs the creation and management of liquidity pools, automated token swaps, and the calculation of token prices based on the automated market maker (AMM) algorithm.",
     github: "https://github.com/Uniswap",
@@ -70,7 +72,8 @@ export const protcols: Record<string, ProtocolSchema> = {
     documentation: "https://docs.uniswap.org/",
     discord: "https://discord.com/invite/FCfyBSbCU5",
     x: "https://twitter.com/Uniswap",
-    audit: "https://docs.uniswap.org/contracts/v2/concepts/advanced-topics/security"
+    audit:
+      "https://docs.uniswap.org/contracts/v2/concepts/advanced-topics/security",
   },
   [COMPOUND_ID]: {
     name: "Compound Finance",
@@ -82,7 +85,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     discord: "https://discord.com/invite/fq6JSPkpJn",
     x: "https://twitter.com/compoundfinance",
     documentation: "https://docs.compound.finance",
-    audit: "https://docs.compound.finance/v2/security/#audits"
+    audit: "https://docs.compound.finance/v2/security/#audits",
   },
   [ARBITRUM_ID]: {
     name: "Arbitrum",
@@ -119,14 +122,16 @@ export const protcols: Record<string, ProtocolSchema> = {
   [AAVE_ID]: {
     name: "Aave",
     library: "@aave/core-v3 @aave/periphery-v3 @aave/safety-module",
-    description: "Aave is a decentralized and permissionless DeFi protocol that enables users to instantly lend and borrow cryptocurrencies through liquidity pools, eliminating the need for centralized intermediaries. Aave utilizes smart contracts to automate lending and borrowing processes, with lenders supplying liquidity to earn interest and borrowers accessing overcollateralized loans. The protocol supports various assets and operates across multiple blockchains, emphasizing user control and transparency. Aave also has implemented flash loans contracts, allowing uncollateralized instant loans used for crypto arbitrage trading.",
+    description:
+      "Aave is a decentralized and permissionless DeFi protocol that enables users to instantly lend and borrow cryptocurrencies through liquidity pools, eliminating the need for centralized intermediaries. Aave utilizes smart contracts to automate lending and borrowing processes, with lenders supplying liquidity to earn interest and borrowers accessing overcollateralized loans. The protocol supports various assets and operates across multiple blockchains, emphasizing user control and transparency. Aave also has implemented flash loans contracts, allowing uncollateralized instant loans used for crypto arbitrage trading.",
     github: "https://github.com/aave",
     website: "https://aave.com",
     blog: "https://aave.mirror.xyz",
     documentation: "https://docs.aave.com/developers/getting-started/readme",
     discord: "https://discord.com/invite/aave",
     x: "https://twitter.com/aave",
-    audit: "https://docs.aave.com/developers/deployed-contracts/security-and-audits",
+    audit:
+      "https://docs.aave.com/developers/deployed-contracts/security-and-audits",
   },
   [ZEROX_ID]: {
     name: "0x",
@@ -209,7 +214,8 @@ export const protcols: Record<string, ProtocolSchema> = {
   [SOLIDE_URL]: {
     name: "Solide",
     library: "",
-    description: "Solide is a smart contract development platform that provides a comprehensive suite of tools and resources for developers to create, deploy, and manage smart contracts on the Ethereum blockchain. Solide's platform offers a wide range of verified smart contracts, tutorials, and documentation, empowering developers to build secure and efficient decentralized applications (dApps) and protocols.",
+    description:
+      "Solide is a smart contract development platform that provides a comprehensive suite of tools and resources for developers to create, deploy, and manage smart contracts on the Ethereum blockchain. Solide's platform offers a wide range of verified smart contracts, tutorials, and documentation, empowering developers to build secure and efficient decentralized applications (dApps) and protocols.",
     github: "https://github.com/solide-project",
     website: "",
     blog: "",
@@ -241,7 +247,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     website: "https://www.azuki.com",
     documentation: "https://chiru-labs.github.io/ERC721A/#/",
     discord: "https://discord.com/invite/azuki",
-    x: "https://twitter.com/azuki"
+    x: "https://twitter.com/azuki",
   },
   [RONIN_ID]: {
     name: "Ronin Chain",
@@ -254,7 +260,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     blog: "https://roninchain.com/blog",
     discord: "https://discord.com/invite/roninnetwork",
     x: "https://twitter.com/Ronin_Network",
-    audit: "https://docs.skymavis.com/basics/audits"
+    audit: "https://docs.skymavis.com/basics/audits",
   },
   [BERACHAIN_ID]: {
     name: "Berachain",
@@ -267,54 +273,60 @@ export const protcols: Record<string, ProtocolSchema> = {
     blog: "https://medium.com/berachain-foundation",
     discord: "https://discord.com/invite/berachain",
     x: "https://twitter.com/berachain",
-    audit: ""
+    audit: "",
   },
   [JUICE_BOX_DAO_ID]: {
     name: "Juice Box DAO",
-    library: "@jbx-protocol/juice-contracts-v3 @jbx-protocol/juice-delegates-registry",
-    description: "Juicebox (DAO) is a Ethereum funding protocol, acting as a programmable treasury that empowers project creators to efficiently fund, operate, and scale their initiatives on the blockchain. This innovative protocol allows users to configure the rules governing token minting upon fund reception and the conditions for distributing funds to predetermined addresses or reclaiming them by the project's community.",
+    library:
+      "@jbx-protocol/juice-contracts-v3 @jbx-protocol/juice-delegates-registry",
+    description:
+      "Juicebox (DAO) is a Ethereum funding protocol, acting as a programmable treasury that empowers project creators to efficiently fund, operate, and scale their initiatives on the blockchain. This innovative protocol allows users to configure the rules governing token minting upon fund reception and the conditions for distributing funds to predetermined addresses or reclaiming them by the project's community.",
     github: "https://github.com/jbx-protocol",
     website: "https://juicebox.money",
     documentation: "https://docs.juicebox.money",
     blog: "https://subscribepage.io/juicenews",
     discord: "https://discord.com/invite/wFTh4QnDzk",
     x: "https://twitter.com/juiceboxETH",
-    audit: "https://docs.juicebox.money/dev/resources/security"
+    audit: "https://docs.juicebox.money/dev/resources/security",
   },
   [BICONOMY_ID]: {
     name: "Biconomy",
     library: "",
-    description: "Biconomy (BICO) is a blockchain infrastructure aiming to simplify user interactions with decentralized applications (dApps). The Hyphen solution facilitates cost-effective token transfers across different blockchains, promoting cross-chain interoperability. BICO, the native utility token, plays a crucial role in settling transactions, governance, and stakeholder incentives within the Biconomy ecosystem. The project's versatile use cases extend to DeFi, gaming, NFT marketplaces, and more. With features like full stack account abstraction, modular smart accounts, and cross-chain compatibility, Biconomy aims to streamline the Web3 experience and has formed strategic partnerships to drive innovation in the blockchain industry.",
+    description:
+      "Biconomy (BICO) is a blockchain infrastructure aiming to simplify user interactions with decentralized applications (dApps). The Hyphen solution facilitates cost-effective token transfers across different blockchains, promoting cross-chain interoperability. BICO, the native utility token, plays a crucial role in settling transactions, governance, and stakeholder incentives within the Biconomy ecosystem. The project's versatile use cases extend to DeFi, gaming, NFT marketplaces, and more. With features like full stack account abstraction, modular smart accounts, and cross-chain compatibility, Biconomy aims to streamline the Web3 experience and has formed strategic partnerships to drive innovation in the blockchain industry.",
     github: "https://github.com/bcnmy",
     website: "https://www.biconomy.io",
     documentation: "https://docs.biconomy.io",
     blog: "https://docs.biconomy.io/blog",
     discord: "https://discord.com/invite/biconomy",
     x: "https://twitter.com/biconomy",
-    audit: "https://docs.biconomy.io/audits"
+    audit: "https://docs.biconomy.io/audits",
   },
   [VICTION_ID]: {
     name: "Viction",
     library: "",
-    description: "Viction is a user-centric layer-1 blockchain prioritizing zero-gas transactions, speed, security, and scalability to foster a more accessible and secure Web3 environment. Utilizing Proof-of-Stake (PoS) consensus, Viction emphasizes scalability and stability while employing advanced security techniques like double validation and proper randomization. It supports all EVM-compatible smart contracts and introduces the VRC25 token standard, allowing token operations without gas fees, thereby enhancing convenience for users. Viction's mission is to build a decentralized platform that empowers global connectivity and collaboration.",
+    description:
+      "Viction is a user-centric layer-1 blockchain prioritizing zero-gas transactions, speed, security, and scalability to foster a more accessible and secure Web3 environment. Utilizing Proof-of-Stake (PoS) consensus, Viction emphasizes scalability and stability while employing advanced security techniques like double validation and proper randomization. It supports all EVM-compatible smart contracts and introduces the VRC25 token standard, allowing token operations without gas fees, thereby enhancing convenience for users. Viction's mission is to build a decentralized platform that empowers global connectivity and collaboration.",
     github: "https://github.com/BuildOnViction",
     website: "https://viction.xyz",
     documentation: "https://docs.viction.xyz",
     blog: "https://blog.viction.xyz",
     discord: "https://discord.gg/HP3EpMMc",
     x: "https://twitter.com/BuildOnViction",
-    audit: "https://docs.biconomy.io/audits"
+    audit: "https://docs.biconomy.io/audits",
   },
   [CALLISTO_ID]: {
     name: "Callisto Network",
     library: "",
-    description: "The Callisto Network is a public blockchain protocol established to improve PoW through unique features such as the Nakamoto Consensus Amendment and Dynamic Gas Price. Additionally, its dynamic monetary policy approach aims to offer the lowest transaction costs in the industry, with Cold Staking enabling its native coin (CLO) to serve as a store of value.The Callisto network offers significant utility implementation of the ERC 223 token standard and CallistoNFT standard. These standards represent advancements over existing token standards by addressing flaws and introducing new capabilities, thereby establishing Callisto as an industry leader in crypto-securities.",
+    description:
+      "The Callisto Network is a public blockchain protocol established to improve PoW through unique features such as the Nakamoto Consensus Amendment and Dynamic Gas Price. Additionally, its dynamic monetary policy approach aims to offer the lowest transaction costs in the industry, with Cold Staking enabling its native coin (CLO) to serve as a store of value.The Callisto network offers significant utility implementation of the ERC 223 token standard and CallistoNFT standard. These standards represent advancements over existing token standards by addressing flaws and introducing new capabilities, thereby establishing Callisto as an industry leader in crypto-securities.",
     github: "https://github.com/EthereumCommonwealth",
     website: "https://callisto.network",
     documentation: "https://docs.callisto.network",
     blog: "https://callisto.network/blog",
     discord: "https://discord.com/invite/szAkrw2pMh",
     x: "https://twitter.com/CallistoSupport",
-    audit: "https://docs.callisto.network/security-department/auditing-department"
+    audit:
+      "https://docs.callisto.network/security-department/auditing-department",
   },
 }

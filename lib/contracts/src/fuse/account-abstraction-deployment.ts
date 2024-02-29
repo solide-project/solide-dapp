@@ -44,8 +44,7 @@ export const items = async (chain: string): Promise<ContractSchema[]> => {
         chain,
         tutorial:
           "https://github.com/fuseio/account-abstraction/blob/develop/README.md",
-        reference:
-          "https://github.com/fuseio/account-abstraction",
+        reference: "https://github.com/fuseio/account-abstraction",
         description:
           "The Fuse Network's implemented set of contracts for ERC-4337 account abstraction, leveraging an alternative mempool infrastructure. These contracts enhances the account abstraction functionality, allowing users greater flexibility in managing their transactions. The ERC-4337 standard facilitates a seamless interaction between different smart contracts, and Fuse Network's implementation introduces an alternative mempool, optimizing transaction processing and increasing the overall efficiency of the blockchain.",
       })

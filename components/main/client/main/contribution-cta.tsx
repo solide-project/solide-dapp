@@ -15,9 +15,9 @@ const config = {
   link: GITHUB_CONTRIBUTION_LINK,
 }
 
-interface JumbotronProps extends React.HTMLAttributes<HTMLDivElement> { }
+interface ContributionCTAProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-export const Jumbotron = ({ className }: JumbotronProps) => {
+export const ContributionCTA = ({ className }: ContributionCTAProps) => {
   const { theme } = useTheme()
 
   const [backgroundImage, setBackgroundImage] = useState<string>(
@@ -31,7 +31,7 @@ export const Jumbotron = ({ className }: JumbotronProps) => {
   }, [theme])
 
   return (
-    <div className={cn("rounded-lg w-full", className)}>
+    <section className={cn("rounded-lg w-full", className)}>
       <div
         className="bg-cover"
         style={{ backgroundImage: `url(${backgroundImage})` }}
@@ -63,6 +63,6 @@ export const Jumbotron = ({ className }: JumbotronProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
