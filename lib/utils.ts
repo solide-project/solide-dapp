@@ -15,6 +15,7 @@ export const GITHUB_CONTRIBUTION_LINK =
   "https://github.com/solide-project/solide-dapp/issues/1"
 export const EMAIL = "solide-project@proton.me"
 export const DOCS = "https://solide-project.github.io/doc/"
+export const SUBSTACK = "https://substack.com/@0xsolide"
 export const SUPPORTED_CHAIN = "https://solide-project.github.io/doc/docs/supported-chains"
 
 export function cn(...inputs: ClassValue[]) {
