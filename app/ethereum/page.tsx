@@ -14,7 +14,9 @@ import { ContractSchema } from "@/lib/schema/contract"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
-  let items: ContractSchema[] = []
+  let items: ContractSchema[] = [
+    ...DEFI_CONTRACTS,
+  ]
 
   // items.push(...(await OPENSEA_CONTRACTS()))
   items.push(...(await UNISWAP_TOKEN_ITEMS()))

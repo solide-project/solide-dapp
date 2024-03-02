@@ -43,7 +43,8 @@ export const Playground = ({ item, contract }: LoadPlaygroundProps) => {
   const [hash, setHash] = useState<string>("")
 
   useEffect(() => {
-    setId(enc(JSON.stringify(item)))
+    const id = enc(JSON.stringify(item))
+    setId(id)
     setHash(ethers.id(id))
     setUri(generateUri({ item: contract, type: item.type }))
   }, [item, contract])
@@ -67,13 +68,13 @@ export const Playground = ({ item, contract }: LoadPlaygroundProps) => {
             </Tooltip>
             <Tooltip>
               <TooltipTrigger>
-                <CopyIcon payload={hash} />
+                <CopyIcon payload={id} />
               </TooltipTrigger>
               <TooltipContent>
                 <p>Copy ID</p>
               </TooltipContent>
             </Tooltip>
-            {/* <CopyIcon payload={id} /> */}
+            {/* <CopyIcon payload={hash} /> */}
           </div>
 
           <div className="flex items-center justify-center my-4">

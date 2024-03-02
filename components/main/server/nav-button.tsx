@@ -66,10 +66,10 @@ export const frameworks = [
     value: "the-graph",
     label: "The Graph",
   },
-  // {
-  //   value: "artela",
-  //   label: "Artela",
-  // },
+  {
+    value: "artela",
+    label: "Artela",
+  },
   {
     value: "gmx",
     label: "GMX",

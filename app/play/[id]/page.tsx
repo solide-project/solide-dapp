@@ -36,7 +36,7 @@ export default async function Page({ params }: any) {
           />
         </div>
         <div id="doc">
-          <MarkdownPlayground tutorials={item.tutorial} />
+          <MarkdownPlayground className="container px-8 lg:px-32" tutorials={item.tutorial} />
         </div>
 
         <hr className="my-8" />

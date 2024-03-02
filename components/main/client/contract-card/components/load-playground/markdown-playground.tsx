@@ -15,7 +15,10 @@ interface MarkdownPlaygroundProps extends React.HTMLAttributes<HTMLDivElement> {
   tutorials?: string
 }
 
-export const MarkdownPlayground = ({ tutorials }: MarkdownPlaygroundProps) => {
+export const MarkdownPlayground = ({
+  tutorials,
+  className
+}: MarkdownPlaygroundProps) => {
   const [content, setContent] = useState<string>("")
   const [loadSkeleton, setLoadSkeleton] = useState<boolean>(false)
 
@@ -98,7 +101,7 @@ export const MarkdownPlayground = ({ tutorials }: MarkdownPlaygroundProps) => {
   }
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       setLoadSkeleton(true)
       await handleMarkdownGeneration()
       setLoadSkeleton(false)
@@ -137,7 +140,7 @@ export const MarkdownPlayground = ({ tutorials }: MarkdownPlaygroundProps) => {
       ) : (
         <div>
           <Markdown
-            className={"max-w-[768px] w-full m-auto"}
+            className={cn("w-full m-auto", className)}
             remarkPlugins={[remarkGfm]}
             components={{
               h1: ({ node, ...props }) => (

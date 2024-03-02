@@ -8,6 +8,19 @@ const AnkrStakingToken_CONTRACT = "0xd315b7664b99e559c3e209628453de182e77e411"
 
 export const items = [
   {
+    title: "Account Abstraction (ERC4337) - EntryPoint",
+    tutorial:
+      "https://github.com/solide-project/docs/blob/master/blog/erc4337/entry-point/_part-1.md|https://github.com/solide-project/docs/blob/master/blog/erc4337/entry-point/_part-2.md",
+    reference: "https://eips.ethereum.org/EIPS/eip-4337",
+    description:
+      "The EntryPoint contract serves as the central gateway for executing bundles of UserOperations within the Ethereum ecosystem, enforcing validation and execution of transactions. Acting as a singleton contract, it streamlines the complexity of smart contract wallets by concentrating intricate safety measures at a single entry point, allowing wallets to prioritize core functionalities like signature validation rules. Bundlers and clients are encouraged to whitelist supported EntryPoint contract addresses, ensuring seamless integration and streamlined transaction processing for ERC-4337 compliant smart contract wallets.",
+    playground: {
+      default: {
+        address: "0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789",
+      },
+    },
+  },
+  {
     title: "Aave Oracle",
     tutorial:
       "https://github.com/SovaSniper/tutorials/blob/master/ethereum/AaveOracle.md",
