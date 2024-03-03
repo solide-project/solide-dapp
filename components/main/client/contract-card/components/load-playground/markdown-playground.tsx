@@ -8,8 +8,8 @@ import Markdown from "react-markdown"
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/prism"
 import theme from "react-syntax-highlighter/dist/esm/styles/prism/one-dark"
 import remarkGfm from "remark-gfm"
-
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 interface MarkdownPlaygroundProps extends React.HTMLAttributes<HTMLDivElement> {
   tutorials?: string
@@ -102,11 +102,59 @@ export const MarkdownPlayground = ({
 
   useEffect(() => {
     ; (async () => {
+
+      const storedEmojis = localStorage.getItem('emojis');
+      if (!storedEmojis) {
+        // Fetch emoji data from GitHub API if not stored
+        fetch('https://api.github.com/emojis')
+          .then(response => response.json())
+          .then(data => {
+            // Store emoji data in localStorage
+            localStorage.setItem('emojis', JSON.stringify(data));
+          })
+          .catch(error => {
+            console.error('Error fetching emoji data:', error);
+          });
+      }
+
       setLoadSkeleton(true)
       await handleMarkdownGeneration()
       setLoadSkeleton(false)
     })()
   }, [tutorials])
+
+  function getEmojiHeaderInfo(text: string, size: number = 32): { htmlContent: string, htmlId: string } {
+    const regex = /:[a-zA-Z0-9_+-]+:/g;
+
+    const htmlContent = text.replace(regex, match => {
+      const shortcode = match.replace(/:/g, '').toLowerCase();
+      return `<img width="${size}" src="${getEmoji(shortcode)}" />`;
+    });
+
+    const htmlId = text
+      .replace(regex, match => match.replace(/:/g, ' ').toLowerCase())
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\s+/g, '-')
+      .toLocaleLowerCase();
+
+    return { htmlContent, htmlId }
+  }
+
+  /**
+   * Note this is an anti-pattern and should be replaced with a better solution the only solution 
+   * that works
+   * @param id 
+   */
+  const scroll = (id: string = "#") => {
+    const section = document.querySelector(id);
+    section?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+  };
+
+  const getEmoji = (name: string): string => {
+    const storedEmojis = JSON.parse(localStorage.getItem('emojis') ?? '{}');
+    return storedEmojis[name] ?? '';
+  }
 
   const handleMarkdownGeneration = async () => {
     if (!tutorials) {
@@ -131,7 +179,7 @@ export const MarkdownPlayground = ({
     setContent(text)
   }
 
-  if (!tutorials) return <div>No Tutorials</div>
+  if (!tutorials) return <div className="my-8 text-center">No Tutorials</div>
 
   return (
     <>
@@ -143,12 +191,56 @@ export const MarkdownPlayground = ({
             className={cn("w-full m-auto", className)}
             remarkPlugins={[remarkGfm]}
             components={{
-              h1: ({ node, ...props }) => (
-                <div className="my-4">
+              h1: ({ node, ...props }) => {
+                if (props.children) {
+                  const { htmlContent, htmlId } = getEmojiHeaderInfo(props.children.toString())
+                  return <div className="my-4">
+                    <h1 className="text-3xl flex items-center"
+                      // @ts-ignore
+                      id={htmlId}
+                      dangerouslySetInnerHTML={{ __html: htmlContent }} />
+                    <hr />
+                  </div>
+                }
+
+                return <div className="my-4">
                   <h1 className="text-3xl" {...props} />
                   <hr />
                 </div>
-              ),
+              },
+              h2: ({ node, ...props }) => {
+                if (props.children) {
+                  const { htmlContent, htmlId } = getEmojiHeaderInfo(props.children.toString(), 32)
+                  return <h2 className="flex items-center space-x-2"
+                    // @ts-ignore
+                    id={htmlId}
+                    dangerouslySetInnerHTML={{ __html: htmlContent }} />
+                }
+
+                return <h2 id={props.children?.toString()} {...props} />
+              },
+              h3: ({ node, ...props }) => {
+                if (props.children) {
+                  const { htmlContent, htmlId } = getEmojiHeaderInfo(props.children.toString())
+                  return <h3 className="flex items-center"
+                    // @ts-ignore
+                    id={htmlId}
+                    dangerouslySetInnerHTML={{ __html: htmlContent }} />
+                }
+
+                return <h3 id={props.children?.toString()} {...props} />
+              },
+              h4: ({ node, ...props }) => {
+                if (props.children) {
+                  const { htmlContent, htmlId } = getEmojiHeaderInfo(props.children.toString())
+                  return <h4 className="flex items-center"
+                    // @ts-ignore
+                    id={htmlId}
+                    dangerouslySetInnerHTML={{ __html: htmlContent }} />
+                }
+
+                return <h4 id={props.children?.toString()} {...props} />
+              },
               code(props) {
                 const { children, className, node, ...rest } = props
                 const match = /language-(\w+)/.exec(className || "")
@@ -190,13 +282,22 @@ export const MarkdownPlayground = ({
                 </ul>
               ),
               p: ({ node, ...props }) => <p className="" {...props} />,
-              a: ({ node, ...props }) => (
-                <a
+              a: ({ node, ...props }) => {
+                if (props.href?.toString().startsWith("#")) {
+                  console.log(props.href?.toString())
+
+                  return <span
+                    onClick={() => scroll(props.href?.toString())}
+                    className="text-primary underline cursor-pointer"
+                  // href={props.href.toString()}
+                  >{props.children}</span>
+                }
+
+                return <a
                   className="text-primary underline"
                   {...props}
-                  target="_blank"
                 />
-              ),
+              },
               blockquote: ({ node, ...props }) => (
                 <blockquote
                   className="border-l-4 border-primary pl-4 my-4"
