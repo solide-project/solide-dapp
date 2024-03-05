@@ -30,6 +30,7 @@ import { CopyCode } from "@/components/main/client/shared/copy-code"
 import { CopyIcon } from "@/components/main/client/shared/copy-icon"
 
 import { MarkdownPlayground } from "./markdown-playground"
+import { GPT } from "../../../main/gpt"
 
 interface LoadPlaygroundProps extends React.HTMLAttributes<HTMLDivElement> {
   item: ContractSchema
@@ -42,12 +43,35 @@ export const Playground = ({ item, contract }: LoadPlaygroundProps) => {
   const [id, setId] = useState<string>("")
   const [hash, setHash] = useState<string>("")
 
+  const [selectedTab, setSelectedTab] = useState('doc');
+
   useEffect(() => {
     const id = enc(JSON.stringify(item))
     setId(id)
-    setHash(ethers.id(id))
+    setHash(ethers.utils.id(id))
     setUri(generateUri({ item: contract, type: item.type }))
   }, [item, contract])
+
+  const [highlighted, setHighlighted] = useState<string>("");
+
+  useEffect(() => {
+    const handleMessage = (event: any) => {
+      if (event.origin === 'http://localhost:3000/' || 'https://solide.vercel.app') {
+        if (event.data.target && event.data.target === 'solide-highlight') {
+          console.log('Received highlighted text:', event.data.data.selectedText);
+          setHighlighted(event.data.data.selectedText || "");
+        }
+      } else {
+        console.log('Received message from unexpected origin:', event.origin);
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
+  }, []);
 
   return (
     <Drawer>
@@ -86,33 +110,29 @@ export const Playground = ({ item, contract }: LoadPlaygroundProps) => {
               allow="clipboard-write"
             />
           </div>
-          <div id="doc">
-            <MarkdownPlayground tutorials={item.tutorial} />
+          <div>
+            <div className={cn("mx-8 lg:mx-32", `${selectedTab === 'doc' ? "block" : "hidden"}`)} id="doc">
+              <MarkdownPlayground tutorials={item.tutorial} />
+            </div>
+            <GPT className={`${selectedTab === 'gpt' ? "block" : "hidden"}`}
+              prompt={highlighted} />
           </div>
         </DrawerHeader>
         <DrawerFooter>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <Button className="space-x-4 w-full">
-                Want to contribute?
-                <Link href={GITHUB_CONTRIBUTION_LINK} target="_blank">
-                  <Icon
-                    className="cursor-pointer hover:text-primary"
-                    inline={true}
-                    height={28}
-                    icon="mingcute:github-line"
-                  />
-                </Link>
-              </Button>
-            </div>
-            <div>
-              <Link
-                className={cn(buttonVariants({ variant: "outline" }), "w-full")}
-                href="#doc"
-              >
-                Read Guides
+          <div className="grid grid-flow-col justify-stretch space-x-4">
+            <Button className="">
+              Want to contribute?
+              <Link href={GITHUB_CONTRIBUTION_LINK} target="_blank">
+                <Icon
+                  className="cursor-pointer hover:text-primary"
+                  inline={true}
+                  height={28}
+                  icon="mingcute:github-line"
+                />
               </Link>
-            </div>
+            </Button>
+            <Button onClick={() => setSelectedTab('doc')}>Documentation</Button>
+            <Button onClick={() => setSelectedTab('gpt')}>Smart Contract GPT (NEW 🎉)</Button>
           </div>
           <DrawerClose>Cancel</DrawerClose>
         </DrawerFooter>

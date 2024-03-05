@@ -23,7 +23,7 @@ export const ContractIcon = ({ item }: ContractIconProps) => {
   const [icon, setIcon] = useState<string>("iconoir:github")
   const [link, setLink] = useState<string>(item.playground.default.address)
   const isContractAddress = (link: string): boolean =>
-    ethers.isAddress(link) || isTronAddress(link) || isXDCAddress(link)
+    ethers.utils.isAddress(link) || isTronAddress(link) || isXDCAddress(link)
 
   useEffect(() => {
     setLink(item.playground.default.address)

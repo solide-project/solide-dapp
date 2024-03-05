@@ -11,9 +11,9 @@ export const generatePlayIds = () => {
   items.map((item) => {
     const id = enc(JSON.stringify(item))
     // console.log(id)
-    // console.log(ethers.id(id))
+    // console.log(ethers.utils.id(id))
 
-    data[ethers.id(id)] = id
+    data[ethers.utils.id(id)] = id
   })
 
   console.log(data)
