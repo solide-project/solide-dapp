@@ -1,5 +1,7 @@
 ## Motivation 
 
+*Note: Flock is still in early development, and hence the chatbot may not be fully capable of providing a response. The best approach is to use it by passing a method implementation along with any relevant documentation on the method. Read more for further information.*
+
 The motivation for developing a **Smart Contract Knowledge Chat GPT** stems from the growing significance of blockchain technology and the ever evolving smart contract implementations revolutionizing various industries. With the increasing adoption of blockchain-based solutions, there arises a pressing need for accessible and comprehensive resources to educate, guide, and assist users in understanding and leveraging smart contracts effectively. By integrating the capabilities of a conversational AI powered by Flock, we aims to open access to blockchain knowledge for developer exploring protocols and chains on Solide. Whether individuals are newcomers seeking to grasp the fundamentals of smart contracts or experienced professionals navigating complex contract structures, the Smart Contract Chatbot provides a user-friendly interface for learning, interacting and contributing with smart contracts and AI.
 
 ## What are you building
