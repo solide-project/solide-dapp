@@ -8,13 +8,14 @@ import { Support } from "@/components/main/client/main/support"
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Hero />      
-      <InformationTab className="container" />
-      <FeatureSection className="container py-32" />
-      <Support className="container" />
+      <Hero />
       <div className="container">
         <GPT />
       </div>
+
+      <InformationTab className="container" />
+      <FeatureSection className="container py-32" />
+      <Support className="container" />
       <div className="container my-14">
         <ContributionCTA className="border" />
       </div>

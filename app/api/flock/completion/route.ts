@@ -27,10 +27,11 @@ const completions = async ({
     history?: any[],
 }): Promise<FlockConversationalResponse> => {
     const payload = {
-        question: `Explain in detail what this does in smart contract snippet: ${minify(prompt)}`,
+        question: `${minify(prompt)}`,
         chat_history: [],
         knowledge_source_id: process.env.FLOCK_MODEL_ID,
     };
+    console.log("payload", payload.question);
 
     const headers: any = {
         "Content-Type": "application/json",

@@ -58,8 +58,8 @@ export const Playground = ({ item, contract }: LoadPlaygroundProps) => {
     const handleMessage = (event: any) => {
       if (event.origin === 'http://localhost:3000/' || 'https://solide.vercel.app') {
         if (event.data.target && event.data.target === 'solide-highlight') {
-          console.log('Received highlighted text:', event.data.data.selectedText);
-          setHighlighted(event.data.data.selectedText || "");
+          // console.log('Received highlighted text:', event.data.data.selectedText);
+          setHighlighted(`Explain in detail what this does in smart contract snippet: \n ${event.data.data.selectedText}` || "");
         }
       } else {
         console.log('Received message from unexpected origin:', event.origin);

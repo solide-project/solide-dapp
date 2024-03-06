@@ -42,14 +42,11 @@ const contribute = async ({
     });
 
     if (!response.ok) {
-        console.log("Error fetching response. Please try again later.");
         const responseData: any = await response.json();
-        console.log("Response Data:", JSON.stringify(responseData));
         return { recieved: false }
     }
 
     const responseData: any = await response.json();
-    console.log("Response Data:", responseData);
     if (responseData.detail) {
         return { recieved: false }
     }

@@ -55,6 +55,19 @@ export const GPT = ({
             },
             body: JSON.stringify({ prompt: input, history: chatHistory, address })
         })
+
+        if (!response.ok) {
+            console.error("Failed to process request")
+            setChatHistory([...chatHistory, {
+                answer: "Failed to process request. Please try again later.",
+                source_docs: [],
+                generated_question: input,
+            }])
+            
+            setInput("")
+            setProcessing(false)
+            return
+        }
         const data: FlockConversationalResponse = await response.json()
         setChatHistory([...chatHistory, data])
 
@@ -70,7 +83,7 @@ export const GPT = ({
                 </div>
                 <ConnectWallet />
             </div>
-            <div className="h-[80vh] overflow-y-auto">
+            <div className="h-[50vh] overflow-y-auto">
                 <Chat
                     className="my-4"
                     name="Solide GPT (Powered by Flock)"
