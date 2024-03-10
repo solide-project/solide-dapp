@@ -28,13 +28,13 @@ Engaging with a smart contract chatbot is as straightforward as typing out a que
 
 Users can conveniently interact with the Smart Contract Chatbot by highlighting relevant code or information directly within the smart contracts they are working on (using Solide IDE). This innovative feature streamlines the user experience, enabling developers to seamlessly utilize their existing workflow to engage with the chatbot. By highlighting over the code, the input will be set in the Smart Contract Chatbot, where the user can effortlessly access relevant information, receive assistance, or seek clarification on specific aspects of their contracts. This integration enhances the usability of the chatbot and facilitates smoother interactions, ultimately empowering users to leverage the extensive knowledge encapsulated within the Flock-powered chatbot more effectively.
 
-![Solide-Flock](/docs/flock/images/hightlight.png)
+![Solide-Flock](/docs/flock/images/highlight.png)
 *Code Selection from IDE*
 
-![Solide-Flock](/docs/flock/images/hightlight-prompt.png)
+![Solide-Flock](/docs/flock/images/highlight-prompt.png)
 *Prompt provided by the Code Selection from the above image*
 
-![Solide-Flock](/docs/flock/images/hightlight-response.png)
+![Solide-Flock](/docs/flock/images/highlight-response.png)
 *Response from Flock model provided by the Code Selection*
 
 
