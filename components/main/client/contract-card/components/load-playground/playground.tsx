@@ -56,9 +56,12 @@ export const Playground = ({ item, contract }: LoadPlaygroundProps) => {
 
   useEffect(() => {
     const handleMessage = (event: any) => {
-      if (event.origin === 'http://localhost:3000/' || 'https://solide.vercel.app') {
+      console.log("event", event.origin)
+      if (event.origin === 'http://localhost:3000/' || event.origin === 'https://solide.vercel.app' ||
+        event.origin === 'https://solidewidget.azurewebsites.net/' || event.origin === 'https://solidewidget.azurewebsites.net') {
+        console.log('Received highlighted text:', event.data.target);
         if (event.data.target && event.data.target === 'solide-highlight') {
-          // console.log('Received highlighted text:', event.data.data.selectedText);
+          console.log('Received highlighted text 2:', event.data.data.selectedText);
           setHighlighted(`Explain in detail what this does in smart contract snippet: \n ${event.data.data.selectedText}` || "");
         }
       } else {

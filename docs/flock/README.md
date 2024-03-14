@@ -56,7 +56,8 @@ Upon receiving a response from the Smart Contract Chatbot, users have the opport
 	- Flock
 	- Next
 
-Bot ID: cls4frht2000njy824nn3c7g5
+Ethereum Bot ID: cls4frht2000njy824nn3c7g5
+Solidity GPT Bot ID: cltqjk12m001n35zqh6v2l4jg
 
 ## Value to Flock AI
 
