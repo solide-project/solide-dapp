@@ -16,7 +16,7 @@ export const items = async (): Promise<ContractSchema[]> => {
     if (
       contractLibrary[key] &&
       typeof contractLibrary[key] === "string" &&
-      ethers.isAddress(contractLibrary[key])
+      ethers.utils.isAddress(contractLibrary[key])
     ) {
       const formattedKey = camelToWord(key)
       ret.push({

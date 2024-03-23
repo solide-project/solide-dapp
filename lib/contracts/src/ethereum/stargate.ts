@@ -66,7 +66,7 @@ const getStargateContract = (
 
   const ret: ContractSchema[] = []
   const contract: string = contracts[id] || ""
-  if (ethers.isAddress(contract)) {
+  if (ethers.utils.isAddress(contract)) {
     ret.push({
       title: `LayerZero Contract: ${name}`,
       tutorial: "",

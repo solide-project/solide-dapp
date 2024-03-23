@@ -8,7 +8,7 @@ import { ContractSchema } from "@/lib/schema/contract"
 import { camelToWord, snakeToCamel, snakeToWord } from "@/lib/utils"
 
 const isValidAddress = (address: any): boolean =>
-  address && typeof address === "string" && ethers.isAddress(address)
+  address && typeof address === "string" && ethers.utils.isAddress(address)
 export const items = async (): Promise<ContractSchema[]> => {
   const contractLibrary = AaveV3Fantom as any
 

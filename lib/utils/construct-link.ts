@@ -34,7 +34,7 @@ export const generateUri = ({
 }): string => {
   let uri = `${SOLIDE_URL}`
 
-  if (ethers.isAddress(item.address)) {
+  if (ethers.utils.isAddress(item.address)) {
     const chainId = item.chainId // Note: Mostly provided but default to Ethereum Mainnet
     const address = item.address
     uri = addContractAddress({ uri, chainId, address })

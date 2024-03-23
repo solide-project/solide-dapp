@@ -7,17 +7,24 @@ import { Icon } from "@iconify/react"
 import { cn } from "@/lib/utils"
 
 interface CopyIconProps extends React.HTMLAttributes<HTMLDivElement> {
-  payload: string
+  payload: string,
+  copyIcon?: string,
+  height?: number,
 }
 
-export function CopyIcon({ payload, className }: CopyIconProps) {
-  const [icon, setIcon] = useState<string>("lucide:copy")
+export function CopyIcon({
+  payload,
+  className,
+  copyIcon = "lucide:copy",
+  height = 24,
+}: CopyIconProps) {
+  const [icon, setIcon] = useState<string>(copyIcon)
 
   function copyText(entryText: string) {
     setIcon("lucide:check")
     navigator.clipboard.writeText(payload)
     setTimeout(() => {
-      setIcon("lucide:copy")
+      setIcon(copyIcon)
     }, 1000)
   }
 
@@ -26,7 +33,7 @@ export function CopyIcon({ payload, className }: CopyIconProps) {
       icon={icon}
       className="cursor-pointer"
       inline={true}
-      height={24}
+      height={height}
       onClick={() => copyText(payload)}
     />
   )

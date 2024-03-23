@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/ui/theme/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Footer } from "@/components/main/client/main/footer"
 import { NavBar } from "@/components/main/server/nav-bar"
+import { Provider } from "@/components/main/client/shared/provider"
 
 const inter = Inter({ subsets: ["latin"] })
 export const fontSpace = Space_Grotesk({
@@ -34,14 +35,16 @@ export default function RootLayout({
           "font-sans"
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="light">
-          <TooltipProvider delayDuration={200}>
-            <NavBar />
-            {children}
-            <Footer />
-          </TooltipProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+        <Provider>
+          <ThemeProvider attribute="class" defaultTheme="light">
+            <TooltipProvider delayDuration={200}>
+              <NavBar />
+              {children}
+              <Footer />
+            </TooltipProvider>
+          </ThemeProvider>
+        </Provider>
+      </body >
+    </html >
   )
 }
