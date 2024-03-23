@@ -3,8 +3,8 @@ import { twMerge } from "tailwind-merge"
 
 export const SiteMessage =
   "As Solide is hosting on Hobby tier, be mindful of potential compilation timeouts. If you encounter delays, wait a few minutes for optimal service loading. Our ongoing development efforts aim to improve performance. Thank you for your patience!"
-export const SOLIDE_URL = "http://localhost:3000"
-// export const SOLIDE_URL = "https://solidewidget.azurewebsites.net" // Azure deployment fixes timeout issue (that Vercel has)
+// export const SOLIDE_URL = "http://localhost:3000"
+export const SOLIDE_URL = "https://solidewidget.azurewebsites.net" // Azure deployment fixes timeout issue (that Vercel has)
 // export const SOLIDE_URL = "https://solide.vercel.app"
 
 export const REDDIT = "https://reddit.com/r/solide"
