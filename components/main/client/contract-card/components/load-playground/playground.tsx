@@ -7,7 +7,7 @@ import { ethers } from "ethers"
 
 import { enc } from "@/lib/contracts/utils/hash"
 import { ContractSchema, SolideIDESchema } from "@/lib/schema/contract"
-import { cn, GITHUB_CONTRIBUTION_LINK } from "@/lib/utils"
+import { cn, GITHUB_CONTRIBUTION_LINK, SOLIDE_URL } from "@/lib/utils"
 import { generateUri } from "@/lib/utils/construct-link"
 import { Button, buttonVariants } from "@/components/ui/button"
 import {
@@ -56,9 +56,13 @@ export const Playground = ({ item, contract }: LoadPlaygroundProps) => {
 
   useEffect(() => {
     const handleMessage = (event: any) => {
-      console.log("event", event.origin)
-      if (event.origin === 'http://localhost:3000/' || event.origin === 'https://solide.vercel.app' ||
-        event.origin === 'https://solidewidget.azurewebsites.net/' || event.origin === 'https://solidewidget.azurewebsites.net') {
+      if (event.origin === SOLIDE_URL
+        || event.origin === `${SOLIDE_URL}/`
+        || event.origin === 'https://solide.vercel.app/'
+        || event.origin === 'https://solide.vercel.app'
+        || event.origin === 'https://solide-gpt.vercel.app/'
+        || event.origin === 'https://solide-gpt.vercel.app'
+      ) {
         console.log('Received highlighted text:', event.data.target);
         if (event.data.target && event.data.target === 'solide-highlight') {
           console.log('Received highlighted text 2:', event.data.data.selectedText);

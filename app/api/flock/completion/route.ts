@@ -31,7 +31,7 @@ const completions = async ({
         chat_history: [],
         knowledge_source_id: process.env.FLOCK_MODEL_ID,
     };
-    console.log("payload", payload.question);
+    // console.log("payload", payload.question);
 
     const headers: any = {
         "Content-Type": "application/json",

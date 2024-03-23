@@ -6,7 +6,7 @@ import { useTheme } from "next-themes"
 
 import { cn } from "@/lib/utils"
 
-interface SupportProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface SupportProps extends React.HTMLAttributes<HTMLDivElement> { }
 
 const items = [
   {
@@ -14,7 +14,7 @@ const items = [
     dark: "esp-dark.svg",
     alt: "Ethereum Support Program Logo",
     link: "https://esp.ethereum.foundation/",
-    size: 123,
+    size: 124,
   },
   {
     src: "artela-light.svg",
@@ -22,6 +22,13 @@ const items = [
     alt: "Artela Network",
     link: "https://artela.network/",
     size: 196,
+  },
+  {
+    src: "flock-light.svg",
+    dark: "flock-dark.svg",
+    alt: "Flock.io",
+    link: "https://beta.flock.io/",
+    size: 178,
   },
 ]
 
