@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Inter, Space_Grotesk } from "next/font/google"
+import { Analytics } from "@vercel/analytics/react"
 
 import "./globals.css"
 
@@ -41,6 +42,8 @@ export default function RootLayout({
               <NavBar />
               {children}
               <Footer />
+
+              <Analytics />
             </TooltipProvider>
           </ThemeProvider>
         </Provider>

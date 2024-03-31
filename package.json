@@ -23,6 +23,7 @@
     "@roninbuilders/contracts": "^0.2.1",
     "@thirdweb-dev/react": "^4.4.11",
     "@thirdweb-dev/sdk": "^4.0.38",
+    "@vercel/analytics": "^1.2.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^0.2.1",
