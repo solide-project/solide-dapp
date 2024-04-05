@@ -125,7 +125,6 @@ export const MarkdownPlayground = ({
 
   function getEmojiHeaderInfo(text: string, size: number = 32): { htmlContent: string, htmlId: string } {
     const regex = /:[a-zA-Z0-9_+-]+:/g;
-
     const htmlContent = text.replace(regex, match => {
       const shortcode = match.replace(/:/g, '').toLowerCase();
       return `<img width="${size}" src="${getEmoji(shortcode)}" />`;
@@ -192,7 +191,7 @@ export const MarkdownPlayground = ({
             remarkPlugins={[remarkGfm]}
             components={{
               h1: ({ node, ...props }) => {
-                if (props.children) {
+                if (props.children && typeof props.children === 'string') {
                   const { htmlContent, htmlId } = getEmojiHeaderInfo(props.children.toString())
                   return <div className="my-4">
                     <h1 className="text-3xl flex items-center"
@@ -209,7 +208,7 @@ export const MarkdownPlayground = ({
                 </div>
               },
               h2: ({ node, ...props }) => {
-                if (props.children) {
+                if (props.children && typeof props.children === 'string') {
                   const { htmlContent, htmlId } = getEmojiHeaderInfo(props.children.toString(), 32)
                   return <h2 className="flex items-center space-x-2"
                     // @ts-ignore
@@ -220,7 +219,7 @@ export const MarkdownPlayground = ({
                 return <h2 id={props.children?.toString()} {...props} />
               },
               h3: ({ node, ...props }) => {
-                if (props.children) {
+                if (props.children && typeof props.children === 'string') {
                   const { htmlContent, htmlId } = getEmojiHeaderInfo(props.children.toString())
                   return <h3 className="flex items-center"
                     // @ts-ignore
@@ -231,7 +230,7 @@ export const MarkdownPlayground = ({
                 return <h3 id={props.children?.toString()} {...props} />
               },
               h4: ({ node, ...props }) => {
-                if (props.children) {
+                if (props.children && typeof props.children === 'string') {
                   const { htmlContent, htmlId } = getEmojiHeaderInfo(props.children.toString())
                   return <h4 className="flex items-center"
                     // @ts-ignore
@@ -281,11 +280,9 @@ export const MarkdownPlayground = ({
                   {props.children}
                 </ul>
               ),
-              p: ({ node, ...props }) => <p className="" {...props} />,
+              p: ({ node, ...props }) => <p className="my-4" {...props} />,
               a: ({ node, ...props }) => {
                 if (props.href?.toString().startsWith("#")) {
-                  console.log(props.href?.toString())
-
                   return <span
                     onClick={() => scroll(props.href?.toString())}
                     className="text-primary underline cursor-pointer"

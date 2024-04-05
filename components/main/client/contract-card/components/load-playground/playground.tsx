@@ -60,8 +60,6 @@ export const Playground = ({ item, contract }: LoadPlaygroundProps) => {
         || event.origin === `${SOLIDE_URL}/`
         || event.origin === 'https://solide.vercel.app/'
         || event.origin === 'https://solide.vercel.app'
-        || event.origin === 'https://solide-gpt.vercel.app/'
-        || event.origin === 'https://solide-gpt.vercel.app'
       ) {
         console.log('Received highlighted text:', event.data.target);
         if (event.data.target && event.data.target === 'solide-highlight') {

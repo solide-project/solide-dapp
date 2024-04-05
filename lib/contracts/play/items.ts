@@ -1,5 +1,5 @@
-import { items as SOLIDE_ERC404 } from "@/lib/contracts/play/erc404"
+import { items as CUSTOM_ITEMS } from "@/lib/contracts/play/custom"
 
 export const items: Record<string, string> = {
-  ...SOLIDE_ERC404,
+  ...CUSTOM_ITEMS,
 }

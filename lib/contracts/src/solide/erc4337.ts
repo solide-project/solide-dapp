@@ -16,4 +16,19 @@ export const items: ContractSchema[] = [
       },
     },
   },
+  {
+    title: `Solmate: Create3 Library 📜`,
+    tutorial:
+      "https://github.com/solide-project/docs/blob/master/blog/solidity/create3/_part-1.md|https://github.com/solide-project/docs/blob/master/blog/solidity/create3/_part-2.md",
+    reference:
+      "https://docs.solide0x.tech/blog/solidity/create3",
+    description:
+      "Create3, a new toolset designed to streamline smart contract interactions, developers now have access to a simplified and more efficient approach. This article delves into the capabilities of Create3 and explores how it revolutionizes Ethereum smart contract development.",
+    playground: {
+      default: {
+        address:
+          "https://github.com/solide-project/solide-guides/blob/master/src/solide/Create/Deployer.sol",
+      },
+    },
+  },
 ]
