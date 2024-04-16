@@ -30,6 +30,13 @@ const items = [
     link: "https://beta.flock.io/",
     size: 178,
   },
+  {
+    src: "chainsafe-light.png",
+    dark: "chainsafe-dark.png",
+    alt: "Chainsafe",
+    link: "https://chainsafe.io/",
+    size: 178,
+  },
 ]
 
 export const Support = ({ className }: SupportProps) => {
@@ -45,7 +52,7 @@ export const Support = ({ className }: SupportProps) => {
       <div className="text-xl leading-[1.1] sm:text-2xl md:text-4xl text-center font-bold">
         Supported by
       </div>
-      <div className="flex items-center justify-center space-x-16 my-8">
+      <div className="flex items-center justify-center space-x-4 lg:space-x-16 my-8">
         {items.map((item, index) => (
           <Link key={index} href={item.link} target="_blank">
             <img
