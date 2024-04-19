@@ -1,7 +1,6 @@
 import { items as PROTOCOL_CONTRACTS } from "@/lib/contracts/src/immutable/protocol"
-import { IMMUTABLE_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { IMMUTABLE_ID, getProtcolInfo, getRPCInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -9,7 +8,8 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[IMMUTABLE_ID]}
+      protocol={getProtcolInfo(IMMUTABLE_ID)}
+      rpcSetting={getRPCInfo(IMMUTABLE_ID)}
       items={items}
       themeColour={"rgba(17, 19, 187, 1)"}
     />

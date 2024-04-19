@@ -8,9 +8,8 @@ import { items as BICO_PAYMASTER_CONTRACTS } from "@/lib/contracts/src/biconomy/
 import { items as BICO_SAFETY_MODULE_CONTRACTS } from "@/lib/contracts/src/biconomy/safety-module"
 import { items as BICO_SMART_ACCOUNT_CONTRACTS } from "@/lib/contracts/src/biconomy/smart-account"
 import { items as BICO_SMART_ACCOUNT_COMMON_CONTRACTS } from "@/lib/contracts/src/biconomy/smart-account-common"
-import { BICONOMY_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { BICONOMY_ID, getProtcolInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -27,7 +26,7 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[BICONOMY_ID]}
+      protocol={getProtcolInfo(BICONOMY_ID)}
       items={items}
       themeColour={"rgba(255, 78, 23, 1)"}
     />

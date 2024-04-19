@@ -1,7 +1,7 @@
 import { ChainID } from "@/lib/chains/id"
 import { getContractsByDeployments } from "@/lib/contracts/utils/get-contracts-by-deployments"
 import { filterFiles, GitHubFileInfo } from "@/lib/contracts/utils/utils"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 
 const getAPI = (chain: string): string => {
   switch (chain) {

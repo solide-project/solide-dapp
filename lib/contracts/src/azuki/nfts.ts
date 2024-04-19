@@ -1,7 +1,7 @@
 import { getExplorer } from "@/lib/chains/explorer"
 import { ChainID } from "@/lib/chains/id"
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
-import { ContractSchema } from "@/lib/schema"
+import { ContractSchema } from "@/lib/contracts"
 
 export const items = async (): Promise<ContractSchema[]> => {
   const chain = ChainID.ETHEREUM_MAINNET

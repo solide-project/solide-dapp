@@ -1,8 +1,8 @@
 import { ethers } from "ethers"
 
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
-import { ContractSchema } from "@/lib/schema"
 import { camelToWord } from "@/lib/utils"
+import { ContractSchema } from "@/lib/contracts"
 
 export const items = async (chain: string): Promise<ContractSchema[]> => {
   const response = await fetch(

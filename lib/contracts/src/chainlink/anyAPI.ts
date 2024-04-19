@@ -1,5 +1,5 @@
 import { ChainID } from "@/lib/chains/id"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 
 const mainTitle: string = "Any API"
 export const items: ContractSchema[] = [

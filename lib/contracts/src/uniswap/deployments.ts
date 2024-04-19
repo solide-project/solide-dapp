@@ -1,5 +1,5 @@
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
-import { ContractSchema } from "@/lib/schema"
+import { ContractSchema } from "@/lib/contracts"
 import { camelToWord } from "@/lib/utils"
 
 export const items = async (chain: string): Promise<ContractSchema[]> => {

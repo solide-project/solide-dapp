@@ -4,9 +4,8 @@ import { items as ARBITRUM_TOKEN_LIST_CONTRACTS } from "@/lib/contracts/src/arbi
 import { items as BALANCER_DEPLOYMENT_CONTRACTS } from "@/lib/contracts/src/balancer/contract-deployments"
 import { items as CHAINLINK_PRICE_FEED_ITEMS } from "@/lib/contracts/src/chainlink/price-feed"
 import { items as GMX_SYNTHETICS_CONTRACTS } from "@/lib/contracts/src/gmx/synthetics-deployments"
-import { ARBITRUM_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ARBITRUM_ID, getProtcolInfo, getRPCInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -19,7 +18,8 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[ARBITRUM_ID]}
+      protocol={getProtcolInfo(ARBITRUM_ID)}
+      rpcSetting={getRPCInfo(ARBITRUM_ID)}
       items={items}
       themeColour={"rgba(17, 19, 187, 1)"}
     />

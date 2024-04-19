@@ -4,7 +4,7 @@ import {
   getContractsByDeployments,
   getContractsByGithub,
 } from "@/lib/contracts"
-import { ContractSchema } from "@/lib/schema"
+import { ContractSchema } from "@/lib/contracts"
 import { camelToWord } from "@/lib/utils"
 
 import { filterFiles, GitHubFileInfo } from "../../utils/utils"

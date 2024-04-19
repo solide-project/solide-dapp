@@ -1,5 +1,5 @@
 import { getContractsByGithub } from "@/lib/contracts"
-import { ContractSchema } from "@/lib/schema"
+import { ContractSchema } from "@/lib/contracts"
 
 const tutorial =
   "https://github.com/chiru-labs/ERC721A-Upgradeable/blob/main/README.md"

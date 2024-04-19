@@ -8,9 +8,8 @@ import { items as ZERO_EX_VDF_CONTRACTS } from "@/lib/contracts/src/0x/vdf-contr
 import { items as ZERO_EX_CORE_CONTRACTS } from "@/lib/contracts/src/0x/zero-ex-contracts-core"
 import { items as ZERO_EX_FEATURES_CONTRACTS } from "@/lib/contracts/src/0x/zero-ex-contracts-features"
 import { items as ZERO_EX_LP_CONTRACTS } from "@/lib/contracts/src/0x/zero-ex-contracts-lp"
-import { ZEROX_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ZEROX_ID, getProtcolInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -25,10 +24,10 @@ export default async function Page() {
   items.push(...(await EXCHANGE_V3_MULTISIG_CONTRACTS()))
   items.push(...(await EXCHANGE_V3_DEV_UTILS_CONTRACTS()))
   items.push(...(await GASLESS_APPROVAL_TOKENS()))
-
+  
   return (
     <ContractPage
-      protocol={protcols[ZEROX_ID]}
+      protocol={getProtcolInfo(ZEROX_ID)}
       items={items}
       themeColour={"rgba(38, 39, 43, 1)"}
     />

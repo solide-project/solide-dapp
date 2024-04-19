@@ -1,4 +1,4 @@
-import { ContractSchema } from "@/lib/schema"
+import { ContractSchema } from "@/lib/contracts"
 import { camelToWord } from "@/lib/utils"
 
 export const items = (): ContractSchema[] =>

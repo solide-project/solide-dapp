@@ -1,6 +1,6 @@
 import { ChainID } from "@/lib/chains/id"
 import { items as solideContractItems } from "@/lib/contracts/src/ethereum/solide-contracts"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 
 export const items = async (): Promise<ContractSchema[]> => {
   return await solideContractItems({

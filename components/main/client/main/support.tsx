@@ -3,7 +3,12 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
-
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
 
 interface SupportProps extends React.HTMLAttributes<HTMLDivElement> { }
@@ -15,6 +20,7 @@ const items = [
     alt: "Ethereum Support Program Logo",
     link: "https://esp.ethereum.foundation/",
     size: 124,
+    description: "Ethereum Support Program Recipient",
   },
   {
     src: "artela-light.svg",
@@ -22,6 +28,7 @@ const items = [
     alt: "Artela Network",
     link: "https://artela.network/",
     size: 196,
+    description: "Artela Aspect Use Cases Buildathon Finalist",
   },
   {
     src: "flock-light.svg",
@@ -29,6 +36,7 @@ const items = [
     alt: "Flock.io",
     link: "https://beta.flock.io/",
     size: 178,
+    description: "AI Co Creation with FLock Winner",
   },
   {
     src: "chainsafe-light.png",
@@ -36,7 +44,16 @@ const items = [
     alt: "Chainsafe",
     link: "https://chainsafe.io/",
     size: 178,
+    description: "Decentralized Intelligence Season 2 Winner",
   },
+  // {
+  //   src: "drpc-light.svg",
+  //   dark: "drpc-dark.svg",
+  //   alt: "dRPC",
+  //   link: "https://drpc.org/?ref=12dbf8",
+  //   size: 178,
+  //   description: "dRPC Startup Program",
+  // },
 ]
 
 export const Support = ({ className }: SupportProps) => {
@@ -52,16 +69,25 @@ export const Support = ({ className }: SupportProps) => {
       <div className="text-xl leading-[1.1] sm:text-2xl md:text-4xl text-center font-bold">
         Supported by
       </div>
-      <div className="flex items-center justify-center space-x-4 lg:space-x-16 my-8">
+      <div className="grid grid-cols-4 gap-4 lg:gap-12 my-8">
         {items.map((item, index) => (
-          <Link key={index} href={item.link} target="_blank">
-            <img
-              src={!isDarkMode ? `/images/${item.src}` : `/images/${item.dark}`}
-              height={item.size}
-              width={item.size}
-              alt={item.alt}
-            />
-          </Link>
+          <Tooltip key={index}>
+            <TooltipTrigger className="flex items-center justify-center">
+              <Link href={item.link} target="_blank">
+                <img
+                  src={!isDarkMode ? `/images/${item.src}` : `/images/${item.dark}`}
+                  height={item.size}
+                  width={item.size}
+                  alt={item.alt}
+                />
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <div className="container">
+                <p>{item.description ? item.description : ""}</p>
+              </div>
+            </TooltipContent>
+          </Tooltip>
         ))}
       </div>
     </div>

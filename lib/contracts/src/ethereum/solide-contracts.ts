@@ -1,5 +1,5 @@
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 
 export const items = async ({
   url,

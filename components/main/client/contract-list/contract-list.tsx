@@ -3,11 +3,11 @@
 import { useState } from "react"
 import { Icon } from "@iconify/react"
 
-import { ContractSchema } from "@/lib/schema/contract"
-import { ProtocolSchema } from "@/lib/schema/protocol"
+import { ContractSchema } from "@/lib/contracts"
 
 import { ContractCard } from "../contract-card/contract-card"
 import { ProtocolSearch } from "../pages/components/protocol-search"
+import { ProtocolSchema } from "@/lib/systems"
 
 interface ContractsListProps extends React.HTMLAttributes<HTMLDivElement> {
   protocol: ProtocolSchema

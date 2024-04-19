@@ -2,9 +2,8 @@ import { items as ERC721A_CONTRACTS } from "@/lib/contracts/src/azuki/erc721a"
 import { items as ERC721A_UPGRADEABLE_CONTRACTS } from "@/lib/contracts/src/azuki/erc721a-upgradeable"
 import { items as AZUKI_NFT_CONTRACTS } from "@/lib/contracts/src/azuki/nfts"
 import { items as PBT_CONTRACTS } from "@/lib/contracts/src/azuki/pbt"
-import { AZUKI_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { AZUKI_ID, getProtcolInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -17,7 +16,7 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[AZUKI_ID]}
+      protocol={getProtcolInfo(AZUKI_ID)}
       items={items}
       themeColour={"rgba(192, 53, 64, 1)"}
     />

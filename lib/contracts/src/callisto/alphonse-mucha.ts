@@ -1,5 +1,5 @@
 import { ChainID } from "@/lib/chains/id"
-import { ContractSchema } from "@/lib/schema"
+import { ContractSchema } from "@/lib/contracts"
 
 const mainTitle = "Alphonse Mucha"
 const tutorial =

@@ -3,8 +3,8 @@
 import { useEffect } from "react"
 import { Icon } from "@iconify/react"
 
-import { ContractSchema } from "@/lib/schema/contract"
-import { addVersion } from "@/lib/utils/construct-link"
+import { ContractSchema } from "@/lib/contracts"
+import { addVersion } from "@/lib/helpers/construct-link"
 import {
   Card,
   CardContent,

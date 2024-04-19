@@ -1,5 +1,5 @@
 import { getContractsByGithub } from "@/lib/contracts/utils/get-contracs-by-github"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 
 import { description, reference, tutorial } from "./vrc25"
 

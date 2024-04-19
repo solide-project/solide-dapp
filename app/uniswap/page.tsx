@@ -13,9 +13,8 @@ import { items as UNISWAP_V3_PERIPHERY_CONTRACTS } from "@/lib/contracts/src/uni
 import { items as UNISWAP_V4_CORE_CONTRACTS } from "@/lib/contracts/src/uniswap/v4-core"
 import { items as UNISWAP_V4_HOOKS_CONTRACTS } from "@/lib/contracts/src/uniswap/v4-hooks"
 import { items as UNISWAP_V4_PERIPHERY_CONTRACTS } from "@/lib/contracts/src/uniswap/v4-periphery"
-import { UNISWAP_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { UNISWAP_ID, getProtcolInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -43,7 +42,7 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[UNISWAP_ID]}
+      protocol={getProtcolInfo(UNISWAP_ID)}
       items={items}
       themeColour={"rgba(255, 0, 122, 1)"}
     />

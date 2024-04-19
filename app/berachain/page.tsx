@@ -1,10 +1,8 @@
-import { ChainID } from "@/lib/chains/id"
 import { items as ARTIO_CONTRACTS } from "@/lib/contracts/src/berachain/artio-contracts"
 import { items as PRECOMPILE_TEST_CONTRACTS } from "@/lib/contracts/src/berachain/polaris"
 import { items as BERACHAIN_VERIFIED_CONTRACTS } from "@/lib/contracts/src/berachain/verified-contracts"
-import { BERACHAIN_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { BERACHAIN_ID, getProtcolInfo, getRPCInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -15,7 +13,8 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[BERACHAIN_ID]}
+      protocol={getProtcolInfo(BERACHAIN_ID)}
+      rpcSetting={getRPCInfo(BERACHAIN_ID)}
       items={items}
       themeColour={"rgba(244, 114, 38, 1)"}
     />

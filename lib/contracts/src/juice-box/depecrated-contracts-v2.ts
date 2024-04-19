@@ -1,5 +1,5 @@
 import { getContractsByGithub } from "@/lib/contracts"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 
 /**
  * Note this is note used as it is deprecated for v3, but we can provide it for reference

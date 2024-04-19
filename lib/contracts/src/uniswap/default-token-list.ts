@@ -1,7 +1,7 @@
 import { ChainID } from "@/lib/chains/id"
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
 import { TokenInfo } from "@/lib/contracts/src/uniswap/uniswap-token-list"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 
 const getAPI = (chain: string) => {
   switch (chain) {

@@ -1,6 +1,6 @@
 import { ChainID } from "@/lib/chains/id"
 import { getContractsByGithub } from "@/lib/contracts"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 import { camelToWord } from "@/lib/utils"
 
 interface configData {

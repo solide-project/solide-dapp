@@ -3,7 +3,7 @@ import { AaveV3Metis } from "@bgd-labs/aave-address-book"
 import { ethers } from "ethers"
 
 import { ChainID } from "@/lib/chains/id"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 import { camelToWord } from "@/lib/utils"
 
 export const items = async (): Promise<ContractSchema[]> => {

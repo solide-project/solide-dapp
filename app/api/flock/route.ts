@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+import { flock } from "@/lib/helpers";
 
 export async function POST(request: NextRequest) {
     const body = await request.json();
-    const response: FlockConversationalResponse = await completions(
+    const response: flock.FlockConversationalResponse = await completions(
         body.prompt,
         // body.history // Disable history for now
     );
@@ -11,7 +12,7 @@ export async function POST(request: NextRequest) {
 
 const minify = (input: string): string => input.replace(/\s+/g, ' ');
 
-const completions = async (prompt: string, history: any[] = []): Promise<FlockConversationalResponse> => {
+const completions = async (prompt: string, history: any[] = []): Promise<flock.FlockConversationalResponse> => {
     // console.log("Prompt:", prompt);
     const payload = {
         question: `Explain in detail what this does in smart contract ${minify(prompt)}`,
@@ -48,7 +49,7 @@ const completions = async (prompt: string, history: any[] = []): Promise<FlockCo
         };
     }
 
-    const responseData: FlockConversationalResponse = await response.json();
+    const responseData: flock.FlockConversationalResponse = await response.json();
     // Need to convert the generated question to a more readable format
     responseData.generated_question = prompt;
     return responseData;

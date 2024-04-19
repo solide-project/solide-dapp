@@ -7,7 +7,7 @@ import { ethers } from "ethers"
 
 import { getExplorer } from "@/lib/chains/explorer"
 import { ChainID } from "@/lib/chains/id"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 
 interface ContractIconProps extends React.HTMLAttributes<HTMLDivElement> {
   item: ContractSchema

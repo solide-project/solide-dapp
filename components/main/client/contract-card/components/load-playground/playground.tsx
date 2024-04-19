@@ -6,9 +6,9 @@ import { Icon } from "@iconify/react"
 import { ethers } from "ethers"
 
 import { enc } from "@/lib/contracts/utils/hash"
-import { ContractSchema, SolideIDESchema } from "@/lib/schema/contract"
+import { ContractSchema, SolideIDESchema } from "@/lib/contracts"
 import { cn, GITHUB_CONTRIBUTION_LINK, SOLIDE_URL } from "@/lib/utils"
-import { generateUri } from "@/lib/utils/construct-link"
+import { generateUri } from "@/lib/helpers/construct-link"
 import { Button, buttonVariants } from "@/components/ui/button"
 import {
   Drawer,

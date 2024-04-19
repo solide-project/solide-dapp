@@ -1,7 +1,7 @@
 import { getExplorer } from "@/lib/chains/explorer"
 import { ChainID } from "@/lib/chains/id"
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
-import { ContractSchema } from "@/lib/schema"
+import { ContractSchema } from "@/lib/contracts"
 
 interface TokenInfo {
   _id: string

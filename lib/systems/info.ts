@@ -1,34 +1,22 @@
-import { ProtocolSchema } from "../schema/protocol"
-import { SOLIDE_URL } from "../utils"
-import {
-  AAVE_ID,
-  ARBITRUM_ID,
-  ARTELA_ID,
-  AZUKI_ID,
-  BERACHAIN_ID,
-  BICONOMY_ID,
-  CALLISTO_ID,
-  CHAINLINK_ID,
-  COMPOUND_ID,
-  ENS_ID,
-  ETHEREUM_ID,
-  FUSE_ID,
-  GMX_ID,
-  IMMUTABLE_ID,
-  JUICE_BOX_DAO_ID,
-  METIS_ID,
-  OPEN_ZEPPELIN_ID,
-  PUSH_PROTOCOL_ID,
-  RONIN_ID,
-  TABLELAND_ID,
-  THEGRAPH_ID,
-  UNISWAP_ID,
-  VICTION_ID,
-  ZEROX_ID,
-} from "./ids"
+import * as ID from "./id"
 
-export const protcols: Record<string, ProtocolSchema> = {
-  [CHAINLINK_ID]: {
+export interface ProtocolSchema {
+  name: string
+  library?: string
+  description: string
+
+  github?: string
+  website?: string
+  blog?: string
+  discord?: string
+  x?: string
+  source?: string
+  audit?: string
+  documentation?: string
+}
+
+export const data: Record<string, ProtocolSchema> = {
+  [ID.CHAINLINK_ID]: {
     name: "Chainlink",
     library: "@chainlink/contracts @chainlink/contracts-ccip",
     description:
@@ -40,7 +28,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     x: "https://twitter.com/ethereum",
     source: "https://github.com/smartcontractkit/chainlink/tree/master",
   },
-  [ETHEREUM_ID]: {
+  [ID.ETHEREUM_ID]: {
     name: "Ethereum",
     description:
       "Smart contracts on Ethereum enable a wide range of decentralized applications, from decentralized finance (DeFi) protocols and non-fungible tokens (NFTs) to decentralized exchanges and more. They operate autonomously, executing code when triggered by predefined conditions, without the need for centralized control. Deploy and view popular verified contracts on Ethereum.",
@@ -51,7 +39,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     discord: "https://discord.com/invite/ethereum-org",
     x: "https://twitter.com/ethereum",
   },
-  [OPEN_ZEPPELIN_ID]: {
+  [ID.OPEN_ZEPPELIN_ID]: {
     name: "OpenZeppelin",
     library: "@openzeppelin/contracts contracts-upgradeable",
     description:
@@ -60,7 +48,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     source: "https://github.com/OpenZeppelin/openzeppelin-contracts",
     website: "https://openzeppelin.com",
   },
-  [UNISWAP_ID]: {
+  [ID.UNISWAP_ID]: {
     name: "UniSwap",
     library:
       "@uniswap/v3-core @uniswap/v3-periphery @uniswap/swap-router-contracts @uniswap/v3-staker",
@@ -75,7 +63,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     audit:
       "https://docs.uniswap.org/contracts/v2/concepts/advanced-topics/security",
   },
-  [COMPOUND_ID]: {
+  [ID.COMPOUND_ID]: {
     name: "Compound Finance",
     description:
       "Compound Finance, renowned as one of the most secure protocols for managing digital assets, offers a robust framework for decentralized lending and borrowing on the blockchain. The protocol facilitates the creation and utilization of algorithmic interest rates, ensuring efficient and secure financial operations within decentralized finance (DeFi) applications. Compound enables users to lend and borrow various cryptocurrencies, providing a trustworthy platform for optimizing asset utilization and earning interest in a decentralized and transparent manner.",
@@ -87,7 +75,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     documentation: "https://docs.compound.finance",
     audit: "https://docs.compound.finance/v2/security/#audits",
   },
-  [ARBITRUM_ID]: {
+  [ID.ARBITRUM_ID]: {
     name: "Arbitrum",
     library: "@arbitrum/nitro-contracts @arbitrum/token-bridge-contracts",
     description:
@@ -98,7 +86,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     discord: "https://discord.com/invite/arbitrum",
     x: "https://twitter.com/arbitrum",
   },
-  [METIS_ID]: {
+  [ID.METIS_ID]: {
     name: "Metis",
     description:
       "Metis is a Layer 2 rollup platform built on the Ethereum network, offering solutions to Ethereum's challenges such as scalability, transaction speed, and high gas fees. As an Ethereum Layer 2 solution, it leverages Optimistic rollups to provide users with low gas fees, fast transactions, native storage, and enhanced security. The platform's mission is to create an accessible and user-friendly technical environment, making blockchain technology available to individuals and businesses seeking to initiate or expand decentralized applications (dApps) or communities with scalability.",
@@ -108,7 +96,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     discord: "https://discord.com/invite/RqfEJZXnxd",
     x: "https://twitter.com/MetisDAO",
   },
-  [IMMUTABLE_ID]: {
+  [ID.IMMUTABLE_ID]: {
     name: "Immuntable",
     library: "@imtbl/contracts",
     description:
@@ -119,7 +107,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     discord: "https://discord.com/invite/CYsjMdctsP",
     x: "https://twitter.com/Immutable",
   },
-  [AAVE_ID]: {
+  [ID.AAVE_ID]: {
     name: "Aave",
     library: "@aave/core-v3 @aave/periphery-v3 @aave/safety-module",
     description:
@@ -133,7 +121,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     audit:
       "https://docs.aave.com/developers/deployed-contracts/security-and-audits",
   },
-  [ZEROX_ID]: {
+  [ID.ZEROX_ID]: {
     name: "0x",
     library:
       "@0x/contracts-utils @0x/contracts-treasury @0x/contracts-erc20 @0x/contracts-zero-ex",
@@ -147,13 +135,13 @@ export const protcols: Record<string, ProtocolSchema> = {
     x: "https://twitter.com/0xproject",
     audit: "https://0x.org/docs/developer-resources/audits",
   },
-  [ENS_ID]: {
+  [ID.ENS_ID]: {
     name: "ENS",
     description: "",
     library: "@ensdomains/ens-contracts",
     github: "https://github.com/ensdomains/",
   },
-  [TABLELAND_ID]: {
+  [ID.TABLELAND_ID]: {
     name: "Tableland",
     library: "@tableland/evm",
     description: "",
@@ -161,7 +149,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     source: "https://github.com/tablelandnetwork/evm-tableland",
     website: "https://tableland.xyz/",
   },
-  [THEGRAPH_ID]: {
+  [ID.THEGRAPH_ID]: {
     name: "The Graph",
     library: "@graphprotocol/contracts",
     description:
@@ -173,7 +161,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     discord: "https://discord.com/invite/graphprotocol",
     x: "https://twitter.com/graphprotocol",
   },
-  [ARTELA_ID]: {
+  [ID.ARTELA_ID]: {
     name: "Artela Network",
     library: "@artela/aspect-libs",
     description:
@@ -185,7 +173,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     discord: "https://discord.com/invite/artela",
     x: "https://twitter.com/artela_network",
   },
-  [GMX_ID]: {
+  [ID.GMX_ID]: {
     name: "GMX",
     library: "",
     description:
@@ -198,7 +186,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     x: "https://twitter.com/GMX_IO",
     audit: "https://github.com/gmx-io/gmx-contracts/tree/master/audits",
   },
-  [FUSE_ID]: {
+  [ID.FUSE_ID]: {
     name: "Fuse Network",
     library: "",
     description:
@@ -211,7 +199,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     x: "https://twitter.com/Fuse_network",
     audit: "https://github.com/fuseio/fuse-network/tree/master/audits",
   },
-  [SOLIDE_URL]: {
+  [ID.SOLIDE]: {
     name: "Solide",
     library: "",
     description:
@@ -224,7 +212,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     x: "https://twitter.com/SolideProject",
     audit: "",
   },
-  [PUSH_PROTOCOL_ID]: {
+  [ID.PUSH_PROTOCOL_ID]: {
     name: "Push Protocol",
     library: "",
     description:
@@ -238,7 +226,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     audit:
       "https://push.org/docs/notifications/push-smart-contracts/security-audits",
   },
-  [AZUKI_ID]: {
+  [ID.AZUKI_ID]: {
     name: "Chiru Lab (Azuki)",
     library: "erc721a erc721a-upgradeable @chiru-labs/pbt",
     description:
@@ -249,7 +237,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     discord: "https://discord.com/invite/azuki",
     x: "https://twitter.com/azuki",
   },
-  [RONIN_ID]: {
+  [ID.RONIN_ID]: {
     name: "Ronin Chain",
     library: "",
     description:
@@ -262,7 +250,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     x: "https://twitter.com/Ronin_Network",
     audit: "https://docs.skymavis.com/basics/audits",
   },
-  [BERACHAIN_ID]: {
+  [ID.BERACHAIN_ID]: {
     name: "Berachain",
     library: "",
     description:
@@ -275,7 +263,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     x: "https://twitter.com/berachain",
     audit: "",
   },
-  [JUICE_BOX_DAO_ID]: {
+  [ID.JUICE_BOX_DAO_ID]: {
     name: "Juice Box DAO",
     library:
       "@jbx-protocol/juice-contracts-v3 @jbx-protocol/juice-delegates-registry",
@@ -289,7 +277,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     x: "https://twitter.com/juiceboxETH",
     audit: "https://docs.juicebox.money/dev/resources/security",
   },
-  [BICONOMY_ID]: {
+  [ID.BICONOMY_ID]: {
     name: "Biconomy",
     library: "",
     description:
@@ -302,7 +290,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     x: "https://twitter.com/biconomy",
     audit: "https://docs.biconomy.io/audits",
   },
-  [VICTION_ID]: {
+  [ID.VICTION_ID]: {
     name: "Viction",
     library: "",
     description:
@@ -315,7 +303,7 @@ export const protcols: Record<string, ProtocolSchema> = {
     x: "https://twitter.com/BuildOnViction",
     audit: "https://docs.biconomy.io/audits",
   },
-  [CALLISTO_ID]: {
+  [ID.CALLISTO_ID]: {
     name: "Callisto Network",
     library: "",
     description:
@@ -330,3 +318,5 @@ export const protcols: Record<string, ProtocolSchema> = {
       "https://docs.callisto.network/security-department/auditing-department",
   },
 }
+
+export const getProtcolInfo = (network: string): ProtocolSchema => data[network] || {} as ProtocolSchema

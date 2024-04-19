@@ -1,6 +1,5 @@
-import { ENS_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ENS_ID, getProtcolInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -8,7 +7,7 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[ENS_ID]}
+      protocol={getProtcolInfo(ENS_ID)}
       items={items}
       themeColour={"rgba(85, 175 ,243 ,1)"}
     />

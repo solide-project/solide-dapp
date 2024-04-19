@@ -3,22 +3,25 @@
 import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
 
-import { ContractSchema } from "@/lib/schema/contract"
-import { ProtocolSchema } from "@/lib/schema/protocol"
+import { ContractSchema } from "@/lib/contracts"
+import { ProtocolSchema } from "@/lib/systems"
 
 import { ContractsList } from "../contract-list/contract-list"
 import { ContributionCTA } from "../main/contribution-cta"
 import { ProtocolHeader } from "./components/protocol-header"
+import { ChainInfo } from "@/lib/systems/settings"
 
 interface ContractPageProps extends React.HTMLAttributes<HTMLDivElement> {
   protocol: ProtocolSchema
   items: ContractSchema[]
+  rpcSetting?: ChainInfo[]
   themeColour?: string
 }
 
 export const ContractPage = ({
   protocol,
   items,
+  rpcSetting = [],
   themeColour = "rgba(180, 249, 186, 1)",
 }: ContractPageProps) => {
   const [secondaryColour, setSecondaryColour] = useState<string>("#FAFAFA")
@@ -40,7 +43,7 @@ export const ContractPage = ({
     <div>
       <div className="px-0 md:px-8 lg:px-16" style={styles}>
         <div className="py-4">
-          <ProtocolHeader item={protocol} />
+          <ProtocolHeader item={protocol} rpcSetting={rpcSetting} />
         </div>
         <ContractsList protocol={protocol} items={items} />
       </div>

@@ -7,9 +7,8 @@ import { items as JBX_DELEGATES_REGISTRY_CONTRACTS } from "@/lib/contracts/src/j
 import { items as JBX_OWNABLE_CONTRACTS } from "@/lib/contracts/src/juice-box/juice-ownable"
 import { items as JBX_VE_NFT_CONTRACTS } from "@/lib/contracts/src/juice-box/juice-ve-nft"
 import { items as JBX_V3_DEPLOYMENT_CONTRACTS } from "@/lib/contracts/src/juice-box/v3-deployments"
-import { JUICE_BOX_DAO_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { JUICE_BOX_DAO_ID, getProtcolInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -27,7 +26,7 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[JUICE_BOX_DAO_ID]}
+      protocol={getProtcolInfo(JUICE_BOX_DAO_ID)}
       items={items}
       themeColour={"rgba(255, 187, 69, 1)"}
     />

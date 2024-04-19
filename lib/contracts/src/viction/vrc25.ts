@@ -1,5 +1,5 @@
 import { getContractsByGithub } from "@/lib/contracts/utils/get-contracs-by-github"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 
 export const tutorial =
   "https://github.com/BuildOnViction/gitbook/blob/main/developer-guide/standards-and-specification/vrc25-specification.md"

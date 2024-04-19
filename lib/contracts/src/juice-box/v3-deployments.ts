@@ -1,5 +1,5 @@
 import { getContractsByDeployments } from "@/lib/contracts"
-import { ContractSchema } from "@/lib/schema"
+import { ContractSchema } from "@/lib/contracts"
 import { camelToWord, snakeToWord } from "@/lib/utils"
 
 import { fetchGithub, filterFiles, GitHubFileInfo } from "../../utils/utils"

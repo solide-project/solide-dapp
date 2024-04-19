@@ -1,4 +1,4 @@
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 
 const mainTitle: string = "Functions"
 export const items: ContractSchema[] = [

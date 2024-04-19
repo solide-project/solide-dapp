@@ -8,9 +8,8 @@ import { items as METIS_TOKEN_ITEMS } from "@/lib/contracts/src/metis/metis-toke
 import { items as NETSWAP_FARM_CONTRACTS } from "@/lib/contracts/src/metis/netswap-farm"
 import { items as OTHER_CONTRACTS } from "@/lib/contracts/src/metis/other"
 import { items as TOKEN_CONTRACTS } from "@/lib/contracts/src/metis/token"
-import { METIS_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { METIS_ID, getProtcolInfo, getRPCInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -26,7 +25,8 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[METIS_ID]}
+      protocol={getProtcolInfo(METIS_ID)}
+      rpcSetting={getRPCInfo(METIS_ID)}
       items={items}
       themeColour={"rgba(0, 210, 255, 1)"}
     />

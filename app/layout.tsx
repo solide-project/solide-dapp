@@ -38,7 +38,7 @@ export default function RootLayout({
       >
         <Provider>
           <ThemeProvider attribute="class" defaultTheme="light">
-            <TooltipProvider delayDuration={200}>
+            <TooltipProvider delayDuration={0}>
               <NavBar />
               {children}
               <Footer />

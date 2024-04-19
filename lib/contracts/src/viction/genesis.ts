@@ -1,5 +1,5 @@
 import { ChainID } from "@/lib/chains/id"
-import { ContractSchema } from "@/lib/schema"
+import { ContractSchema } from "@/lib/contracts"
 
 export const items = async (): Promise<ContractSchema[]> => {
   const response = await fetch(

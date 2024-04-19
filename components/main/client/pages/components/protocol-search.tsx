@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react"
-import { Icon } from "@iconify/react/dist/iconify.js"
+import { Icon } from "@iconify/react"
 
-import { ProtocolSchema } from "@/lib/schema/protocol"
 import { cn } from "@/lib/utils"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 
 import { ProtocolIcons } from "./protocol-icons"
+import { ProtocolSchema } from "@/lib/systems"
 
 interface ProtocolSearchProps extends React.HTMLAttributes<HTMLDivElement> {
   item: ProtocolSchema

@@ -4,9 +4,9 @@ import { items as CCIP_CONTRACTS } from "@/lib/contracts/src/chainlink/ccip"
 import { items as DATAFEED_CONTRACTS } from "@/lib/contracts/src/chainlink/datafeed"
 import { items as FUNCTION_CONTRACTS } from "@/lib/contracts/src/chainlink/function"
 import { items as VRF_CONTRACTS } from "@/lib/contracts/src/chainlink/vrf"
-import { CHAINLINK_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { CHAINLINK_ID, getProtcolInfo } from "@/lib/systems"
+
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -21,7 +21,7 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[CHAINLINK_ID]}
+      protocol={getProtcolInfo(CHAINLINK_ID)}
       items={items}
       themeColour={"rgba(55, 91, 210, 1)"}
     />

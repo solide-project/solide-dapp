@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-import { ContractSchema, SolideIDESchema } from "@/lib/schema/contract"
+import { ContractSchema, SolideIDESchema } from "@/lib/contracts"
 
 import { ChainListButton } from "../chain-list-button"
 import { Playground } from "./playground"

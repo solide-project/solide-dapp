@@ -1,13 +1,13 @@
-import { getFlockKey } from "@/lib/flock";
+import { flock } from "@/lib/helpers";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
     const body = await request.json();
     let apiKey: string = body.address;
     if (!body.address) {
-        apiKey = getFlockKey();
+        apiKey = flock.getFlockKey();
     }
-    const response: FlockContributionResponse = await contribute({
+    const response: flock.FlockContributionResponse = await contribute({
         prompt: body.prompt,
         target: body.data,
         apiKey,
@@ -23,7 +23,7 @@ const contribute = async ({
     prompt: string,
     target: string,
     apiKey: string,
-}): Promise<FlockContributionResponse> => {
+}): Promise<flock.FlockContributionResponse> => {
     const headers: any = {
         // "Content-Type": "multipart/form-data",
         "x-api-key": apiKey,
@@ -50,5 +50,5 @@ const contribute = async ({
     if (responseData.detail) {
         return { recieved: false }
     }
-    return responseData as FlockContributionResponse;
+    return responseData as flock.FlockContributionResponse;
 }

@@ -1,5 +1,5 @@
 import { ChainID } from "@/lib/chains/id"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 
 const uniswapXTitle: string = "Uniswap X"
 const uniswapv3Title: string = "Uniswap v3"

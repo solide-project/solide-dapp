@@ -11,9 +11,8 @@ import { items as RONIN_BRIDGE_DEPLOYMENTS } from "@/lib/contracts/src/ronin/ron
 import { items as RONIN_BRIDGE_EXTENSION_CONTRACTS } from "@/lib/contracts/src/ronin/ronin-bridge-contracts-extension"
 import { items as RONIN_BRIDGE_GATEWAY_CONTRACTS } from "@/lib/contracts/src/ronin/ronin-bridge-contracts-gateway"
 import { items as RONIN_BRIDGE_MAINCHAIN_CONTRACTS } from "@/lib/contracts/src/ronin/ronin-bridge-contracts-mainchain"
-import { CHAINLINK_ID, RONIN_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { RONIN_ID, getProtcolInfo, getRPCInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -36,7 +35,8 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[RONIN_ID]}
+      protocol={getProtcolInfo(RONIN_ID)}
+      rpcSetting={getRPCInfo(RONIN_ID)}
       items={items}
       themeColour={"rgba(6, 102, 220, 1)"}
     />

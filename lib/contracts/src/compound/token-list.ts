@@ -1,5 +1,5 @@
 import { items as uniswapTokenListItems } from "@/lib/contracts/src/uniswap/uniswap-token-list"
-import { ContractSchema } from "@/lib/schema"
+import { ContractSchema } from "@/lib/contracts"
 
 export const items = async (chain: string): Promise<ContractSchema[]> =>
   await uniswapTokenListItems({

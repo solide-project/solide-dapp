@@ -7,9 +7,8 @@ import { items as COMPOUND_PROTOCOL_CONTRACTS } from "@/lib/contracts/src/compou
 import { items as COMPOUND_ENCUMBER_CONTRACTS } from "@/lib/contracts/src/compound/encumber-contracts"
 import { items as COMPOUND_OPEN_ORACLE_CONTRACTS } from "@/lib/contracts/src/compound/open-oracle"
 import { items as COMPOUND_TOKEN_LIST } from "@/lib/contracts/src/compound/token-list"
-import { COMPOUND_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { COMPOUND_ID, getProtcolInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -26,7 +25,7 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[COMPOUND_ID]}
+      protocol={getProtcolInfo(COMPOUND_ID)}
       items={items}
       themeColour={"rgba(0, 211, 149, 1)"}
     />

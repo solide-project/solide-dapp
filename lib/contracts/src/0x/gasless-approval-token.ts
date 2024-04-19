@@ -1,6 +1,6 @@
 import { ChainID } from "@/lib/chains/id"
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 
 /**
  * See list here: https://0x.org/docs/tx-relay-api/gasless-approvals-token-list

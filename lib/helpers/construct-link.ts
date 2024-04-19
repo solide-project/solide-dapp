@@ -1,8 +1,8 @@
 import { ethers } from "ethers"
 
 import { ChainID, getChainIdFromPathName } from "../chains/id"
-import { SolideIDESchema } from "../schema/contract"
 import { SOLIDE_URL } from "../utils"
+import { SolideIDESchema } from "../contracts"
 
 export const addType = (uri: string, type: string): string => `${uri}/${type}`
 export const addVersion = (uri: string, version: string): string =>

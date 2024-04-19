@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { CopyIcon } from "../shared/copy-icon"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { ConnectWallet, useAddress } from "@thirdweb-dev/react";
+import { flock } from "@/lib/helpers"
 
 interface GPTProps extends React.HTMLAttributes<HTMLDivElement> {
     prompt?: string
@@ -20,7 +21,7 @@ export const GPT = ({
     const address = useAddress();
     const [input, setInput] = useState<string>("")
     const [processing, setProcessing] = useState<boolean>(false)
-    const [chatHistory, setChatHistory] = useState<FlockConversationalResponse[]>([])
+    const [chatHistory, setChatHistory] = useState<flock.FlockConversationalResponse[]>([])
 
     useEffect(() => {
         if (prompt) {
@@ -68,7 +69,7 @@ export const GPT = ({
             setProcessing(false)
             return
         }
-        const data: FlockConversationalResponse = await response.json()
+        const data: flock.FlockConversationalResponse = await response.json()
         setChatHistory([...chatHistory, data])
 
         setInput("")
@@ -166,7 +167,7 @@ export const Chat = ({
             },
             body: JSON.stringify({ prompt, data: message })
         })
-        const data: FlockContributionResponse = await response.json()
+        const data: flock.FlockContributionResponse = await response.json()
 
         console.log(data)
         setHasContributed(true);

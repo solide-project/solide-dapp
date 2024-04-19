@@ -1,5 +1,5 @@
 import { ChainID } from "@/lib/chains/id"
-import { ContractSchema } from "@/lib/schema"
+import { ContractSchema } from "@/lib/contracts"
 
 interface FarmInfo {
   pair: string

@@ -1,4 +1,4 @@
-import { ContractSchema } from "@/lib/schema"
+import { ContractSchema } from "@/lib/contracts"
 
 import { items as getRoninEcosystemContract } from "./ronin-ecosystem"
 

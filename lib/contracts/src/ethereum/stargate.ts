@@ -10,7 +10,7 @@ import { ethers } from "ethers"
 
 import { ChainID } from "@/lib/chains/id"
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 import { camelToWord, snakeToCamel, snakeToWord } from "@/lib/utils"
 
 const getAPI = (chain: string) => {

@@ -1,5 +1,5 @@
 import { getContractsByGithub } from "@/lib/contracts"
-import { ContractSchema } from "@/lib/schema"
+import { ContractSchema } from "@/lib/contracts"
 
 const tutorial = "https://github.com/chiru-labs/PBT/blob/main/README.md"
 const reference = "https://github.com/chiru-labs/PBT"

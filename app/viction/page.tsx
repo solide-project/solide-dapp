@@ -9,9 +9,8 @@ import { items as VICTION_VRC_25_SAMPLE_CONTRACTS } from "@/lib/contracts/src/vi
 import { items as VICTION_VRC_725_CONTRACTS } from "@/lib/contracts/src/viction/vrc725"
 import { items as VICTION_VRC_725_SAMPLE_CONTRACTS } from "@/lib/contracts/src/viction/vrc725-sample"
 import { items as WVIC_CONTRACTS } from "@/lib/contracts/src/viction/wvic"
-import { VICTION_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { VICTION_ID, getProtcolInfo, getRPCInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -29,7 +28,8 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[VICTION_ID]}
+      protocol={getProtcolInfo(VICTION_ID)}
+      rpcSetting={getRPCInfo(VICTION_ID)}
       items={items}
       themeColour={"rgba(248, 246, 215, 1)"}
     />

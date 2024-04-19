@@ -7,9 +7,8 @@ import { items as PUSH_PROTOCOL_COMM_CONTRACTS } from "@/lib/contracts/src/push/
 import { items as PUSH_PROTOCOL_CORE_CONTRACTS } from "@/lib/contracts/src/push/smart-contract-core-2-5"
 import { items as PUSH_PROTOCOL_GOVERANCE_CONTRACTS } from "@/lib/contracts/src/push/smart-contract-goverance"
 import { items as PUSH_PROTOCOL_TOKEN_CONTRACTS } from "@/lib/contracts/src/push/smart-contract-token"
-import { PUSH_PROTOCOL_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { PUSH_PROTOCOL_ID, getProtcolInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -25,7 +24,7 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[PUSH_PROTOCOL_ID]}
+      protocol={getProtcolInfo(PUSH_PROTOCOL_ID)}
       items={items}
       themeColour={"rgba(224, 61 ,193, 1)"}
     />

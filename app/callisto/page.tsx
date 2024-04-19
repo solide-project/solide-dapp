@@ -5,9 +5,8 @@ import { items as CALLISTO_CLO_TOKEN_CONTRACTS } from "@/lib/contracts/src/calli
 import { items as ERC223_CONTRACTS } from "@/lib/contracts/src/callisto/erc223"
 import { items as CALLISTO_TOKEN_CONTRACTS } from "@/lib/contracts/src/callisto/scanner-tokens"
 import { items as SOY_FINANCE_CONTRACTS } from "@/lib/contracts/src/callisto/soy-finance"
-import { CALLISTO_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { CALLISTO_ID, getProtcolInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -23,7 +22,7 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[CALLISTO_ID]}
+      protocol={getProtcolInfo(CALLISTO_ID)}
       items={items}
       themeColour={"rgba(0, 193, 207, 1)"}
     />

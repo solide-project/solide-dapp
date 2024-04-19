@@ -1,5 +1,5 @@
 import { getContractsByGithub } from "@/lib/contracts"
-import { ContractSchema } from "@/lib/schema/contract"
+import { ContractSchema } from "@/lib/contracts"
 
 const tutorial = "https://github.com/ethereum/ERCs/blob/master/ERCS/erc-223.md"
 const reference =

@@ -1,10 +1,9 @@
 import { getPlayground } from "@/lib/contracts/play/get-playground"
 import { dec, generatePlayIds } from "@/lib/contracts/utils/hash"
-import { ContractSchema } from "@/lib/schema"
-import { SolideIDESchema } from "@/lib/schema/contract"
-import { generateUri } from "@/lib/utils/construct-link"
+import { generateUri } from "@/lib/helpers/construct-link"
 import { ContractInfo } from "@/components/main/client/contract-card/components/contract-info"
 import { MarkdownPlayground } from "@/components/main/client/contract-card/components/load-playground/markdown-playground"
+import { ContractSchema, SolideIDESchema} from "@/lib/contracts"
 
 export default async function Page({ params }: any) {
   if (!params.id) {

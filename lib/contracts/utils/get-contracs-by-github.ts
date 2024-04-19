@@ -1,7 +1,7 @@
 import path from "path"
 
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
-import { ContractSchema } from "@/lib/schema"
+import { ContractSchema } from "@/lib/contracts"
 import { camelToWord, snakeToCamel } from "@/lib/utils"
 
 import {

@@ -10,9 +10,8 @@ import { items as AAVE_ADDRESS_BOOK_FTM_CONTRACTS } from "@/lib/contracts/src/aa
 import { items as AAVE_GHO_TOKEN } from "@/lib/contracts/src/aave/gho-token"
 import { items as AAVE_TOKEN_LIST } from "@/lib/contracts/src/aave/token-asset-list"
 import { items as AAVE_TOKEN_WRAPPER_CONTRACTS } from "@/lib/contracts/src/aave/token-wrapper"
-import { AAVE_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { AAVE_ID, getProtcolInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -32,7 +31,7 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[AAVE_ID]}
+      protocol={getProtcolInfo(AAVE_ID)}
       items={items}
       themeColour={"rgba(139, 113, 170, 1)"}
     />

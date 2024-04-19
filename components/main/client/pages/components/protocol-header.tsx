@@ -3,18 +3,25 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
 
-import { ProtocolSchema } from "@/lib/schema/protocol"
+import { ProtocolSchema } from "@/lib/systems"
 import { cn } from "@/lib/utils"
 import { CardDescription } from "@/components/ui/card"
 
 import { CopyCode } from "../../shared/copy-code"
 import { ProtocolIcons } from "./protocol-icons"
+import { ChainInfo } from "@/lib/systems/settings"
+import { DRPCBadge } from "../../shared/drpc-badge"
+import { RPCList } from "./rpc-list"
 
 interface ProtocolHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  item: ProtocolSchema
+  item: ProtocolSchema,
+  rpcSetting?: ChainInfo[]
 }
 
-export const ProtocolHeader = ({ item, className }: ProtocolHeaderProps) => {
+export const ProtocolHeader = ({
+  item,
+  rpcSetting = [],
+  className }: ProtocolHeaderProps) => {
   const pathname = usePathname()
   const { theme } = useTheme()
 
@@ -56,7 +63,16 @@ export const ProtocolHeader = ({ item, className }: ProtocolHeaderProps) => {
               <CopyCode className="my-4" payload={`npm i ${item.library}`} />
             )}
             <CardDescription className="">{item.description}</CardDescription>
-            <ProtocolIcons className="my-4" item={item} />
+            <div className="flex items-center justify-between">
+              <ProtocolIcons className="my-4" item={item} />
+
+              <div>
+                {rpcSetting.some((rpc) => rpc.rpcUrls.some(url => url.includes('drpc'))) &&
+                  <DRPCBadge />}
+                {rpcSetting && rpcSetting.length > 0 &&
+                  <RPCList items={rpcSetting} />}
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -7,9 +7,8 @@ import { items as FUSE_NETWORK_CONTRACTS } from "@/lib/contracts/src/fuse/networ
 import { items as SAFE_GLOBAL_SAFE_DEPLOYENT_CONTRACTS } from "@/lib/contracts/src/fuse/safe-deployments"
 import { items as FUSE_STUDIO_ENTITIES_CONTRACTS } from "@/lib/contracts/src/fuse/studio-entities"
 import { items as FUSE_TOKEN_CONTRACTS } from "@/lib/contracts/src/fuse/token-api"
-import { FUSE_ID } from "@/lib/db/ids"
-import { protcols } from "@/lib/db/library"
-import { ContractSchema } from "@/lib/schema/contract"
+import { FUSE_ID, getProtcolInfo, getRPCInfo } from "@/lib/systems"
+import { ContractSchema } from "@/lib/contracts"
 import { ContractPage } from "@/components/main/client/pages/contract-page"
 
 export default async function Page() {
@@ -30,7 +29,8 @@ export default async function Page() {
 
   return (
     <ContractPage
-      protocol={protcols[FUSE_ID]}
+      protocol={getProtcolInfo(FUSE_ID)}
+      rpcSetting={getRPCInfo(FUSE_ID)}
       items={items}
       themeColour={"rgba(180, 249, 186, 1)"}
     />
