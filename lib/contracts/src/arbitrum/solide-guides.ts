@@ -1,7 +1,7 @@
 import { ChainID } from "@/lib/chains/id"
 import { ContractSchema } from "@/lib/contracts"
 
-const mainTitle: string = "Any API"
+const mainTitle: string = "Arbitrum Tutorial"
 
 export const items: ContractSchema[] = [
   {
@@ -432,15 +432,27 @@ export const items: ContractSchema[] = [
       default: {
         address:
           "https://github.com/OffchainLabs/arbitrum-tutorials/blob/master/packages/greeter/contracts/ethereum/GreeterL1.sol",
+        remappings: {
+          "@openzeppelin/contracts/": "@openzeppelin/contracts@4.5.0/",
+          "@openzeppelin/contracts-upgradeable/": "@openzeppelin/contracts-upgradeable@4.5.0/"
+        }
       },
       chains: {
         ["GreeterL1.sol"]: {
           address:
             "https://github.com/OffchainLabs/arbitrum-tutorials/blob/master/packages/greeter/contracts/ethereum/GreeterL1.sol",
+          remappings: {
+            "@openzeppelin/contracts/": "@openzeppelin/contracts@4.5.0/",
+            "@openzeppelin/contracts-upgradeable/": "@openzeppelin/contracts-upgradeable@4.5.0/"
+          }
         },
         ["GreeterL2.sol"]: {
           address:
             "https://github.com/OffchainLabs/arbitrum-tutorials/blob/master/packages/greeter/contracts/ethereum/GreeterL2.sol",
+          remappings: {
+            "@openzeppelin/contracts/": "@openzeppelin/contracts@4.5.0/",
+            "@openzeppelin/contracts-upgradeable/": "@openzeppelin/contracts-upgradeable@4.5.0/"
+          }
         },
       },
     },
