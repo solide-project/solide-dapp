@@ -9,5 +9,8 @@ export const items = async (): Promise<ContractSchema[]> => {
       "https://github.com/0xProject/protocol/blob/development/contracts/zero-ex/README.md",
     description:
       "The extensible contract architecture of ZeroEx primarily involves three main components: the Exchange contract, ERC-20 token contracts, and additional features that can be added through plug-ins or extensions.",
+    remappings: {
+      "@openzeppelin/contracts/": "openzeppelin/contracts@4.8.0/",
+    }
   })
 }

@@ -114,6 +114,18 @@ export const frameworks = [
     value: "callisto",
     label: "Callisto Network",
   },
+  {
+    value: "lido",
+    label: "Lido",
+  },
+  {
+    value: "eigenlayer",
+    label: "Eigenlayer",
+  },
+  {
+    value: "bitlayer",
+    label: "Bitlayer",
+  },
 ]
 
 const sortedFrameworks = frameworks

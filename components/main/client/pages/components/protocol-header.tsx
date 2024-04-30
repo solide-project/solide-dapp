@@ -12,7 +12,17 @@ import { ProtocolIcons } from "./protocol-icons"
 import { ChainInfo } from "@/lib/systems/settings"
 import { DRPCBadge } from "../../shared/drpc-badge"
 import { RPCList } from "./rpc-list"
+import { BITLAYER_ID } from "@/lib/systems"
 
+const getImage = (name: string) => {
+  let ext = "svg"
+  switch (name) {
+    case BITLAYER_ID:
+      ext = "png"
+    default:
+  }
+  return `${name}.${ext}`
+}
 interface ProtocolHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   item: ProtocolSchema,
   rpcSetting?: ChainInfo[]
@@ -46,7 +56,7 @@ export const ProtocolHeader = ({
           <div className="flex items-center justify-center h-full">
             {value && (
               <Image
-                src={`/icons/${value}.svg`}
+                src={`/icons/${getImage(value)}`}
                 width={100}
                 height={100}
                 alt="logo"
