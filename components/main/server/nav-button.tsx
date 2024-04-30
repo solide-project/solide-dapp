@@ -122,6 +122,10 @@ export const frameworks = [
     value: "eigenlayer",
     label: "Eigenlayer",
   },
+  {
+    value: "bitlayer",
+    label: "Bitlayer",
+  },
 ]
 
 const sortedFrameworks = frameworks

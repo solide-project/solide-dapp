@@ -258,6 +258,34 @@ export const BERACHAIN_ARTIO: ChainInfo = {
 }
 //#endregion
 
+//#region Bitlayer
+export const BITLAYER_MAINNET: ChainInfo = {
+  chainId: "0x310c5",
+  chainName: "Bitlayer Mainnet",
+  rpcUrls: ["https://testnet-rpc.bitlayer-rpc.com"],
+  iconUrls: [""],
+  nativeCurrency: {
+    name: "Bitcoin",
+    symbol: "BTC",
+    decimals: 18,
+  },
+  blockExplorerUrls: ["	https://www.btrscan.com"],
+}
+
+export const BITLAYER_TESTNET: ChainInfo = {
+  chainId: "0x3106a",
+  chainName: "Bitlayer Testnet",
+  rpcUrls: ["https://rpc.bitlayer.org"],
+  iconUrls: [""],
+  nativeCurrency: {
+    name: "Bitcoin",
+    symbol: "BTC",
+    decimals: 18,
+  },
+  blockExplorerUrls: ["https://testnet-scan.bitlayer.org"],
+}
+//#endregion
+
 const data: { [key: string]: ChainInfo[] } = {
   [ID.ARBITRUM_ID]: [ARBITRUM_ONE, ARBITRUM_SEPOLIA, ARBITRUM_NOVA],
   [ID.BERACHAIN_ID]: [BERACHAIN_ARTIO],
@@ -267,6 +295,7 @@ const data: { [key: string]: ChainInfo[] } = {
   [ID.ARTELA_ID]: [ARTELA_BETANET],
   [ID.FUSE_ID]: [FUSE_MAINNET, FUSE_TESTNET],
   [ID.RONIN_ID]: [RONIN_MAINNET, RONIN_TESTNET],
+  [ID.BITLAYER_ID]: [BITLAYER_MAINNET, BITLAYER_TESTNET]
 }
 
 export const getRPCInfo = (network: string): ChainInfo[] => data[network] || []

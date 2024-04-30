@@ -1,6 +1,6 @@
 import { ethers } from "ethers"
 
-import { ChainID, getChainIdFromPathName } from "../chains/id"
+import { ChainID } from "../chains/id"
 import { SOLIDE_URL } from "../utils"
 import { SolideIDESchema } from "../contracts"
 
