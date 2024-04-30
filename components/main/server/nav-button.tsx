@@ -118,6 +118,10 @@ export const frameworks = [
     value: "lido",
     label: "Lido",
   },
+  {
+    value: "eigenlayer",
+    label: "Eigenlayer",
+  },
 ]
 
 const sortedFrameworks = frameworks
