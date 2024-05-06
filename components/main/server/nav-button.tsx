@@ -126,6 +126,10 @@ export const frameworks = [
     value: "bitlayer",
     label: "Bitlayer",
   },
+  {
+    value: "gitcoin",
+    label: "Gitcoin",
+  },
 ]
 
 const sortedFrameworks = frameworks
@@ -136,7 +140,7 @@ const sortedFrameworks = frameworks
     label: "Solide",
   })
 
-interface NavButtonProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface NavButtonProps extends React.HTMLAttributes<HTMLDivElement> { }
 
 export const NavButton = ({ ...props }: NavButtonProps) => {
   const pathname = usePathname()
@@ -168,7 +172,7 @@ export const NavButton = ({ ...props }: NavButtonProps) => {
         >
           {value
             ? frameworks.find((framework) => framework.value === value)
-                ?.label || "Welcome!"
+              ?.label || "Welcome!"
             : "Welcome!"}
           <Icon
             icon="charm:chevrons-down"
@@ -200,7 +204,9 @@ export const NavButton = ({ ...props }: NavButtonProps) => {
                     )}
                   />
                   {framework.label}
-                  {framework.value === "solide" && "  🔥"}
+                  {(framework.value === "solide" || framework.value === "viction"
+                    || framework.value === "bitlayer"
+                  ) && "  🔥"}
                 </CommandItem>
               ))}
             </CommandGroup>
