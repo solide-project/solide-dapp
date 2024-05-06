@@ -41,12 +41,16 @@ export const data: Record<string, ProtocolSchema> = {
   },
   [ID.OPEN_ZEPPELIN_ID]: {
     name: "OpenZeppelin",
-    library: "@openzeppelin/contracts contracts-upgradeable",
+    library: "@openzeppelin/contracts @openzeppelin/contracts-upgradeable",
     description:
-      "OpenZeppelin's smart contract templates to enhance security, reduce development time, and adhere to best practices, contributing to a more robust and standardized ecosystem for decentralized applications.",
-    github: "https://github.com/OpenZeppelin",
-    source: "https://github.com/OpenZeppelin/openzeppelin-contracts",
-    website: "https://openzeppelin.com",
+      "OpenZeppelin is a leading provider of secure and audited smart contract libraries for Ethereum and other blockchain platforms. Their contracts provide foundational building blocks for developing secure and reliable decentralized applications (dApps) and protocols. OpenZeppelin's contracts include essential functionalities such as access control, token standards (like ERC-20 and ERC-721), role management, and more, designed to enhance security and efficiency. Additionally, OpenZeppelin offers Upgradeable Contracts, which enable developers to deploy contracts that can be upgraded over time without disrupting the existing state or losing user data. This upgradeability is achieved through proxy patterns and storage separation, allowing for seamless contract updates while maintaining user trust and continuity of operations within the blockchain ecosystem.",
+    github: "https://github.com/gitcoinco",
+    website: "https://www.gitcoin.co",
+    blog: "https://www.gitcoin.co/blog",
+    documentation: "https://docs.passport.gitcoin.co",
+    discord: "https://discord.com/invite/gitcoin",
+    x: "https://twitter.com/gitcoin",
+    audit: "https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/audits",
   },
   [ID.UNISWAP_ID]: {
     name: "UniSwap",
