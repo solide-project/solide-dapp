@@ -41,12 +41,16 @@ export const data: Record<string, ProtocolSchema> = {
   },
   [ID.OPEN_ZEPPELIN_ID]: {
     name: "OpenZeppelin",
-    library: "@openzeppelin/contracts contracts-upgradeable",
+    library: "@openzeppelin/contracts @openzeppelin/contracts-upgradeable",
     description:
-      "OpenZeppelin's smart contract templates to enhance security, reduce development time, and adhere to best practices, contributing to a more robust and standardized ecosystem for decentralized applications.",
-    github: "https://github.com/OpenZeppelin",
-    source: "https://github.com/OpenZeppelin/openzeppelin-contracts",
-    website: "https://openzeppelin.com",
+      "OpenZeppelin is a leading provider of secure and audited smart contract libraries for Ethereum and other blockchain platforms. Their contracts provide foundational building blocks for developing secure and reliable decentralized applications (dApps) and protocols. OpenZeppelin's contracts include essential functionalities such as access control, token standards (like ERC-20 and ERC-721), role management, and more, designed to enhance security and efficiency. Additionally, OpenZeppelin offers Upgradeable Contracts, which enable developers to deploy contracts that can be upgraded over time without disrupting the existing state or losing user data. This upgradeability is achieved through proxy patterns and storage separation, allowing for seamless contract updates while maintaining user trust and continuity of operations within the blockchain ecosystem.",
+    github: "https://github.com/gitcoinco",
+    website: "https://www.gitcoin.co",
+    blog: "https://www.gitcoin.co/blog",
+    documentation: "https://docs.passport.gitcoin.co",
+    discord: "https://discord.com/invite/gitcoin",
+    x: "https://twitter.com/gitcoin",
+    audit: "https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/audits",
   },
   [ID.UNISWAP_ID]: {
     name: "UniSwap",
@@ -358,6 +362,34 @@ export const data: Record<string, ProtocolSchema> = {
     x: "https://twitter.com/BitlayerLabs",
     audit:
       "",
+  },
+  [ID.GITCOIN_ID]: {
+    name: "Gitcoin",
+    library: "",
+    description:
+      "Gitcoin is a decentralized platform that facilitates collaboration and funding for open-source projects and developers in the blockchain and cryptocurrency ecosystem. It offers a variety of tools and services, including crowdfunding mechanisms like quadratic funding, bounties for specific tasks, hackathons, and grants. Gitcoin's goal is to support the growth of the open-source community by providing resources and incentives for developers to contribute to projects, build new tools, and advance innovation in blockchain technology. Through its platform, Gitcoin aims to foster a more sustainable and inclusive development environment by empowering developers and creators worldwide to participate in and benefit from the rapidly evolving blockchain ecosystem.",
+    github: "https://github.com/gitcoinco",
+    website: "https://www.gitcoin.co",
+    documentation: "https://docs.passport.gitcoin.co",
+    blog: "https://www.gitcoin.co/blog",
+    discord: "https://discord.com/invite/gitcoin",
+    x: "https://twitter.com/gitcoin",
+    audit:
+      ""
+  },
+  [ID.LENS_PROTOCOL_ID]: {
+    name: "Lens Protocol",
+    library: "@aave/lens-protocol",
+    description:
+      "Lens Protocol is a Web3 social graph built on the Polygon Proof-of-Stake blockchain, aiming to empower creators by enabling them to own the connections within their communities, establishing a fully composable, user-owned social network. Unlike traditional Web2 social networks that centralize data and control, Lens Protocol provides modularity, allowing for the addition of new features and fixes while maintaining immutable user-owned content and relationships. This contrasts with existing social networks where data is siloed and controlled by centralized operators, limiting portability and ownership. Lens Protocol users own their data, enabling them to migrate seamlessly between applications built on the protocol and ensuring content and audiences are no longer subject to platform whims. By fostering an open social graph accessible to any application, Lens Protocol shifts the paradigm from zero-sum competition for attention to collaborative ecosystem growth, benefiting creators and developers alike.",
+    github: "https://github.com/gitcoinco",
+    website: "https://www.gitcoin.co",
+    documentation: "https://docs.passport.gitcoin.co",
+    blog: "https://www.gitcoin.co/blog",
+    discord: "https://discord.com/invite/gitcoin",
+    x: "https://twitter.com/gitcoin",
+    audit:
+      "https://github.com/lens-protocol/core/tree/master/audit"
   },
 }
 
