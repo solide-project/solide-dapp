@@ -130,6 +130,10 @@ export const frameworks = [
     value: "gitcoin",
     label: "Gitcoin",
   },
+  {
+    value: "lens",
+    label: "Lens",
+  },
 ]
 
 const sortedFrameworks = frameworks
