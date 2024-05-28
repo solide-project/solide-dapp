@@ -13,6 +13,7 @@ import { ChainInfo } from "@/lib/systems/settings"
 import { DRPCBadge } from "../../shared/drpc-badge"
 import { RPCList } from "./rpc-list"
 import { BITLAYER_ID } from "@/lib/systems"
+import { Header } from "../../main/header"
 
 const getImage = (name: string) => {
   let ext = "svg"
@@ -66,9 +67,7 @@ export const ProtocolHeader = ({
         </div>
         <div className="col-span-12 lg:col-span-10">
           <div>
-            <div className="font-bold text-center lg:text-left leading-[1.1] text-6xl my-4">
-              {item.name}
-            </div>
+            <Header>{item.name}</Header>
             {item.library && (
               <CopyCode className="my-4" payload={`npm i ${item.library}`} />
             )}

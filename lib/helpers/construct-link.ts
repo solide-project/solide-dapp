@@ -4,6 +4,13 @@ import { ChainID } from "../chains/id"
 import { SOLIDE_URL } from "../utils"
 import { SolideIDESchema } from "../contracts"
 
+const isAddress = (address: string): boolean => {
+  if (!/^0x[0-9a-fA-F]{40}$/.test(address)) {
+    return false;
+  }
+
+  return true;
+}
 export const addType = (uri: string, type: string): string => `${uri}/${type}`
 export const addVersion = (uri: string, version: string): string =>
   `${uri}&version=${encodeURIComponent(version)}`
@@ -34,7 +41,7 @@ export const generateUri = ({
 }): string => {
   let uri = `${SOLIDE_URL}`
 
-  if (ethers.utils.isAddress(item.address)) {
+  if (isAddress(item.address)) {
     const chainId = item.chainId // Note: Mostly provided but default to Ethereum Mainnet
     const address = item.address
     uri = addContractAddress({ uri, chainId, address })

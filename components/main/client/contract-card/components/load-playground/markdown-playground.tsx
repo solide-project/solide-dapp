@@ -1,143 +1,39 @@
 "use client"
 
-import path from "path"
 import { useEffect, useState } from "react"
-import { GithubResolver } from "@resolver-engine/imports/build/resolvers/githubresolver"
-import markdownit from "markdown-it"
-import Markdown from "react-markdown"
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/prism"
+import Markdown, { ExtraProps } from "react-markdown"
 import theme from "react-syntax-highlighter/dist/esm/styles/prism/one-dark"
-import remarkGfm from "remark-gfm"
 import { cn } from "@/lib/utils"
-import Link from "next/link"
+import React from "react"
+import { toString } from 'hast-util-to-string';
+import { generateIdFromText, generateTOC, loadMarkdowns, renderId } from "@/lib/utils/markdown"
+import { EmojiStore, shortCodeRegex } from "@/lib/utils/emoji"
+// import SyntaxHighlighter from "react-syntax-highlighter"
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import rehypeRaw from "rehype-raw";
+import remarkFrontmatter from 'remark-frontmatter'
+import remarkGfm from "remark-gfm"
 
 interface MarkdownPlaygroundProps extends React.HTMLAttributes<HTMLDivElement> {
   tutorials?: string
+  loadTOC?: boolean
 }
 
 export const MarkdownPlayground = ({
   tutorials,
+  loadTOC = false,
   className
 }: MarkdownPlaygroundProps) => {
   const [content, setContent] = useState<string>("")
   const [loadSkeleton, setLoadSkeleton] = useState<boolean>(false)
+  const [emojiStore, setEmojiStore] = useState<EmojiStore>({} as EmojiStore)
 
-  // convert a github https://github.com/SovaSniper/tutorials/blob/master/compound/cToken.md to its repo url
-  const resolve = async (
-    tutorials: string
-  ): Promise<{ url: string; raw: string }[]> => {
-    let output: { url: string; raw: string }[] = []
-    const urls = tutorials.split("|")
-    for (const url of urls) {
-      const resolver = GithubResolver()
-      const raw = await resolver(url, { resolver: "" })
-      raw && output.push({ url, raw })
-    }
+  const loadPage = async () => {
+    const markdownText: string = await loadMarkdowns(tutorials?.split("|") || [])
+    setContent(markdownText)
 
-    return output
-  }
-
-  function findLinksRecursive(
-    tokens: markdownit.Token[],
-    links: string[] = []
-  ): string[] {
-    tokens.forEach((token) => {
-      if (token.type === "link_open" && token.attrs) {
-        const link = token.attrs.find((attr: any) => attr[0] === "href")
-        if (link) {
-          links.push(link[1])
-        }
-      } else if (token.type === "image" && token.attrs) {
-        const link = token.attrs.find((attr: any) => attr[0] === "src")
-        if (link) {
-          links.push(link[1])
-        }
-      }
-
-      // Check if the token has children (nested elements)
-      if (token.children && token.children.length > 0) {
-        findLinksRecursive(token.children, links)
-      }
-    })
-
-    return links
-  }
-
-  function getDirPath(filePath: any) {
-    let index1 = filePath.lastIndexOf(path.sep)
-    let index2 = filePath.lastIndexOf("/")
-    return filePath.substring(0, Math.max(index1, index2))
-  }
-
-  const findLinks = async (
-    url: string,
-    markdownContent: string
-  ): Promise<string> => {
-    const md = markdownit()
-    const tokens = md.parse(markdownContent, {})
-
-    await Promise.all(
-      findLinksRecursive(tokens)
-        .filter((link) => link.startsWith("./") || link.startsWith("../"))
-        .map(async (link) => {
-          const rawPath = url.substring(url.indexOf("//") + 2)
-          const href = path.normalize(path.join(getDirPath(rawPath), link))
-          let fullUrl = `${url.substring(0, url.indexOf("//") + 2)}${href.replace(/\\/g, "/")}`
-
-          if (
-            link.endsWith(".jpg") ||
-            link.endsWith(".png") ||
-            link.endsWith(".gif")
-          ) {
-            const resolver = GithubResolver()
-            const raw = await resolver(fullUrl, { resolver: "" })
-            raw && (fullUrl = raw)
-          }
-          markdownContent = markdownContent.replace(link, fullUrl)
-        })
-    )
-
-    return markdownContent
-  }
-
-  useEffect(() => {
-    ; (async () => {
-
-      const storedEmojis = localStorage.getItem('emojis');
-      if (!storedEmojis) {
-        // Fetch emoji data from GitHub API if not stored
-        fetch('https://api.github.com/emojis')
-          .then(response => response.json())
-          .then(data => {
-            // Store emoji data in localStorage
-            localStorage.setItem('emojis', JSON.stringify(data));
-          })
-          .catch(error => {
-            console.error('Error fetching emoji data:', error);
-          });
-      }
-
-      setLoadSkeleton(true)
-      await handleMarkdownGeneration()
-      setLoadSkeleton(false)
-    })()
-  }, [tutorials])
-
-  function getEmojiHeaderInfo(text: string, size: number = 32): { htmlContent: string, htmlId: string } {
-    const regex = /:[a-zA-Z0-9_+-]+:/g;
-    const htmlContent = text.replace(regex, match => {
-      const shortcode = match.replace(/:/g, '').toLowerCase();
-      return `<img width="${size}" src="${getEmoji(shortcode)}" />`;
-    });
-
-    const htmlId = text
-      .replace(regex, match => match.replace(/:/g, ' ').toLowerCase())
-      .replace(/\s+/g, ' ')
-      .trim()
-      .replace(/\s+/g, '-')
-      .toLocaleLowerCase();
-
-    return { htmlContent, htmlId }
+    const toc = generateTOC(markdownText)
+    setToc(toc)
   }
 
   /**
@@ -150,35 +46,75 @@ export const MarkdownPlayground = ({
     section?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
   };
 
-  const getEmoji = (name: string): string => {
-    const storedEmojis = JSON.parse(localStorage.getItem('emojis') ?? '{}');
-    return storedEmojis[name] ?? '';
+  useEffect(() => {
+    ; (async () => {
+      const emojis = new EmojiStore();
+      await emojis.load();
+      setEmojiStore(emojis)
+
+      setLoadSkeleton(true)
+      try {
+        await loadPage()
+      } catch (error) {
+        console.error(error)
+      }
+      setLoadSkeleton(false)
+    })()
+  }, [tutorials])
+
+  //#region Header Component
+  /**
+   * Convert a raw text with shortcodes to a text with emojis
+   * @param text 
+   * @returns 
+   */
+  const renderText = (text: string): string => {
+    // text = DOMPurify.sanitize(text);
+    // console.log('Text:', text);
+    const content = text.replace(shortCodeRegex, match => `${emojiStore.getEmoji(
+      match.replace(/:/g, '').toLowerCase()
+    )}`
+    );
+
+    return content
   }
 
-  const handleMarkdownGeneration = async () => {
-    if (!tutorials) {
-      return
+  const generateHeaderProps = (text: string): { content: string, id: string } => {
+    return {
+      content: renderText(text),
+      id: renderId(text)
     }
-
-    const documentation = await resolve(tutorials)
-    if (documentation.length === 0) {
-      return
-    }
-
-    // console.log(documentation);
-    // setRawTutorial(documentation[0] || "")
-
-    let text = ""
-    for (const md of documentation) {
-      const response = await fetch(md.raw)
-      const info = await response.text()
-      text += "\n" + (await findLinks(md.url, info))
-    }
-
-    setContent(text)
   }
 
-  if (!tutorials) return <div className="my-8 text-center">No Tutorials</div>
+  const renderHeader = ({ node, ...props }: React.ClassAttributes<HTMLHeadingElement> &
+    React.HTMLAttributes<HTMLHeadingElement> & ExtraProps): JSX.Element => {
+    if (node && props.children && typeof props.children !== 'string') {
+      const id = generateIdFromText(toString(node));
+      return React.createElement(node.tagName, { id }, props.children)
+    }
+
+    return React.createElement(node?.tagName || "h4", props.children);
+  }
+  //#endregion
+
+
+  //#region TOC
+  const [toc, setToc] = useState<any[]>([]);
+  function TOC() {
+    return <div>
+      <div>What is on this page</div>
+      <ul className="table-of-contents">
+        {toc.map(({ level, id, title }) => (
+          <li key={id} className={`toc - entry - level - ${level} `}>
+            <a href={`#${id} `}>{title}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  }
+  //#endregion
+
+  if (!tutorials) return <div className="my-8 text-center w-[100px] flex items-center justify-center">No Tutorials</div>
 
   return (
     <>
@@ -186,18 +122,20 @@ export const MarkdownPlayground = ({
         <div>Loading...</div>
       ) : (
         <div>
+          {loadTOC && <TOC />}
           <Markdown
             className={cn("w-full m-auto", className)}
-            remarkPlugins={[remarkGfm]}
+            remarkPlugins={[remarkGfm, remarkFrontmatter]}
+            rehypePlugins={[rehypeRaw]}
             components={{
               h1: ({ node, ...props }) => {
                 if (props.children && typeof props.children === 'string') {
-                  const { htmlContent, htmlId } = getEmojiHeaderInfo(props.children.toString())
+                  const { id, content } = generateHeaderProps(props.children.toString())
                   return <div className="my-4">
                     <h1 className="text-3xl flex items-center"
                       // @ts-ignore
-                      id={htmlId}
-                      dangerouslySetInnerHTML={{ __html: htmlContent }} />
+                      id={id}
+                      dangerouslySetInnerHTML={{ __html: content }} />
                     <hr />
                   </div>
                 }
@@ -209,40 +147,42 @@ export const MarkdownPlayground = ({
               },
               h2: ({ node, ...props }) => {
                 if (props.children && typeof props.children === 'string') {
-                  const { htmlContent, htmlId } = getEmojiHeaderInfo(props.children.toString(), 32)
-                  return <h2 className="flex items-center space-x-2"
+                  const { id, content } = generateHeaderProps(props.children.toString())
+                  return <h2 className="flex items-center"
                     // @ts-ignore
-                    id={htmlId}
-                    dangerouslySetInnerHTML={{ __html: htmlContent }} />
+                    id={id}
+                    dangerouslySetInnerHTML={{ __html: content }} />
                 }
 
-                return <h2 id={props.children?.toString()} {...props} />
+                return renderHeader({ node, ...props });
               },
               h3: ({ node, ...props }) => {
                 if (props.children && typeof props.children === 'string') {
-                  const { htmlContent, htmlId } = getEmojiHeaderInfo(props.children.toString())
+                  const { id, content } = generateHeaderProps(props.children.toString())
                   return <h3 className="flex items-center"
                     // @ts-ignore
-                    id={htmlId}
-                    dangerouslySetInnerHTML={{ __html: htmlContent }} />
+                    id={id}
+                    dangerouslySetInnerHTML={{ __html: content }} />
                 }
 
-                return <h3 id={props.children?.toString()} {...props} />
+                return renderHeader({ node, ...props });
               },
               h4: ({ node, ...props }) => {
                 if (props.children && typeof props.children === 'string') {
-                  const { htmlContent, htmlId } = getEmojiHeaderInfo(props.children.toString())
+                  const { id, content } = generateHeaderProps(props.children.toString())
                   return <h4 className="flex items-center"
                     // @ts-ignore
-                    id={htmlId}
-                    dangerouslySetInnerHTML={{ __html: htmlContent }} />
+                    id={id}
+                    dangerouslySetInnerHTML={{ __html: content }} />
                 }
 
-                return <h4 id={props.children?.toString()} {...props} />
+                return renderHeader({ node, ...props });
               },
               code(props) {
                 const { children, className, node, ...rest } = props
+                console.log("classname", className)
                 const match = /language-(\w+)/.exec(className || "")
+                console.log(match)
                 return match ? (
                   <SyntaxHighlighter
                     language={"solidity" || match[1]}
@@ -293,6 +233,7 @@ export const MarkdownPlayground = ({
                 return <a
                   className="text-primary underline"
                   {...props}
+                  target="_blank"
                 />
               },
               blockquote: ({ node, ...props }) => (
@@ -301,10 +242,6 @@ export const MarkdownPlayground = ({
                   {...props}
                 />
               ),
-              // img: ({ node, ...props }) => (
-              //   // Looking for a way to make this responsive
-              //   <div></div>
-              // ),
             }}
           >
             {content}

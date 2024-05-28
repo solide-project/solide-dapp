@@ -32,7 +32,7 @@ const links = [
 
 export const Footer = ({}: FooterProps) => {
   return (
-    <div className="lg:p-8 p-4 flex items-center justify-center text-[16px]">
+    <div className="lg:p-8 p-4 flex items-center justify-center text-[16px] mt-16">
       <div className="grid grid-cols-12 lg:gap-8 gap-3 max-w-7xl">
         <div className="col-span-12 lg:col-span-6 flex flex-col">
           <div className="flex flex-col space-y-4">
