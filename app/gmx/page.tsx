@@ -15,7 +15,7 @@ export default async function Page() {
 
   items.push(...(await GMX_CONTRACTS_CORE_ITEMS()))
   items.push(...(await GMX_CONTRACTS_AMM_ITEMS()))
-  items.push(...(await GMX_SYNTHETICS_CONTRACTS(ChainID.ARBITRUM_ONE)))
+  // items.push(...(await GMX_SYNTHETICS_CONTRACTS(ChainID.ARBITRUM_ONE)))
   items.push(...(await GMX_SYNTHETICS_ROUTER_ITEMS()))
   items.push(...(await GMX_CONTRACTS_PERIPHERALS_ITEMS()))
   items.push(...(await GMX_GAMBIT_TOKEN_ITEMS()))

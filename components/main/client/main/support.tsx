@@ -54,6 +54,14 @@ const items = [
   //   size: 178,
   //   description: "dRPC Startup Program",
   // },
+  {
+    src: "tron-light.svg",
+    dark: "tron-dark.svg",
+    alt: "dRPC",
+    link: "https://trondao.org/",
+    size: 196,
+    description: "TRON Grand Hackathon - HackaTRON Season 6 Winner",
+  },
 ]
 
 export const Support = ({ className }: SupportProps) => {

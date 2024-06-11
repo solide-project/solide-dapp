@@ -14,7 +14,7 @@ export default async function Page() {
   items.push(...(await ARBITRUM_TOKEN_LIST_CONTRACTS()))
   items.push(...(await BALANCER_DEPLOYMENT_CONTRACTS(ChainID.ARBITRUM_ONE)))
   items.push(...(await CHAINLINK_PRICE_FEED_ITEMS(ChainID.ARBITRUM_ONE)))
-  items.push(...(await GMX_SYNTHETICS_CONTRACTS(ChainID.ARBITRUM_ONE)))
+  // items.push(...(await GMX_SYNTHETICS_CONTRACTS(ChainID.ARBITRUM_ONE)))
 
   return (
     <ContractPage

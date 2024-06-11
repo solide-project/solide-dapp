@@ -24,7 +24,7 @@ export default async function Page() {
   items.push(...(await EXCHANGE_V3_MULTISIG_CONTRACTS()))
   items.push(...(await EXCHANGE_V3_DEV_UTILS_CONTRACTS()))
   items.push(...(await GASLESS_APPROVAL_TOKENS()))
-  
+
   return (
     <ContractPage
       protocol={getProtcolInfo(ZEROX_ID)}
