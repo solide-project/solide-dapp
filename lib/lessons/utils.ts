@@ -2,7 +2,7 @@ import { GitHubFileInfo } from '../contracts/utils/utils';
 import { GithubResolver } from "@resolver-engine/imports/build/resolvers/githubresolver"
 import { ContractSchema } from '../contracts';
 
-const repo = "https://github.com/5208980/awesome-learn-solidity/blob/master"
+const repo = "https://github.com/solide-project/awesome-learn-solidity/blob/master"
 
 export const getLearnMetadata = async (lesson: string): Promise<LessonMetadata> => {
     const resolver = GithubResolver()
