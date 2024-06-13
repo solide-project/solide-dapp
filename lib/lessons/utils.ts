@@ -24,40 +24,40 @@ export const getLearnMetadata = async (lesson: string): Promise<LessonMetadata> 
 }
 
 export const loadLearnData = async (page: number = 1, pageSize: number = 10) => {
-    // const url = "https://api.github.com/repos/5208980/awesome-learn-solidity/contents/main"
+    // const url = "https://api.github.com/repos/solide-project/awesome-learn-solidity/contents/main"
     // const response = await fetch(url)
     // const data: GitHubFileInfo[] = await response.json()
     const data: GitHubFileInfo[] = [
         {
             "name": "exploring-viction-ecosystem",
             "path": "main/exploring-viction-ecosystem",
-            "sha": "046ab1356a77fc70e449f09171806df4857c8a10",
+            "sha": "37812a22a7930438162bc8d2e47ed4df24318008",
             "size": 0,
-            "url": "https://api.github.com/repos/5208980/awesome-learn-solidity/contents/main/exploring-viction-ecosystem?ref=master",
-            "html_url": "https://github.com/5208980/awesome-learn-solidity/tree/master/main/exploring-viction-ecosystem",
-            "git_url": "https://api.github.com/repos/5208980/awesome-learn-solidity/git/trees/046ab1356a77fc70e449f09171806df4857c8a10",
-            "download_url": "null",
+            "url": "https://api.github.com/repos/solide-project/awesome-learn-solidity/contents/main/exploring-viction-ecosystem?ref=master",
+            "html_url": "https://github.com/solide-project/awesome-learn-solidity/tree/master/main/exploring-viction-ecosystem",
+            "git_url": "https://api.github.com/repos/solide-project/awesome-learn-solidity/git/trees/37812a22a7930438162bc8d2e47ed4df24318008",
+            "download_url": "",
             "type": "dir",
             "_links": {
-                "self": "https://api.github.com/repos/5208980/awesome-learn-solidity/contents/main/exploring-viction-ecosystem?ref=master",
-                "git": "https://api.github.com/repos/5208980/awesome-learn-solidity/git/trees/046ab1356a77fc70e449f09171806df4857c8a10",
-                "html": "https://github.com/5208980/awesome-learn-solidity/tree/master/main/exploring-viction-ecosystem"
+                "self": "https://api.github.com/repos/solide-project/awesome-learn-solidity/contents/main/exploring-viction-ecosystem?ref=master",
+                "git": "https://api.github.com/repos/solide-project/awesome-learn-solidity/git/trees/37812a22a7930438162bc8d2e47ed4df24318008",
+                "html": "https://github.com/solide-project/awesome-learn-solidity/tree/master/main/exploring-viction-ecosystem"
             }
         },
         {
             "name": "smart-contracts-on-rootstock",
             "path": "main/smart-contracts-on-rootstock",
-            "sha": "1553ebfde41d1dcbf3b71e78f9b5de443055d9c9",
+            "sha": "308871d82cc216cbb77f24c50deb14f02a6e4f0b",
             "size": 0,
-            "url": "https://api.github.com/repos/5208980/awesome-learn-solidity/contents/main/smart-contracts-on-rootstock?ref=master",
-            "html_url": "https://github.com/5208980/awesome-learn-solidity/tree/master/main/smart-contracts-on-rootstock",
-            "git_url": "https://api.github.com/repos/5208980/awesome-learn-solidity/git/trees/1553ebfde41d1dcbf3b71e78f9b5de443055d9c9",
-            "download_url": "null",
+            "url": "https://api.github.com/repos/solide-project/awesome-learn-solidity/contents/main/smart-contracts-on-rootstock?ref=master",
+            "html_url": "https://github.com/solide-project/awesome-learn-solidity/tree/master/main/smart-contracts-on-rootstock",
+            "git_url": "https://api.github.com/repos/solide-project/awesome-learn-solidity/git/trees/308871d82cc216cbb77f24c50deb14f02a6e4f0b",
+            "download_url": "",
             "type": "dir",
             "_links": {
-                "self": "https://api.github.com/repos/5208980/awesome-learn-solidity/contents/main/smart-contracts-on-rootstock?ref=master",
-                "git": "https://api.github.com/repos/5208980/awesome-learn-solidity/git/trees/1553ebfde41d1dcbf3b71e78f9b5de443055d9c9",
-                "html": "https://github.com/5208980/awesome-learn-solidity/tree/master/main/smart-contracts-on-rootstock"
+                "self": "https://api.github.com/repos/solide-project/awesome-learn-solidity/contents/main/smart-contracts-on-rootstock?ref=master",
+                "git": "https://api.github.com/repos/solide-project/awesome-learn-solidity/git/trees/308871d82cc216cbb77f24c50deb14f02a6e4f0b",
+                "html": "https://github.com/solide-project/awesome-learn-solidity/tree/master/main/smart-contracts-on-rootstock"
             }
         }
     ]
