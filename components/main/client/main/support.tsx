@@ -62,6 +62,14 @@ const items = [
     size: 196,
     description: "TRON Grand Hackathon - HackaTRON Season 6 Winner",
   },
+  {
+    src: "rsk-light.svg",
+    dark: "rsk-light.svg",
+    alt: "rsk",
+    link: "https://rootstock.io/",
+    size: 224,
+    description: "Bitcoin Meets Solidity - Hackathon by Rootstock Winner",
+  },
 ]
 
 export const Support = ({ className }: SupportProps) => {
