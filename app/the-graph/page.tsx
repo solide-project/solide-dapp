@@ -10,7 +10,7 @@ export default async function Page() {
   let items: ContractSchema[] = []
 
   items.push(...(await GRAPH_DEPLOYED_CONTRACTS(ChainID.ETHEREUM_MAINNET)))
-  items.push(...(await GRAPH_ENZYME_CONTRACTS()))
+  // items.push(...(await GRAPH_ENZYME_CONTRACTS()))
   // items.push(...await GRAPH_OPENSEA_CONTRACTS());
 
   return (
