@@ -20,7 +20,7 @@ export const getLearnMetadata = async (lesson: string): Promise<LessonMetadata> 
         return {} as LessonMetadata
     }
 
-    return response.json();
+    return await response.json();
 }
 
 export const loadLearnData = async (page: number = 1, pageSize: number = 10) => {
