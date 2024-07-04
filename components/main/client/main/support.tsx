@@ -28,7 +28,7 @@ const items = [
     alt: "Artela Network",
     link: "https://artela.network/",
     size: 196,
-    description: "Artela Aspect Use Cases Buildathon Finalist",
+    description: "Artela Aspect Use Cases Buildathon Finalist with an Aspect IDE",
   },
   {
     src: "flock-light.svg",
@@ -70,6 +70,14 @@ const items = [
     size: 224,
     description: "Bitcoin Meets Solidity - Hackathon by Rootstock Winner",
   },
+  {
+    src: "viction-light.svg",
+    dark: "viction-light.svg",
+    alt: "viction",
+    link: "https://rootstock.io/",
+    size: 224,
+    description: "Viction Ambassador",
+  },
 ]
 
 export const Support = ({ className }: SupportProps) => {
@@ -83,7 +91,7 @@ export const Support = ({ className }: SupportProps) => {
   return (
     <div className={cn("rounded-lg w-full my-16", className)}>
       <div className="text-xl leading-[1.1] sm:text-2xl md:text-4xl text-center font-bold">
-        Supported by
+        Our Partnerships & Grants & Awards
       </div>
       <div className="grid grid-cols-4 gap-4 lg:gap-12 my-8">
         {items.map((item, index) => (
