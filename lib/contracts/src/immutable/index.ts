@@ -1,11 +1,5 @@
-import { items as BITLAYER_CONTRACTS } from "@/lib/contracts/src/bitlayer/predeploy"
-import { items as PEG_TOKENS } from "@/lib/contracts/src/bitlayer/peg-tokens"
+import { items as PROTOCOL_CONTRACTS } from "@/lib/contracts/src/immutable/protocol"
 
 export const getContracts = async () => {
-    const contractResults = await Promise.all([
-        BITLAYER_CONTRACTS(),
-        PEG_TOKENS(),
-    ]);
-
-    return contractResults.flat();
+    return [...PROTOCOL_CONTRACTS];
 }

@@ -3,6 +3,7 @@ export const GMX = {
     library: "",
     description:
         "GMX is a decentralized spot and perpetual exchange platform designed to facilitate low swap fees and minimize price impact for trades. The platform operates through unique multi-asset pools, allowing liquidity providers to earn fees from market making, swap fees, and leverage trading activities.",
+    themeColour: "rgba(45, 66, 252, 1)",
     github: "https://github.com/gmx-io",
     website: "https://gmx.io",
     blog: "https://gmxio.substack.com",

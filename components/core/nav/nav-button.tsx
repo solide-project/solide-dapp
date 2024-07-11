@@ -139,10 +139,10 @@ export const frameworks = [
 const sortedFrameworks = frameworks
   .slice()
   .sort((a, b) => a.label.localeCompare(b.label))
-  .concat({
-    value: "solide",
-    label: "Solide",
-  })
+// .concat({
+//   value: "solide",
+//   label: "Solide",
+// })
 
 interface NavButtonProps extends React.HTMLAttributes<HTMLDivElement> { }
 
