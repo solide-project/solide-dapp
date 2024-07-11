@@ -3,7 +3,7 @@ import { getNetworkNameFromChainID } from "@/lib/chains/name"
 import { getContractsByGithub } from "@/lib/contracts"
 import { ContractSchema } from "@/lib/contracts"
 import { camelToWord } from "@/lib/utils"
-import { ethers } from "ethers"
+import { isAddress } from "viem"
 
 export interface ContractAddress {
     mainnet: {
@@ -33,7 +33,7 @@ export const items = async (): Promise<ContractSchema[]> => {
     const chainId = ChainID.POLYGON_MAINNET
     const networkName = getNetworkNameFromChainID(chainId)
     Object.entries(data.mainnet)
-        .filter(([_, address]) => typeof address === "string" && ethers.utils.isAddress(address))
+        .filter(([_, address]) => typeof address === "string" && isAddress(address))
         .forEach(([name, address]) => {
             ret.push({
                 title: `Lens Core Contract ${camelToWord(name)}`,

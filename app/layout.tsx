@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter, Space_Grotesk } from "next/font/google"
+import { Space_Grotesk } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
 
 import "./globals.css"
@@ -7,11 +7,10 @@ import "./globals.css"
 import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/ui/theme/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
-import { Footer } from "@/components/main/client/main/footer"
-import { NavBar } from "@/components/main/server/nav-bar"
-import { Provider } from "@/components/main/client/shared/provider"
+import { Footer } from "@/components/core/nav/footer"
+import { NavBar } from "@/components/core/nav/nav-bar"
+import { Provider } from "@/components/provider"
 
-const inter = Inter({ subsets: ["latin"] })
 export const fontSpace = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space",
@@ -42,7 +41,6 @@ export default function RootLayout({
               <NavBar />
               {children}
               <Footer />
-
               <Analytics />
             </TooltipProvider>
           </ThemeProvider>

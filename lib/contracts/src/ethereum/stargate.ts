@@ -6,7 +6,7 @@ import {
   LZ_ULTRA_LIGHT_NODE_V1,
   LZ_ULTRA_LIGHT_NODE_V2,
 } from "@layerzerolabs/lz-sdk"
-import { ethers } from "ethers"
+import { isAddress } from "viem"
 
 import { ChainID } from "@/lib/chains/id"
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
@@ -66,7 +66,7 @@ const getStargateContract = (
 
   const ret: ContractSchema[] = []
   const contract: string = contracts[id] || ""
-  if (ethers.utils.isAddress(contract)) {
+  if (isAddress(contract)) {
     ret.push({
       title: `LayerZero Contract: ${name}`,
       tutorial: "",

@@ -2,7 +2,7 @@ import { ContractSchema } from "@/lib/contracts"
 import { camelToWord } from "@/lib/utils"
 import { ChainID } from "@/lib/chains/id"
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
-import { ethers } from "ethers"
+import { isAddress } from "viem"
 
 const getId = (chain: string) => {
     switch (chain) {
@@ -31,7 +31,7 @@ export const items = async (): Promise<ContractSchema[]> => {
     Object.entries(contracts).forEach(([key, val]: any) => {
         if (typeof val !== "object") return
 
-        if (val.address && ethers.utils.isAddress(val.address)) {
+        if (val.address && isAddress(val.address)) {
             ret.push({
                 title: `Gitcoin Deployments: ${camelToWord(key)}`,
                 tutorial: "https://github.com/gitcoinco/eas-proxy/blob/main/docs/00-onchain-data.md|https://github.com/gitcoinco/eas-proxy/blob/main/docs/01-onchain-passport-attestation.md|https://github.com/gitcoinco/eas-proxy/blob/main/docs/02-onchain-stamp-attestation.md",

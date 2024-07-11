@@ -1,0 +1,53 @@
+<svg viewBox="348.2776 170.706 93.231 158.588" width="158.588" height="158.588"
+    xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="linear-gradient" x1="-1.041" y1="74.024" x2="56.307" y2="16.676"
+            gradientTransform="matrix(1, 0, 0, -1, 0, 165.733)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#f47d51"></stop>
+            <stop offset="0.96" stop-color="#df72ac"></stop>
+        </linearGradient>
+        <linearGradient id="linear-gradient-2" x1="56.17" y1="54.938" x2="75.388" y2="35.72"
+            gradientTransform="matrix(1, 0, 0, -1, 0, 165.733)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#f15d4c"></stop>
+            <stop offset="1" stop-color="#c36ca1"></stop>
+        </linearGradient>
+        <linearGradient id="linear-gradient-3" x1="37.594" y1="102.188" x2="70.297" y2="69.485"
+            gradientTransform="matrix(1, 0, 0, -1, 0, 165.733)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#b46947"></stop>
+            <stop offset="0.896" stop-color="#ae5262"></stop>
+        </linearGradient>
+        <linearGradient id="linear-gradient-4" x1="70.003" y1="165.733" x2="70.003" y2="84.677"
+            gradientTransform="matrix(1, 0, 0, -1, 0, 165.733)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffd663"></stop>
+            <stop offset="1" stop-color="#f26c7d"></stop>
+        </linearGradient>
+        <linearGradient id="linear-gradient-5" x1="14.818" y1="133.775" x2="42.05" y2="106.543"
+            gradientTransform="matrix(1, 0, 0, -1, 0, 165.733)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#fff171"></stop>
+            <stop offset="1" stop-color="#fab382"></stop>
+        </linearGradient>
+        <linearGradient id="linear-gradient-6" x1="18.342" y1="103.018" x2="56.526" y2="64.834"
+            gradientTransform="matrix(1, 0, 0, -1, 0, 165.733)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#d48a3d"></stop>
+            <stop offset="0.795" stop-color="#db474e"></stop>
+        </linearGradient>
+    </defs>
+    <polygon class="cls-1" points="46.775 120.463 46.775 158.588 0 90.668 46.775 120.463"
+        style="fill: url('#linear-gradient');"
+        transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 348.277623597944, 170.70601145485054)"></polygon>
+    <polygon class="cls-2" points="93.231 90.668 46.775 158.588 46.775 120.463 93.231 90.668"
+        style="fill: url('#linear-gradient-2');"
+        transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 348.277623597944, 170.70601145485054)"></polygon>
+    <polygon class="cls-3" points="93.231 81.056 46.775 54.465 46.775 110.851 93.231 81.056"
+        style="fill: url('#linear-gradient-3');"
+        transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 348.277623597944, 170.70601145485054)"></polygon>
+    <polygon class="cls-4" points="93.231 81.056 46.775 0 46.775 54.465 93.231 81.056"
+        style="fill: url('#linear-gradient-4');"
+        transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 348.277623597944, 170.70601145485054)"></polygon>
+    <polygon class="cls-5" points="46.775 0 46.775 54.465 0 81.056 46.775 0"
+        style="fill: url('#linear-gradient-5');"
+        transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 348.277623597944, 170.70601145485054)"></polygon>
+    <polygon class="cls-6" points="46.775 54.465 46.775 110.851 0 81.056 46.775 54.465"
+        style="fill: url('#linear-gradient-6');"
+        transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, 348.277623597944, 170.70601145485054)"></polygon>
+</svg>
