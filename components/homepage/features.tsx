@@ -3,6 +3,7 @@
 import { Icon } from "@iconify/react/dist/iconify.js"
 
 import { cn, SOLIDE_URL } from "@/lib/utils"
+import Image from "next/image"
 
 interface FeatureHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   main: string
@@ -28,12 +29,12 @@ const items = [
     description:
       "Solide IDE simplifies blockchain development with user-friendly tools for coding, deploying, and testing smart contracts and decentralized applications, enabling efficient development for all skill levels.",
     children: (
-      <iframe
-        className="border rounded-lg"
-        src={`${SOLIDE_URL}/?url=https://github.com/SovaSniper/contracts/blob/master/chainlink/datafeed/HistoricalDataConsumerV3.sol`}
-        height="400"
-        width="300"
-        style={{ width: "100%", overflow: "hidden" }}
+      <img
+        src="/images/ide.png"
+        className="w-full h-full object-cover rounded-lg transition hover:scale-110"
+        alt="icon"
+        height={400}
+        width={300}
       />
     ),
   },
@@ -52,16 +53,17 @@ const items = [
     children: (
       <img
         src="/images/hub.png"
-        className="w-full h-full object-cover rounded-lg transition hover:scale-110"
+        className="w-full h-full object-cover rounded-lg transition hover:scale-110 z-50"
         alt="icon"
+        height={400}
+        width={300}
       />
     ),
   },
 ]
-
 interface FeatureSectionProps extends React.HTMLAttributes<HTMLDivElement> { }
 
-export const FeatureSection = ({ className }: FeatureSectionProps) => {
+const FeatureSection = ({ className }: FeatureSectionProps) => {
   return (
     <section className="grid-pattern">
       <div className={cn("container", className)}>
@@ -135,3 +137,5 @@ const Feature = ({
     </div>
   )
 }
+
+export default FeatureSection

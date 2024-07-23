@@ -3,10 +3,11 @@
 import { useRouter } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
+import { getRandomFramework } from "@/lib/data/nav"
 
 interface FrontProps extends React.HTMLAttributes<HTMLDivElement> { }
 
-export const Hero = ({ }: FrontProps) => {
+const Hero = ({ }: FrontProps) => {
   const router = useRouter()
 
   return <div className="isometric-overlay">
@@ -19,7 +20,7 @@ export const Hero = ({ }: FrontProps) => {
               one ecosystem at a time
             </div>
             <div className="flex flex-wrap gap-4 items-center justify-center my-16">
-              <Button onClick={() => router.push("#TODO")}>Explore Random Ecosystem</Button>
+              <Button onClick={() => router.push(`/eco/${getRandomFramework()}`)}>Explore Random Ecosystem</Button>
               <Button onClick={() => router.push("/play")}>Get Started</Button>
             </div>
           </div>
@@ -28,3 +29,6 @@ export const Hero = ({ }: FrontProps) => {
     </div>
   </div>
 }
+
+
+export default Hero

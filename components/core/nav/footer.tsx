@@ -2,9 +2,7 @@
 
 import Link from "next/link"
 import { Icon } from "@iconify/react/dist/iconify.js"
-
 import {
-    cn,
     DISCORD,
     DOCS,
     EMAIL,
@@ -50,27 +48,23 @@ export const Footer = ({ }: FooterProps) => {
                     <div className="flex flex-col col-span-12 sm:col-span-6 space-y-2 font-bold">
                         <p className="m-0 text-primary font-bold">Links</p>
                         {links.map((link, index) => {
-                            return (
-                                <Link key={index} href={link.link} target="_blank">
-                                    {link.label}
-                                </Link>
-                            )
+                            return <Link key={index} href={link.link} target="_blank">
+                                {link.label}
+                            </Link>
                         })}
                     </div>
                     <div className="flex flex-col col-span-12 sm:col-span-6 space-y-2">
                         <p className="m-0 text-primary font-bold">Resources</p>
                         <div className="flex space-x-3">
                             {items.map((link, index) => {
-                                return (
-                                    <Link key={index} href={link.link} target="_blank">
-                                        <Icon
-                                            className="cursor-pointer hover:text-primary"
-                                            inline={true}
-                                            height={28}
-                                            icon={link.icon}
-                                        />
-                                    </Link>
-                                )
+                                return <Link key={index} href={link.link} target="_blank">
+                                    <Icon
+                                        className="cursor-pointer hover:text-primary"
+                                        inline={true}
+                                        height={28}
+                                        icon={link.icon}
+                                    />
+                                </Link>
                             })}
                         </div>
                     </div>

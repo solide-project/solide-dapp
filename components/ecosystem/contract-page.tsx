@@ -7,7 +7,7 @@ import { ContractSchema } from "@/lib/contracts"
 import { ProtocolSchema } from "@/lib/data"
 
 import { ContractsList } from "./contract-list"
-import { ContributionCTA } from "../homepage/contribution-cta"
+import ContributionCTA from "../homepage/contribution-cta"
 import { ProtocolHeader } from "./header/protocol-header"
 import { ChainInfo } from "@/lib/data"
 

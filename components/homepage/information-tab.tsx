@@ -27,36 +27,37 @@ const protocolImages = [
   "chainlink",
 ].map((value) => `/icons/${value}.svg`)
 
-interface InformationTabProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface InformationTabProps extends React.HTMLAttributes<HTMLDivElement> { }
 
-export const InformationTab = ({ className }: InformationTabProps) => {
-  return (
-    <section
-      className={cn(
-        "font-semibold text-4xl tracking-tight lg:text-5xl flex items-center justify-center text-center my-32",
-        className
-      )}
-    >
-      <span className="leading-relaxed	">
-        With
-        <Link href="#ide">
-          <HoverIcons text="Solide" />
-        </Link>
-        , you can interact and deploy smart contracts on 90+
-        <Link href={SUPPORTED_CHAIN} target="_blank">
-          <HoverIcons
-            text="Chains"
-            background="bg-orange-400"
-            images={chainImages}
-          />
-        </Link>
-        and support for over 24
+const InformationTab = ({ className }: InformationTabProps) => {
+  return <section
+    className={cn(
+      "font-semibold text-4xl tracking-tight lg:text-5xl flex items-center justify-center text-center my-32",
+      className
+    )}
+  >
+    <span className="leading-relaxed	">
+      With
+      <Link href="#ide">
+        <HoverIcons text="Solide" />
+      </Link>
+      , you can interact and deploy smart contracts on 90+
+      <Link href={SUPPORTED_CHAIN} target="_blank">
         <HoverIcons
-          text="Protocols"
-          background="bg-green-400"
-          images={protocolImages}
+          text="Chains"
+          background="bg-orange-400"
+          images={chainImages}
         />
-      </span>
-    </section>
-  )
+      </Link>
+      and support for over 24
+      <HoverIcons
+        text="Protocols"
+        background="bg-green-400"
+        images={protocolImages}
+      />
+    </span>
+  </section>
 }
+
+
+export default InformationTab

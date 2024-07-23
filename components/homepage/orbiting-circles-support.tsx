@@ -7,7 +7,6 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
-import Link from "next/link";
 
 const items = [{
     src: "esp-logo.svg",
@@ -90,10 +89,12 @@ const items = [{
     radius: 190,
     reverse: true
 }]
-export function OrbitingCirclesSupport() {
+
+function OrbitingCirclesSupport() {
     return <>
         <div className="text-xl leading-[1.1] sm:text-2xl md:text-4xl text-center font-bold my-16">
             Our Partnerships & Grants & Awards
+            <div className="italic text-sm">Click on icon to see information</div>
         </div>
         <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden">
             {items.map((item, index) => (
@@ -119,3 +120,5 @@ export function OrbitingCirclesSupport() {
         </div>
     </>
 }
+
+export default OrbitingCirclesSupport

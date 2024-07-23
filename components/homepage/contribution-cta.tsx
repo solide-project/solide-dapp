@@ -17,7 +17,7 @@ const config = {
 
 interface ContributionCTAProps extends React.HTMLAttributes<HTMLDivElement> { }
 
-export const ContributionCTA = ({ className }: ContributionCTAProps) => {
+const ContributionCTA = ({ className }: ContributionCTAProps) => {
   const { theme } = useTheme()
 
   const [backgroundImage, setBackgroundImage] = useState<string>(
@@ -64,3 +64,5 @@ export const ContributionCTA = ({ className }: ContributionCTAProps) => {
     </div>
   </section>
 }
+
+export default ContributionCTA
