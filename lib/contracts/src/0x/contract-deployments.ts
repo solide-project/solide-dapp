@@ -1,4 +1,4 @@
-import { ethers } from "ethers"
+import { isAddress, zeroAddress } from "viem"
 
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
 import { camelToWord } from "@/lib/utils"
@@ -35,4 +35,4 @@ export const items = async (chain: string): Promise<ContractSchema[]> => {
 }
 
 const isValidAddress = (val: string): boolean =>
-  typeof val === "string" && ethers.utils.isAddress(val) && "0x0000000000000000000000000000000000000000" !== val
+  typeof val === "string" && isAddress(val) && zeroAddress !== val

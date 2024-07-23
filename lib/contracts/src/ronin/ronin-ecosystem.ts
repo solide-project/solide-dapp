@@ -1,14 +1,21 @@
-import * as Contracts from "@roninbuilders/contracts"
-
 import { ChainID } from "@/lib/chains/id"
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
 import { ContractSchema } from "@/lib/contracts"
 
-interface ContractsModule {
-  [key: string]: any
+interface Contracts {
+  message: string
+  result: {
+    items: ContractItem[]
+  }
 }
 
-const addresses = Contracts as ContractsModule
+interface ContractItem {
+  display_name: string
+  address: string
+  is_deprecated: boolean
+  is_proxy: boolean
+}
+
 export const items = async ({
   protocols,
   title,
@@ -24,32 +31,25 @@ export const items = async ({
   description?: string
   chain?: string
 }): Promise<ContractSchema[]> => {
-  const mainTitle = title
-  const networkName = getNetworkNameFromChainID(chain)
-  return Object.entries(addresses)
-    .filter(([key, _]) =>
-      protocols.some((protocol) => key.toLowerCase().includes(protocol))
-    )
-    .map(([key, val]) => {
-      const formattedName = formattedString(key)
+  const response = await fetch("https://explorer-kintsugi.roninchain.com/v2/2020/contracts?ps=1000&p=1")
+  const data: Contracts = await response.json()
+
+  const ret: ContractSchema[] = data.result.items
+    .filter(item => !item.is_deprecated && !item.is_proxy)
+    .map(item => {
       return {
-        title: `${mainTitle} Contract: ${formattedName}`,
+        title: item.display_name,
         tutorial,
-        reference,
-        description: `Contract deployment on ${networkName} for the ${title} ecosystem. ${description}`,
+        reference: "https://github.com/roninbuilders/contracts/tree/main",
+        description: `Contract${chain ? " on " + getNetworkNameFromChainID(chain) : ""}. ${description}`,
         playground: {
           default: {
-            address: val.address,
-            chainId: chain,
-          },
+            address: item.address,
+            chain,
+          }
         },
       }
     })
-}
 
-const formattedString = (inputString: string): string =>
-  inputString
-    .toLowerCase()
-    .split("_")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ")
+  return ret
+}

@@ -5,7 +5,7 @@ import { useTheme } from "next-themes"
 
 import { SOLIDE_URL } from "@/lib/utils"
 import { Slider } from "@/components/ui/slider"
-import { CodeBlock } from "@/components/main/client/shared/code-block"
+import { CodeBlock } from "@/components/core/components/code-block"
 
 export default function PlayPage() {
   const { theme } = useTheme()

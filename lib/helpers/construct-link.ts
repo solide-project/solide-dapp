@@ -1,16 +1,9 @@
-import { ethers } from "ethers"
+import { isAddress } from 'viem'
 
 import { ChainID } from "../chains/id"
 import { SOLIDE_URL } from "../utils"
 import { SolideIDESchema } from "../contracts"
 
-const isAddress = (address: string): boolean => {
-  if (!/^0x[0-9a-fA-F]{40}$/.test(address)) {
-    return false;
-  }
-
-  return true;
-}
 export const addType = (uri: string, type: string): string => `${uri}/${type}`
 export const addVersion = (uri: string, version: string): string =>
   `${uri}&version=${encodeURIComponent(version)}`

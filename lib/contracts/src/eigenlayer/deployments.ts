@@ -1,7 +1,7 @@
 import { getContractsByGithub } from "@/lib/contracts"
 import { ContractSchema } from "@/lib/contracts"
 import { camelToWord } from "@/lib/utils";
-import { ethers } from "ethers";
+import { isAddress, zeroAddress } from "viem";
 
 interface EigenLayerDeployment {
     addresses: any;
@@ -16,7 +16,7 @@ export const items = async (): Promise<ContractSchema[]> => {
     const data: EigenLayerDeployment = await response.json()
 
     Object.entries(data.addresses).forEach(([key, value]) => {
-        if (typeof value === "string" && ethers.utils.isAddress(value) && value != "0x0000000000000000000000000000000000000000") {
+        if (typeof value === "string" && isAddress(value) && value != zeroAddress) {
             ret.push({
                 title: `EigenLayer Contract: ${camelToWord(key)}`,
                 reference,

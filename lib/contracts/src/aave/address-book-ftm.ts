@@ -1,14 +1,13 @@
 // Requires npm
 import { AaveV3Fantom } from "@bgd-labs/aave-address-book"
-import { ethers } from "ethers"
-
+import { isAddress } from "viem"
 import { ChainID } from "@/lib/chains/id"
 import { getNetworkNameFromChainID } from "@/lib/chains/name"
 import { ContractSchema } from "@/lib/contracts"
 import { camelToWord, snakeToCamel, snakeToWord } from "@/lib/utils"
 
 const isValidAddress = (address: any): boolean =>
-  address && typeof address === "string" && ethers.utils.isAddress(address)
+  address && typeof address === "string" && isAddress(address)
 export const items = async (): Promise<ContractSchema[]> => {
   const contractLibrary = AaveV3Fantom as any
 

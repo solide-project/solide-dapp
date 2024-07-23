@@ -1,6 +1,5 @@
 import { LearnContractSchema, getLearnMetadata } from "@/lib/lessons/utils";
-import { LessonList } from "@/components/main/learn/lessons/lesson-list";
-import { LessonPage } from "@/components/main/learn/lesson/lesson-page";
+import { LessonPage } from "@/components/learn/lesson-page";
 
 export default async function Page({
   params,

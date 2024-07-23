@@ -1,6 +1,6 @@
 import { getLearnMetadata } from "@/lib/lessons/utils";
-import { LessonList } from "@/components/main/learn/lessons/lesson-list";
-import { Header } from "@/components/main/client/main/header"
+import { LessonList } from "@/components/learn/lesson-list";
+import { Header } from "@/components/homepage/header"
 
 export default async function Page({
   params,

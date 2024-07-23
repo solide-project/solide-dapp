@@ -1,6 +1,6 @@
 // Requires npm
 import { AaveV3Metis } from "@bgd-labs/aave-address-book"
-import { ethers } from "ethers"
+import { isAddress } from "viem"
 
 import { ChainID } from "@/lib/chains/id"
 import { ContractSchema } from "@/lib/contracts"
@@ -16,7 +16,7 @@ export const items = async (): Promise<ContractSchema[]> => {
     if (
       contractLibrary[key] &&
       typeof contractLibrary[key] === "string" &&
-      ethers.utils.isAddress(contractLibrary[key])
+      isAddress(contractLibrary[key])
     ) {
       const formattedKey = camelToWord(key)
       ret.push({

@@ -46,6 +46,8 @@ const completions = async ({
     });
 
     if (!response.ok) {
+        console.log(await response.text())
+        console.log("responseData Error");
         return {
             answer: "Error fetching response. Please try again later.",
             source_docs: history,
@@ -56,5 +58,6 @@ const completions = async ({
     const responseData: flock.FlockConversationalResponse = await response.json();
     // Need to convert the generated question to a more readable format
     responseData.generated_question = prompt;
+    console.log("responseData", responseData);
     return responseData;
 }
