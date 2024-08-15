@@ -16,8 +16,8 @@ const items = [
         description: "Ethereum Support Program Recipient",
         link: "https://esp.ethereum.foundation/",
         size: 64,
-        duration: 24,
-        delay: 8,
+        duration: 30,
+        delay: 6,
         radius: 80,
     },
     {
@@ -27,8 +27,8 @@ const items = [
         link: "https://rootstock.io/",
         description: "Bitcoin Meets Solidity - Hackathon by Rootstock Winner",
         size: 24,
-        duration: 24,
-        delay: 16,
+        duration: 30,
+        delay: 12,
         radius: 80,
     },
     {
@@ -38,10 +38,23 @@ const items = [
         link: "https://rootstock.io/",
         description: "Viction Ambassador",
         size: 32,
-        duration: 24,
+        duration: 30,
+        delay: 18,
+        radius: 80,
+    },
+    {
+        src: "movement-logo.svg",
+        dark: "movement-logo.svg",
+        alt: "Movment Labs Logo",
+        link: "https://movementlabs.xyz/",
+        description: "Movement Labs Hackathon Winner",
+        size: 36,
+        duration: 30,
         delay: 24,
         radius: 80,
     },
+
+    // Level 2
     {
         src: "tron-logo.svg",
         dark: "tron-logo.svg",
@@ -95,13 +108,14 @@ const items = [
         dark: "arb-logo.svg",
         alt: "Arbitrum Logo",
         link: "https://arbitrum.io/",
-        description: "Stylus Blitz Hackathon Winnder",
+        description: "Stylus Blitz Hackathon Winner",
         size: 36,
         duration: 30,
         delay: 30,
         radius: 190,
         reverse: true
-    }]
+    },
+]
 
 function OrbitingCirclesSupport() {
     return <>
